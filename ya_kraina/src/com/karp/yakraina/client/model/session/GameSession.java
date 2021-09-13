@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsonUtils;
-import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.Cookies;
 import com.karp.yakraina.client.events.FinalStageEvent;
 import com.karp.yakraina.client.events.NextStageEvent;
@@ -97,7 +97,12 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 			if (passedStages == null)
 				passedStages = new ArrayList<>();
 
-			passedStages.add(activeStage.getKey());
+			if (!event.getNextStage().getDontMemorisePreviosStage()) {
+				GWT.log("memorise: " + activeStage.getKey());
+				passedStages.add(activeStage.getKey());
+			} else {
+				GWT.log("ignore: " + activeStage.getKey());
+			}
 		}
 
 		activeStage = event.getNextStage();
@@ -154,8 +159,8 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 		return js.hasStory(story.getKey());
 	}
 
-	public final boolean isStageCompleted(StageJs nextStage) {
-		return passedStages.contains(nextStage.getKey());
+	public final boolean isStageCompleted(StageJs stage) {
+		return passedStages.contains(stage.getKey());
 	}
 
 	public StageJs getActiveStoryInitialStage() {
@@ -219,12 +224,17 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	}
 
 	public void addSubResult(StorySubResultJs storySubResultJs) {
-		GWT.log("Add points: " + storySubResultJs.getPoints() + " | " + storySubResultJs.getText());
 		activeStoryState.addResult(storySubResultJs);
 	}
 
 	public Optional<StoryStateJs> getCompletedStory(StoryJs story) {
 		return Optional.ofNullable(js.getStory(story.getKey()));
+	}
+
+	public void discardLastStage() {
+		GWT.log("is Discard");
+		if (!passedStages.isEmpty())
+			GWT.log("Discarded: " +  passedStages.remove(passedStages.size() - 1));
 	}
 
 }

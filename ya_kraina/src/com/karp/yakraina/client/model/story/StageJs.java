@@ -46,4 +46,21 @@ public class StageJs extends JavaScriptObject {
 	private final native boolean hasText() /*-{
 		return 'Text' in this;
 	}-*/;
+
+	public final boolean getDontMemorisePreviosStage() {
+		return hasDontMemoriseJs() ? getDontMemoriseJs() : false;
+	}
+
+	public final native void setDontMemorisePreviosStageJs() /*-{
+		this.DontMemorise = true;
+	}-*/;
+
+	private final native boolean getDontMemoriseJs() /*-{
+		return this.DontMemorise;
+	}-*/;
+
+	private final native boolean hasDontMemoriseJs() /*-{
+		return 'DontMemorise' in this;
+	}-*/;
+
 }

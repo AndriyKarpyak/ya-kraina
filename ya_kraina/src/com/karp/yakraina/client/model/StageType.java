@@ -8,6 +8,7 @@ public enum StageType {
 	YES_NO_OPTIONS("YesNoOptions"),
 	INFORMATION("Information"),
 	SUB_SUMMARY("SubSummary"),
+	DISCARD("Discard"),
 	FINAL("Final"),
 	UNDEFINED("");
 	
