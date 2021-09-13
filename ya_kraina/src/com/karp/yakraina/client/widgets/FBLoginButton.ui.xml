@@ -1,0 +1,12 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:HTMLPanel>
+		<div id="fb-root">
+			<div class="fb-login-button" data-width="" data-size="large"
+				data-button-type="login_with" data-layout="rounded"
+				data-auto-logout-link="false" data-use-continue-as="false"></div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

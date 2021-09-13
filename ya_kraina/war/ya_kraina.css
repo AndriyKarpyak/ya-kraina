@@ -1,0 +1,878 @@
+/** Add css rules here for your application. */
+body, html {
+	height: 100%;
+	width: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font-family: Roboto, "Open Sans", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	line-height: 140.19%;
+	letter-spacing: 0.035em;
+	direction: ltr;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+input {
+	font-size: 0.7em;
+}
+
+input[type="radio"]:hover,
+input[type="radio"]:hover+label {
+	cursor: pointer;
+	text-shadow: 0 0 1px darkslategray;
+}
+
+input[type="radio"]:checked,
+input[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+input[type="radio"]:checked + label,
+input[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 56px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+}
+input[type="radio"]:checked + label:before,
+input[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #D0D9D4;
+    border-radius: 100%;
+    background: #fff;
+}
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: #0BB65A;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+input[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+input[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+button {
+    background-position: center;
+    background-color: #ffffff00;
+    color: white;
+    font-weight: bold;
+	font-size: 24px;
+	border: none;
+}
+
+button:not([disabled]):hover {
+	cursor: pointer;
+}
+
+.btn-GreenGlass {
+	height: 70px;
+    width: 285px;
+    background-image: url(images/button_green_glass_out.svg);
+}
+
+.btn-GreenGlass:hover {
+	cursor: pointer;
+    background-image: url(images/button_green_glass_in.svg);
+}
+
+.btn-YellowGlass {
+	height: 70px;
+    width: 285px;
+    background-image: url(images/button_yellow_glass_out.svg);
+}
+
+.btn-YellowGlass:hover {
+	cursor: pointer;
+    background-image: url(images/button_yellow_glass_in.svg);
+}
+
+.btn-PinkMatte {
+	position: relative;
+	height: 60px;
+	width: 160px;
+	font-family: Comfortaa;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	letter-spacing: 0.035em;
+}
+
+.btn-PinkMatte button {
+	border: 3px solid white;
+	border-radius: 50px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+	background: none;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.btn-PinkMatte button:hover {
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.55);
+}
+
+.btn-PinkMatte div {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	bottom: 3px;
+	left: 3px;
+	border-radius: 50px;
+}
+
+.btn-PinkMatte .layer0 {
+	background: radial-gradient(76.56% 187% at 82.4% 140.51%, #858585 17%, #575757 36%,
+		#313131 55%, #161616 73%, #060606 88%, #000000 100%);
+	background-blend-mode: color-dodge;
+	mix-blend-mode: color-dodge;
+}
+
+.btn-PinkMatte .layer1 {
+	background: linear-gradient(180deg, #FFFFFF 2.96%, #FCFCFC 23.22%, #F1F1F1 40.45%,
+		#E0E0E0 56.66%, #C8C8C8 71.86%, #ABABAB 86.04%, #FFFFFF 104.28%);
+	background-blend-mode: color-burn;
+	mix-blend-mode: color-burn;
+}
+
+.btn-PinkMatte .layer2 {
+	background: #D6007E;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-PinkMatte .layer3:hover {
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+}
+
+.gwt-RadioButton {
+	display: table;
+	margin: 1em 0;
+}
+
+/* > StoryButton __________________________________________________________ */
+
+.ya-StoryButton {
+	display: inline-block;
+	margin: 1em;
+	width: 125px;
+}
+
+.ya-StoryButton:not([disabled]):hover {
+	cursor: pointer;
+}
+
+.ya-StoryButton .icon {
+	width: 125px;
+	height: 120px;
+	position: relative;
+}
+
+.ya-StoryButton .icon img:first-child {
+	position: relative;
+}
+
+.ya-StoryButton:not([disabled]):hover .icon > img:first-child,
+.ya-StoryButton:not([disabled]) .icon > img:first-child:hover {
+	filter: drop-shadow(0 0 0.75rem darkslategray);
+}
+
+.ya-StoryButton .icon > img:nth-child(2) {
+	position: absolute;
+    bottom: 16px;
+}
+
+.ya-StoryButton .icon img.done {
+	left: 4px;
+}
+
+.ya-StoryButton .icon img:not(.done):nth-child(2) {
+	right: 16px;
+}
+
+.ya-StoryButton .icon span {
+	position: absolute;
+    bottom: 16px;
+	left: 13px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ya-StoryButton .storyName {
+	user-select: none;
+}
+
+.ya-StoryButton:not([disabled]):hover .storyName {
+	text-shadow: 0 0 5px lightgrey;
+}
+
+.ya-YesNoOptionButton {
+    color: #232323;
+    background: #e4e4e4;
+    border-radius: 50px;
+    border: 8px solid white;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 15px 30px;
+    margin: 1em;
+}
+
+.ya-YesNoOptionButton.yes {
+	background: green;
+}
+
+.ya-YesNoOptionButton.no {
+	background: red;
+}
+
+.ya-YesNoOptionButton:hover {
+	user-select: none;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
+}
+
+.ya-YesNoOptionButton:not([disabled]) div {
+	border-bottom: 1px solid white;
+	padding-bottom: 6px;
+	margin-bottom: 6px;
+}
+
+.ya-YesNoOptionButton button {
+	right: 0 8px;
+}
+
+.ya-YesNoOptionButton button:hover {
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
+}
+
+.ya-YesNoOptionButton .yes {
+	color: green;
+}
+
+.ya-YesNoOptionButton .no {
+	color: red;	
+}
+
+.rootPanel {
+	box-sizing: border-box;
+	background-size: 100% 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: grid;
+	grid-template-columns: [left] 1% [middle] auto [right] 1%;
+	grid-template-rows: [top] 87px [middle] auto [bottom] 1%;
+	grid-template-areas: "header header header" 
+	                     "content content content"
+						 "footer footer footer";
+}
+
+
+.pos_footer {
+	grid-area: footer;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+}
+
+.pos_footer img {
+	height: 1em;
+}
+
+.error {
+	color: red;
+}
+
+/* > Header _______________________________________________________________ */
+
+.pos_header {
+	grid-area: header;
+}
+
+.headerPanel {
+	
+	background-size: 100% 100%;
+	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.headerPanel img {
+	height: 61px;
+	width: auto;	
+}
+
+.headerPanel img:hover {
+	cursor: pointer;	
+}
+
+.headerPanel div {
+	flex-grow: 1;	
+}
+
+.headerPanel span {
+	font-weight: bold;
+	margin: 0 0 0 40px;
+	user-select: none;
+}
+
+.headerPanel span:hover {
+	cursor: pointer;
+}
+
+.rootPanel.themeDark {
+	background-color: #0B0734;
+}
+
+.themeDark .headerPanel {
+	background-color: #1B164D;
+}
+
+.themeDark .headerPanel span {
+	color: white;
+}
+
+.themeDark .headerPanel span:hover {
+	text-shadow: 0 0 5px grey;
+}
+
+.rootPanel.themeLight {
+	background-color: #ffffff;
+}
+
+.themeLight .headerPanel {
+	background-color: #F2F6F7;
+}
+
+.themeLight .headerPanel span {
+	color: #181151;
+}
+
+.themeLight .headerPanel span:hover {
+	text-shadow: 0 0 1px darkslategray;
+}
+
+/* > Content ______________________________________________________________ */
+
+.pos_content {
+	grid-area: content;
+}
+
+.contentViewPanel {
+	position: relative;
+	overflow: auto;
+}
+
+.contentViewPanel > div:first-child {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+/* > Welcome ______________________________________________________________ */
+
+.welcomePanel {
+	background-image: url("images/puzzle_picture_logo.svg");
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	margin: 5% 5%;
+	color: white;
+}
+
+.welcomePanel .subMessage {
+	display: inline-block;
+    max-width: 45%;
+    margin: 1em 0 3em 0;
+}
+
+.welcomePanel input {
+	background-image: url("images/body_outline.svg");
+	background-repeat: no-repeat;
+	background-position-y: center;
+    background-position-x: 94%;
+	font-size: 24px;
+	outline-width: 0px;
+	display: block;
+	height: 70px;
+    width: 285px;
+    background-color: #ffffff00;
+	border: 3px solid gray;
+	box-sizing: border-box;
+	border-radius: 50px;
+	margin: 1em 0;
+    color: white;
+    padding: 0 2em;
+}
+
+.welcomePanel input:hover,
+.welcomePanel input:focus {
+	border-color: white;
+}
+
+.welcomePanel button {
+	display: block;
+	margin: 1em 0;
+}
+
+/* > Story selection view _________________________________________________ */
+
+.storySelectionPanel {
+	padding: 7% 0;
+	text-align: center;
+	color: white;
+	argin: 3em 0;
+}
+
+.storySelectionList {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: flex-start;
+	flex-wrap: wrap;
+}
+
+/* > Decision With Introduction Stage View ________________________________ */
+
+.decisionWithIntroStageView {
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	background-size: 50%;
+}
+
+.decisionWithIntroStageView-Content {
+	width: 50%;
+	padding: 3% 0 0 5%;
+}
+
+.decisionWithIntroStageView-Content-Trivia {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    box-shadow: 0px 0px 15px #D8E3CB;
+	border-radius: 20px;
+}
+
+.decisionWithIntroStageView-Content-Trivia .border {
+    min-width: 16px;
+    border-radius: 20px 0px 0px 20px;
+    position: relative;
+}
+
+.decisionWithIntroStageView-Content-Trivia .border div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.decisionWithIntroStageView-Content-Trivia .border .layer0 {
+	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
+	box-shadow: 0px 0px 15px #D8E3CB;
+	border-radius: 20px 0px 0px 20px;
+}
+
+.decisionWithIntroStageView-Content-Trivia .border .layer1 {
+	background: radial-gradient(73.02% 357.03% at 57.03% 131.25%, #575757 7.65%, #313131
+		25.94%, #161616 48.44%, #060606 88%, #000000 100%);
+	background-blend-mode: color-dodge;
+	mix-blend-mode: color-dodge;
+	transform: matrix(0, -13, -1, 0, 0, 19);
+    top: 23.84%;
+    bottom: 57.03%;
+}
+    
+
+.decisionWithIntroStageView-Content-Trivia .text {
+	padding: 18px 32px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 140.19%;
+}
+
+.decisionWithIntroStageView-Content-Options {
+	position: relative;
+	margin: 3em 0;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 140.19%;
+	/* or 25px */
+	letter-spacing: 0.035em;
+	color: #03290B;
+}
+
+/* > Decision With Question Stage View ____________________________________ */
+
+.decisionWithQuestionStageView {
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	background-size: 100%;
+}
+
+.decisionWithQuestionStageView-Content {
+	padding: 3% 5% 0 5%;
+}
+
+.decisionWithQuestionStageView-Content-Trivia {
+	display: block;
+    text-align: center;
+}
+
+.decisionWithQuestionStageView-Content-Trivia .text {
+	padding: 18px 32px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 140.19%;
+}
+
+.decisionWithQuestionStageView-Content-Options {
+	position: relative;
+	margin: 3em 0;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 140.19%;
+	/* or 25px */
+	letter-spacing: 0.035em;
+	color: #03290B;
+	text-transform: uppercase;
+}
+
+.decisionWithQuestionStageView-Content-Options span {
+	padding: 10px 3em 10px 12px;
+    border: 5px solid white;
+    border-radius: 50px;
+	background-color: #EBEBEB;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+}
+
+.decisionWithQuestionStageView-Content-Options span:hover {
+	background-color: #d6d6d6;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
+}
+
+/* > Information Stage View _______________________________________________ */
+
+.InformationStageView {
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	background-size: 100%;
+}
+
+.InformationStageView-Content {
+	padding: 3% 10% 0 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.InformationStageView-Content-Trivia {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    box-shadow: 0px 0px 15px #D8E3CB;
+	border-radius: 20px;
+	margin-bottom: 3em;
+	background-color: white;
+}
+
+.InformationStageView-Content-Trivia img {
+	display: inline-block;
+    width: 7%;
+    margin-left: 2em;
+    padding: 40px 0;
+}
+
+.InformationStageView-Content-Trivia .border {
+    min-width: 16px;
+    border-radius: 0px 20px 20px 0px;
+    position: relative;
+}
+
+.InformationStageView-Content-Trivia .border div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.InformationStageView-Content-Trivia .border .layer0 {
+	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
+	box-shadow: 0px 0px 15px #d8e3cb;
+	border-radius: 0 20px 20px 0;
+}
+
+.InformationStageView-Content-Trivia .text {
+	padding: 40px 32px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 140.19%;
+}
+
+/* > Options List Selection Stage View ________________________________________ */
+
+.OptionsStageView {
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	background-size: 60%;
+	margin: 5% 5%;
+}
+
+.OptionsStageView .btn-PinkMatte {
+	margin: 1em;
+}
+
+.OptionsStageView-Content {
+	width: 50%;
+	padding: 3% 0 0 5%;
+}
+
+.OptionsStageView-Content-Trivia {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    box-shadow: 0px 0px 15px #D8E3CB;
+	border-radius: 20px;
+	margin-bottom: 3em;
+}
+
+.OptionsStageView-Content-Trivia img {
+	display: inline-block;
+    width: 7%;
+    margin-left: 2em;
+    padding: 40px 0;
+}
+
+.OptionsStageView-Content-Trivia .border {
+    min-width: 16px;
+    border-radius: 0px 20px 20px 0px;
+    position: relative;
+}
+
+.OptionsStageView-Content-Trivia .border div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.OptionsStageView-Content-Trivia .border .layer0 {
+	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
+	box-shadow: 0px 0px 15px #d8e3cb;
+	border-radius: 0 20px 20px 0;
+}
+
+.OptionsStageView-Content-Trivia .text {
+	padding: 40px 32px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 140.19%;
+    flex-grow: 1;
+}
+
+.OptionsStageView-Options {
+	display: flex;
+	flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.OptionsStageView-Options button {
+	color: #054513;
+    background: #C4E5CD;
+    border-radius: 50px;
+    border: 8px solid white;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 15px 30px;
+    margin: 1em;
+}
+
+.OptionsStageView-Options button:disabled {
+	color: #f3f3f3;
+    background: #cacaca;
+}
+
+.OptionsStageView-Options button:not([disabled]):hover {
+	color: white;
+    background: #2BA14C;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
+}
+
+/* > Yes No Options List Selection Stage View ________________________________________ */
+
+.YesNoOptionsStageView {
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	background-size: 60%;
+	margin: 5% 5%;
+}
+
+.YesNoOptionsStageView .btn-PinkMatte {
+	margin: 1em;
+}
+
+.YesNoOptionsStageView-Content {
+	width: 50%;
+	padding: 3% 0 0 5%;
+}
+
+.YesNoOptionsStageView-Content-Trivia {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    box-shadow: 0px 0px 15px #D8E3CB;
+	border-radius: 20px;
+	margin-bottom: 3em;
+}
+
+.YesNoOptionsStageView-Content-Trivia img {
+	display: inline-block;
+    width: 7%;
+    margin-left: 2em;
+    padding: 40px 0;
+}
+
+.YesNoOptionsStageView-Content-Trivia .border {
+    min-width: 16px;
+    border-radius: 0px 20px 20px 0px;
+    position: relative;
+}
+
+.YesNoOptionsStageView-Content-Trivia .border div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.YesNoOptionsStageView-Content-Trivia .border .layer0 {
+	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
+	box-shadow: 0px 0px 15px #d8e3cb;
+	border-radius: 0 20px 20px 0;
+}
+
+.YesNoOptionsStageView-Content-Trivia .text {
+	padding: 40px 32px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 140.19%;
+    flex-grow: 1;
+}
+
+.YesNoOptionsStageView-Options {
+	display: flex;
+	flex-direction: column;
+}
+
+/* > Story Points View ____________________________________________________ */
+
+.storyPointsView {
+	color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10% 0 0 0;
+}
+
+.storyPointsView-StoryName {
+	color: #ffffff99;
+}
+
+.storyPointsView .btn-PinkMatte {
+	margin: 2em 0 0 0;
+}
+
+.storyPointsView span {
+	font-weight: bold;
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+.storyPointsView-ResultDisplay {
+    width: 15em;
+    border: 5px solid white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 5px;
+    border-radius: 57px;
+    margin: 3em 0 1em 0;
+    position: relative;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(images/button-pink.svg);
+}
+
+.storyPointsView-ResultText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    height: 80%;
+}
+
+.storyPointsView-ResultText span:first-child {
+    font-size: 3em;
+    flex-grow: 1;
+    padding: 16% 0 0 0;
+}
+
+.storyPointsView-ResultText span:last-child {
+	font-weight: normal;
+    font-size: 0.7em;
+    letter-spacing: 0.195em;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:ya="urn:import:com.karp.yakraina.client.widgets">
+
+
+	<g:HTMLPanel addStyleNames="storyPointsView">
+
+		<g:InlineLabel>ВАШ РЕЗУЛЬТАТ</g:InlineLabel>
+
+		<g:HTMLPanel addStyleNames="storyPointsView-ResultDisplay">
+
+			<g:Image ui:field="storyIcon" />
+			<g:HTMLPanel addStyleNames="storyPointsView-ResultText">
+				<g:InlineLabel ui:field="resultText" />
+				<g:InlineLabel>БАЛІВ</g:InlineLabel>
+			</g:HTMLPanel>
+
+		</g:HTMLPanel>
+
+		<g:HTML addStyleNames="storyPointsView-StoryName" ui:field="storyNameLabel" />
+
+		<ya:MatteBytton ui:field="button_Accept" />
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

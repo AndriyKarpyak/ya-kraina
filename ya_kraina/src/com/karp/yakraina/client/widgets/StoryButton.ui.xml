@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<g:HTMLPanel addStyleNames="ya-StoryButton">
+		<g:HTMLPanel addStyleNames="icon">
+			<g:Image ui:field="storyIcon" />
+			<g:Image ui:field="stateIcon" />
+			<g:InlineLabel ui:field="result" />
+		</g:HTMLPanel>
+		<g:InlineLabel addStyleNames="storyName" ui:field="storyName" />
+	</g:HTMLPanel>
+</ui:UiBinder> 

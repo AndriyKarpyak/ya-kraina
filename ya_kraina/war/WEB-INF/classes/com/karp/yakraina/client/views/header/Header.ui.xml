@@ -1,0 +1,15 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<g:HTMLPanel addStyleNames="headerPanel pos_header">
+	
+		<g:Image ui:field="logo" />
+		
+		<g:HTML></g:HTML>
+		
+		<g:InlineLabel ui:field="menuHome">ГОЛОВНА</g:InlineLabel>
+		<g:InlineLabel ui:field="menuAboutGame">ПРО ГРУ</g:InlineLabel>
+		<g:InlineLabel ui:field="menuAboutUs">ПРО ПРОЕКТ</g:InlineLabel>
+	
+	</g:HTMLPanel>
+</ui:UiBinder> 

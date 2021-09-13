@@ -1,0 +1,10 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<g:AbsolutePanel addStyleNames="ya-YesNoOptionButton">
+		<g:HTML addStyleNames="text" ui:field="text" />
+		<g:Button addStyleNames="yes" ui:field="yes" >Tak</g:Button>
+		<g:Button addStyleNames="no" ui:field="no" >Ні</g:Button>
+	</g:AbsolutePanel>
+</ui:UiBinder> 

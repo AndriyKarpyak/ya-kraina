@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:HTMLPanel addStyleNames="welcomePanel" >
+		<h1>Вітаю, <g:InlineLabel ui:field="welcome_player_label" /></h1>
+		
+		<g:HTML addStyleNames="subMessage" >
+			це демо-версія гри про місцеве самоврядування <br></br> та інструменти громадської участі "Я - країна". <br></br> Протестуй її та допоможи покращити, заповнивши коротку анкету після її завершення.
+		</g:HTML>
+		
+		<g:TextBox title="Твоє ім’я" ui:field="input_PlayerName"></g:TextBox>
+
+		<g:Button ui:field="button_Accept" addStyleNames="btn-GreenGlass">РОЗПОЧАТИ ГРУ</g:Button>
+		<g:Button ui:field="button_ChangeName" addStyleNames="btn-YellowGlass">ЗМІНИТИ ІМ'Я</g:Button>
+
+	</g:HTMLPanel>
+</ui:UiBinder> 
