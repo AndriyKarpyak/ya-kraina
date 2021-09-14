@@ -11,6 +11,6 @@
 	<classpathentry kind="lib" path="lib/guice.jar"/>
 	<classpathentry kind="lib" path="lib/fb-api-0.5.8-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="lib/fb-gwtutil-0.5.8-SNAPSHOT.jar"/>
-	<classpathentry kind="con" path="com.gwtplugins.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry kind="con" path="com.gwtplugins.gwt.eclipse.core.GWT_CONTAINER/gwt-2.9.0"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

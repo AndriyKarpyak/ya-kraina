@@ -819,16 +819,58 @@ button:not([disabled]):hover {
 
 /* > Story Points View ____________________________________________________ */
 
+.storySummariesView {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .storyPointsView {
+	position: relative;
+	width: 50%;
 	color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10% 0 0 0;
+    border-radius: 10% / 50%;
+    border: 0.6em solid #00a0ff;
+    padding: 2em;
+    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
+}
+
+.storyPointsView .l1,
+.storyPointsView .l2 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background-repeat: no-repeat;
+    background-size: 84%;
+}
+
+.storyPointsView .l1 {
+	background-image: url(images/bg-summaries-top.svg);
+    background-position: top;
+}
+
+.storyPointsView .l2 {
+	background-image: url(images/bg-summaries-bottom.svg);
+    background-position: bottom;
 }
 
 .storyPointsView-StoryName {
-	color: #ffffff99;
+	position: relative;
+	font-weight: bold;
+    font-size: 36px;
+}
+
+.storyPointsView-StorySummaryText {
+	position: relative;
+	padding: 1em 1em 2em 1em;
+	margin: 1em 0 2em 0;
+	border-bottom: 2px solid white;
 }
 
 .storyPointsView .btn-PinkMatte {
@@ -837,8 +879,9 @@ button:not([disabled]):hover {
 
 .storyPointsView span {
 	font-weight: bold;
-    font-size: 36px;
+    font-size: 18px;
     text-transform: uppercase;
+    color: #ffffff99;
 }
 
 .storyPointsView-ResultDisplay {
@@ -849,7 +892,7 @@ button:not([disabled]):hover {
     align-items: center;
     padding: 5px 5px;
     border-radius: 57px;
-    margin: 3em 0 1em 0;
+    margin: 1em 0 1em 0;
     position: relative;
     box-sizing: border-box;
     background-size: cover;
@@ -877,6 +920,38 @@ button:not([disabled]):hover {
     letter-spacing: 0.195em;
 }
 
-.StorySummariesView {
-	color: white;
+.singleSummaryPanel {
+	position: absolute;
+    color: wheat;
+    width: 50%;
+    border-radius: 10% / 50%;
+    border: 0.6em solid #00a0ff;
+    padding: 2em;
+    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
+}
+
+.singleSummaryPanel .l1,
+.singleSummaryPanel .l2 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background-repeat: no-repeat;
+    background-size: 84%;
+}
+
+.singleSummaryPanel .l1 {
+	background-image: url(images/bg-summaries-top.svg);
+    background-position: top;
+}
+
+.singleSummaryPanel .l2 {
+	background-image: url(images/bg-summaries-bottom.svg);
+    background-position: bottom;
+}
+
+.singleSummaryText {
+	position: relative;
+	margin: 1em;
 }

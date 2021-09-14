@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="741.26898"
+   height="91.876999"
+   viewBox="0 0 741.26898 91.876999"
+   fill="none"
+   version="1.1"
+   id="svg36"
+   sodipodi:docname="bg-summaries.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview38"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:snap-page="true"
+     inkscape:snap-global="false"
+     inkscape:zoom="2.7311028"
+     inkscape:cx="143.53176"
+     inkscape:cy="95.382713"
+     inkscape:window-width="1857"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg36" />
+  <path
+     opacity="0.5"
+     d="m 18.628912,21.146275 c 0,0 52.589,66.111 210.808008,70.4462 158.219,4.335 273.823,-41.9968 361.32,-59.0664 87.496,-17.0697 150.512,-27.6366 150.512,-27.6366 0,0 -399.401,-18.42436 -722.640008,16.2568 z"
+     fill="url(#paint3_linear)"
+     id="path8"
+     style="fill:url(#paint3_linear)" />
+  <path
+     d="m 4.5736121,33.880575 c 0,0 -1.3601,-8.6703 4.9868002,-11.9216 6.3468997,-3.2514 46.6950997,-7.3156 48.5084997,-6.2318 2.7201,1.0838 -33.5479,19.5081 -53.4952999,18.1534 z"
+     fill="#ffffff"
+     id="path10" />
+  <path
+     d="m 4.5747121,37.944375 c -4.98680003,-0.8128 -6.3469,10.0251 -1.8134,10.296 4.9869,0.5419 6.8003002,-9.4831 1.8134,-10.296 z"
+     fill="#ffffff"
+     id="path12" />
+  <defs
+     id="defs34">
+    <linearGradient
+       id="paint0_linear"
+       x1="404.461"
+       y1="442.97"
+       x2="404.461"
+       y2="2.09165"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-3.6615245,80.553539)">
+      <stop
+         stop-color="#004AC2"
+         id="stop14" />
+      <stop
+         offset="1"
+         stop-color="#0083C2"
+         id="stop16" />
+    </linearGradient>
+    <linearGradient
+       id="paint1_linear"
+       x1="404.461"
+       y1="438.94901"
+       x2="404.461"
+       y2="0.82084203"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-2.1969147,93.002722)">
+      <stop
+         stop-color="#00A3FF"
+         id="stop19" />
+      <stop
+         offset="1"
+         stop-color="#0098FF"
+         id="stop21" />
+    </linearGradient>
+    <radialGradient
+       id="paint2_radial"
+       cx="0"
+       cy="0"
+       r="1"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(380.503,0,0,227.41,390.04604,303.70906)">
+      <stop
+         stop-color="#0244A8"
+         id="stop24" />
+      <stop
+         offset="1"
+         stop-color="#008CCA"
+         id="stop26" />
+    </radialGradient>
+    <linearGradient
+       id="paint3_linear"
+       x1="48.515202"
+       y1="52.215302"
+       x2="771.38202"
+       y2="52.215302"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-29.912088,-6.227525)">
+      <stop
+         stop-color="#007EC6"
+         id="stop29" />
+      <stop
+         offset="1"
+         stop-color="#91D1FF"
+         id="stop31" />
+    </linearGradient>
+  </defs>
+</svg>

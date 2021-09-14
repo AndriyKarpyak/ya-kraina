@@ -4,23 +4,40 @@
 	xmlns:ya="urn:import:com.karp.yakraina.client.widgets">
 
 
-	<g:HTMLPanel addStyleNames="storyPointsView">
+	<g:HTMLPanel addStyleNames="storySummariesView">
+		
+		<g:HTMLPanel addStyleNames="storyPointsView" ui:field="pointsPanel">
+			<g:HTML addStyleNames="l1" />
+			<g:HTML addStyleNames="l2" />
 
-		<g:InlineLabel>ВАШ РЕЗУЛЬТАТ</g:InlineLabel>
+			<g:HTML addStyleNames="storyPointsView-StoryName" ui:field="storyNameLabel" />
+	
+			<g:HTML addStyleNames="storyPointsView-StorySummaryText" ui:field="storySummaryText" />
 
-		<g:HTMLPanel addStyleNames="storyPointsView-ResultDisplay">
-
-			<g:Image ui:field="storyIcon" />
-			<g:HTMLPanel addStyleNames="storyPointsView-ResultText">
-				<g:InlineLabel ui:field="resultText" />
-				<g:InlineLabel>БАЛІВ</g:InlineLabel>
+			<g:InlineLabel>ВАШ РЕЗУЛЬТАТ</g:InlineLabel>
+	
+			<g:HTMLPanel addStyleNames="storyPointsView-ResultDisplay">
+	
+				<g:Image ui:field="storyIcon" />
+				<g:HTMLPanel addStyleNames="storyPointsView-ResultText">
+					<g:InlineLabel ui:field="pointsText" />
+					<g:InlineLabel>БАЛІВ</g:InlineLabel>
+				</g:HTMLPanel>
+	
 			</g:HTMLPanel>
-
+			
+			<ya:MatteBytton ui:field="button_Accept" />
+			
 		</g:HTMLPanel>
-
-		<g:HTML addStyleNames="storyPointsView-StoryName" ui:field="storyNameLabel" />
-
-		<ya:MatteBytton ui:field="button_Accept" />
-
+		
+		<g:HTMLPanel addStyleNames="singleSummaryPanel" ui:field="singleSummaryPanel">
+			<g:HTML addStyleNames="l1" />
+			<g:HTML addStyleNames="l2" />
+			
+			<g:Image addStyleNames="emoji" ui:field="emoji" />
+			
+			<g:HTML addStyleNames="singleSummaryText" ui:field="singleSummaryText" />
+			<ya:MatteBytton ui:field="button_Next"/>		
+		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 
