@@ -876,3 +876,7 @@ button:not([disabled]):hover {
     font-size: 0.7em;
     letter-spacing: 0.195em;
 }
+
+.StorySummariesView {
+	color: white;
+}
