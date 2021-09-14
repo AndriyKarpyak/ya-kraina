@@ -34,9 +34,11 @@
 			<g:HTML addStyleNames="l1" />
 			<g:HTML addStyleNames="l2" />
 			
-			<g:Image addStyleNames="emoji" ui:field="emoji" />
+			<g:HTMLPanel addStyleNames="singleSummaryTextPanel" >
+				<g:Image addStyleNames="emoji" ui:field="emoji" />
+				<g:HTML addStyleNames="singleSummaryText" ui:field="singleSummaryText" />
+			</g:HTMLPanel>
 			
-			<g:HTML addStyleNames="singleSummaryText" ui:field="singleSummaryText" />
 			<ya:MatteBytton ui:field="button_Next"/>		
 		</g:HTMLPanel>
 	</g:HTMLPanel>
