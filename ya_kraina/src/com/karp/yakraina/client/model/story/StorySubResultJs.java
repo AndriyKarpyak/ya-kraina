@@ -33,4 +33,19 @@ public class StorySubResultJs extends JavaScriptObject {
 	private final native boolean hasText() /*-{
 		return 'Text' in this;
 	}-*/;
+	
+	public final String getEmoji() {
+		if (hasEmoji())
+			return getEmojiJs().toLowerCase();
+		else
+			return "confused";
+	}
+
+	private final native String getEmojiJs() /*-{
+		return this.Emoji;
+	}-*/;
+
+	private final native boolean hasEmoji() /*-{
+		return 'Emoji' in this;
+	}-*/;
 }

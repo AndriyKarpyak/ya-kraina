@@ -2,7 +2,6 @@ package com.karp.yakraina.client.views.game;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.safehtml.shared.UriUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -15,7 +14,6 @@ import com.karp.yakraina.client.events.PlayerSelectedStoryEvent;
 import com.karp.yakraina.client.model.session.GameSession;
 import com.karp.yakraina.client.model.story.StoryJs;
 import com.karp.yakraina.client.stories.Stories;
-import com.karp.yakraina.client.stories.StoryState;
 import com.karp.yakraina.client.widgets.StoryButton;
 
 public class StorySelectionView extends Composite {
@@ -46,17 +44,17 @@ public class StorySelectionView extends Composite {
 			
 			StoryButton storyActivator = new StoryButton(story);
 
-			if (!GameSession.get().isStoryCompleted(story)) {
-				storyActivator.addClickHandler(event -> {
+			storyActivator.addClickHandler(event -> {
 
-					GWT.log(String.valueOf(story));
-					
-					PlayerSelectedStoryEvent.fire(story);
-					ColorThemeChangeEvent.fire("themeLight");
-				});
+				GWT.log(String.valueOf(story));
 				
+				PlayerSelectedStoryEvent.fire(story);
+				ColorThemeChangeEvent.fire("themeLight");
+			});
+				
+			if (!GameSession.get().isStoryCompleted(story))
 				allCompleted = false;
-			}
+			
 
 			root.add(storyActivator);
 		}

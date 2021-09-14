@@ -65,9 +65,9 @@ public class StoryPointsView extends Composite {
 	MatteBytton button_Accept;
 	
 	
-	private List<SafeHtml> messages = new ArrayList<>();
+	private List<StorySubResultJs> messages = new ArrayList<>();
 
-	private Iterator<SafeHtml> messagesIterator;
+	private Iterator<StorySubResultJs> messagesIterator;
 
 	public StoryPointsView() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -110,7 +110,7 @@ public class StoryPointsView extends Composite {
 		for (StorySubResultJs finalState : GameSession.get().getActiveStoryResults()) {
 
 			if (finalState.getText() != null && !finalState.getText().isEmpty()) {
-				messages.add(SafeHtmlUtils.fromTrustedString(finalState.getText()));
+				messages.add(finalState);
 			}
 			
 			points += finalState.getPoints();
@@ -140,10 +140,10 @@ public class StoryPointsView extends Composite {
 			pointsPanel.getElement().getStyle().clearDisplay();
 	}
 	
-	private void nextMessage(SafeHtml message) {
-		emoji.setUrl(UriUtils.fromTrustedString("images/emoji/smiley.svg"));
+	private void nextMessage(StorySubResultJs result) {
+		emoji.setUrl(UriUtils.fromTrustedString("images/emoji/" + result.getEmoji() + ".svg"));
 		singleSummaryPanel.getElement().getStyle().clearDisplay();
-		singleSummaryText.setHTML(message);
+		singleSummaryText.setHTML(result.getText());
 	}
 
 }

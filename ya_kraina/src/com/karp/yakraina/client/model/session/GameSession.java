@@ -59,13 +59,13 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	public void onPlayerSelectedStory(PlayerSelectedStoryEvent event) {
 		activeStory = event.getStory();
 
-		if (js.hasStory(activeStory.getKey()))
-			activeStoryState = js.getStory(activeStory.getKey());
-		else {
+//		if (js.hasStory(activeStory.getKey()))
+//			activeStoryState = js.getStory(activeStory.getKey());
+//		else {
 			activeStoryState = StoryStateJs.create();
 			activeStoryState.setId(activeStory.getKey());
 			activeStoryState.setSummaryConditions(activeStory.getSummaryConditions());
-		}
+//		}
 
 		StoryStartEvent.fire(activeStory, getActiveStoryInitialStage());
 	}
