@@ -33,8 +33,6 @@ public class StoryStartEvent extends GwtEvent<StoryStartEvent.Handler> {
 	public StoryStartEvent(final StoryJs story, final StageJs initialStage) {
 		this.story = story;
 		this.initialStage = initialStage;
-		
-		GWT.log("StoryStartEvent[ story: " + String.valueOf(story) + ", initial: " + String.valueOf(initialStage) + "]");
 	}
 
 	public StoryJs getStory() {

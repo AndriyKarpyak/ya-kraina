@@ -25,7 +25,7 @@ public enum Stories {
 
 	public static List<StoryJs> getAll() {
 		
-		Arrays.asList(Stories.values()).stream().map(e -> e.getJs()).collect(Collectors.toList()).forEach(s -> GWT.log(String.valueOf(s)));
+//		Arrays.asList(Stories.values()).stream().map(e -> e.getJs()).collect(Collectors.toList()).forEach(s -> GWT.log(String.valueOf(s)));
 		
 		return Arrays.asList(Stories.values()).stream().map(e -> e.getJs()).collect(Collectors.toList());
 	}

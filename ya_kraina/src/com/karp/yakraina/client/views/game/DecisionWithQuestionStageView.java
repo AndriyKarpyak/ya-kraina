@@ -59,7 +59,7 @@ public class DecisionWithQuestionStageView extends Composite {
 	@Override
 	protected void onLoad() {
 		
-		String bgUri = UriUtils.fromTrustedString("images/stories/" + GameSession.get().getActiveStoryState().getId() + "/" + stageData.getKey() + ".svg").asString();
+		String bgUri = UriUtils.fromTrustedString("images/stories/" + GameSession.get().getActiveStory().getKey() + "/" + stageData.getKey() + ".svg").asString();
 		getElement().getStyle().setBackgroundImage("url(\"" + bgUri + "\")");
 		
 		ColorThemeChangeEvent.fire("themeLight");

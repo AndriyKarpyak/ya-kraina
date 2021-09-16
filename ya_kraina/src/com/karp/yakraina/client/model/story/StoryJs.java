@@ -1,5 +1,7 @@
 package com.karp.yakraina.client.model.story;
 
+import java.util.HashMap;
+
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
@@ -28,6 +30,15 @@ public class StoryJs extends JavaScriptObject {
 		return this.Stages;
 	}-*/;
 
+	public final StageJs getStage(String stageKey) {
 
+		JsArray<StageJs> stagesJs = getStagesJs();
+		for (int i = 0; i < stagesJs.length(); i++)
+			if ((stageKey.startsWith("stage_") ? stageKey : "stage_" + stageKey)
+					.equalsIgnoreCase(stagesJs.get(i).getKey()))
+				return stagesJs.get(i);
+
+		return null;
+	}
 
 }

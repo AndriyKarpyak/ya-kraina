@@ -7,7 +7,7 @@ public class SummaryConditionJs extends JavaScriptObject {
 	protected SummaryConditionJs() {
 	}
 
-	public final native int getLowerBound() /*-{
+	public final native int getBound() /*-{
 		return this.Bound;
 	}-*/;
 

@@ -58,7 +58,7 @@ public class OptionsStageView extends Composite {
 	@Override
 	protected void onLoad() {
 
-		String bgUri = UriUtils.fromTrustedString("images/stories/" + GameSession.get().getActiveStoryState().getId() + "/" + stageData.getKey() + ".svg").asString();
+		String bgUri = UriUtils.fromTrustedString("images/stories/" + GameSession.get().getActiveStory().getKey() + "/" + stageData.getKey() + ".svg").asString();
 		getElement().getStyle().setBackgroundImage("url(\"" + bgUri + "\")");
 		
 		emoji.setUrl(UriUtils.fromTrustedString("images/emoji/" + stageData.getEmoji() + ".svg"));

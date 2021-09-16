@@ -62,7 +62,7 @@ public class YesNoOptionsStageView extends Composite {
 	protected void onLoad() {
 
 		final String bgUri = UriUtils.fromTrustedString(
-				"images/stories/" + GameSession.get().getActiveStoryState().getId() + "/" + stageData.getKey() + ".svg")
+				"images/stories/" + GameSession.get().getActiveStory().getKey() + "/" + stageData.getKey() + ".svg")
 				.asString();
 		getElement().getStyle().setBackgroundImage("url(\"" + bgUri + "\")");
 

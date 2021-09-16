@@ -11,13 +11,14 @@ import com.karp.yakraina.client.events.ShowNextViewEvent;
 import com.karp.yakraina.client.events.StoryEndEvent;
 import com.karp.yakraina.client.events.StoryStartEvent;
 import com.karp.yakraina.client.model.session.GameSession;
+import com.karp.yakraina.client.model.session.StoryStateJs;
 import com.karp.yakraina.client.model.story.DecisionStageJs;
 import com.karp.yakraina.client.model.story.FinalStageJs;
 import com.karp.yakraina.client.model.story.InformationStageJs;
 import com.karp.yakraina.client.model.story.OptionsStageJs;
 import com.karp.yakraina.client.model.story.StageJs;
 import com.karp.yakraina.client.model.story.YesNoOptionsStageJs;
-import com.karp.yakraina.client.views.StoryPointsView;
+import com.karp.yakraina.client.views.StorySummariesView;
 import com.karp.yakraina.client.views.ViewWrapper;
 import com.karp.yakraina.client.views.WelcomeView;
 import com.karp.yakraina.client.views.footer.Footer;
@@ -56,7 +57,7 @@ public class Ya_kraina implements EntryPoint {
 
 		StoryStartEvent.register(event -> {
 
-			GWT.log(event.getStory().getKey() + ": " + event.getStory().getName());
+//			GWT.log(event.getStory().getKey() + ": " + event.getStory().getName());
 
 			NextStageEvent.fire(event.getInitialStage());
 		});
@@ -65,7 +66,7 @@ public class Ya_kraina implements EntryPoint {
 
 			final StageJs nextStage = event.getNextStage();
 
-			GWT.log(nextStage.getKey() + ": " + nextStage.getText());
+//			GWT.log(nextStage.getKey() + ": " + nextStage.getText());
 
 			switch (nextStage.getType()) {
 			case DECISION_INTRO:
@@ -104,7 +105,7 @@ public class Ya_kraina implements EntryPoint {
 			}
 		});
 
-		PlayerCompletedStoryEvent.register(event -> ShowNextViewEvent.fire(new StoryPointsView()));
+		PlayerCompletedStoryEvent.register(event -> ShowNextViewEvent.fire(new StorySummariesView()));
 
 		StoryEndEvent.register(event -> ShowNextViewEvent.fire(new StorySelectionView()));
 
@@ -138,7 +139,14 @@ public class Ya_kraina implements EntryPoint {
 
 		rootPanel.add(new Footer());
 
-		mainView.add(new WelcomeView());
+		
+		StoryStateJs activeStory = GameSession.get().getActiveStory();
+		
+		if (activeStory != null && activeStory.getActiveStage() != null) {
+			NextStageEvent.fire(new NextStageEvent(activeStory.getActiveStage()));
+		} else {
+			mainView.add(new WelcomeView());
+		}
 
 	}
 }
