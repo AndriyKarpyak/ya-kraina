@@ -11,7 +11,7 @@ public class OutcomeJs extends JavaScriptObject {
 	public final StageJs getNextStage() {
 
 		if (hasPoints())
-			GameSession.get().addSubResult((StorySubResultJs) this.cast());
+			GameSession.get().addSubResult((DecisionOutcomeJs) this.cast());
 		
 
 		StageJs nextStage = GameSession.get().getStage(getGoTo());

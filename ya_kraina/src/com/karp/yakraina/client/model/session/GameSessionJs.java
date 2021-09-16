@@ -27,20 +27,50 @@ class GameSessionJs extends JavaScriptObject {
 		this.fbId = fbId;
 	}-*/;
 
-	public final native boolean hasStory(String id) /*-{
-		return id in this;
+	public final native void startStory(StoryStateJs story) /*-{
+		this.ActiveStory = story;
 	}-*/;
 
-	public final native StoryStateJs getStory(String id) /*-{
+	public final void completeStory() {
+		StoryStateJs activeStory = getActiveStory();
+		addStoryToCompleted(activeStory.getKey(), activeStory);
+		deleteActiveStory();
+	}
+
+	public final native StoryStateJs getStoryFromCompleted(String id) /*-{
 		return this[id];
 	}-*/;
 
-	public final native void addStory(String id, StoryStateJs story) /*-{
+	private final native void addStoryToCompleted(String id, StoryStateJs story) /*-{
 		this[id] = story;
+	}-*/;
+
+	public final native boolean hasStoryInCompleted(String id) /*-{
+		return id in this;
+	}-*/;
+
+	public final native StoryStateJs getActiveStory() /*-{
+		return this.ActiveStory;
+	}-*/;
+
+	private final native void deleteActiveStory() /*-{
+		delete this.ActiveStory
+	}-*/;
+
+	public final native boolean hasActiveStory() /*-{
+		return 'ActiveStory' in this;
 	}-*/;
 
 	public final native boolean isEmpty() /*-{
 		return JSON.stringify(this) === JSON.stringify({});
+	}-*/;
+	
+	public final native void store() /*-{
+		sessionStorage.setItem("autosave-ya-kraina", JSON.stringify(this));
+	}-*/;
+	
+	public static native String restore() /*-{
+		return sessionStorage.getItem("autosave-ya-kraina");
 	}-*/;
 
 }

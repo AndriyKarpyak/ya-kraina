@@ -2,9 +2,9 @@ package com.karp.yakraina.client.model.story;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class StorySubResultJs extends JavaScriptObject {
+public class DecisionOutcomeJs extends JavaScriptObject {
 
-	protected StorySubResultJs() {
+	protected DecisionOutcomeJs() {
 	}
 
 	public final int getPoints() {
@@ -30,7 +30,7 @@ public class StorySubResultJs extends JavaScriptObject {
 		return this.Text;
 	}-*/;
 
-	private final native boolean hasText() /*-{
+	public final native boolean hasText() /*-{
 		return 'Text' in this;
 	}-*/;
 	

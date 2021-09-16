@@ -1,16 +1,12 @@
 package com.karp.yakraina.client.model.session;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsonUtils;
-import com.google.gwt.user.client.Cookies;
 import com.karp.yakraina.client.events.FinalStageEvent;
 import com.karp.yakraina.client.events.NextStageEvent;
 import com.karp.yakraina.client.events.PlayerCompletedStoryEvent;
@@ -19,32 +15,18 @@ import com.karp.yakraina.client.events.StoryEndEvent;
 import com.karp.yakraina.client.events.StoryStartEvent;
 import com.karp.yakraina.client.model.story.StageJs;
 import com.karp.yakraina.client.model.story.StoryJs;
-import com.karp.yakraina.client.model.story.StorySubResultJs;
+import com.karp.yakraina.client.model.story.DecisionOutcomeJs;
 import com.karp.yakraina.client.model.story.SummaryConditionJs;
 
 public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerCompletedStoryEvent.Handler,
 		FinalStageEvent.Handler, StoryEndEvent.Handler, NextStageEvent.Handler {
 
-	private static final String COOKIE_KEY = "YA_KRAINA_GAME_SESSION_STATE";
-	private static final long MILLISECONDS_IN_WEEK = 604800000;
-
 	private static GameSession instance;
 
-	private Date expires;
 	private GameSessionJs js;
-	private StoryJs activeStory;
-	private Map<String, StageJs> stages;
-	private StageJs activeStage;
-	private List<String> passedStages;
-	private StoryStateJs activeStoryState;
-
-	private GameSession() {
-		this(GameSessionJs.create());
-	}
 
 	private GameSession(GameSessionJs js) {
 		this.js = js;
-		this.expires = new Date((new Date()).getTime() + MILLISECONDS_IN_WEEK);
 
 		PlayerSelectedStoryEvent.register(this);
 		PlayerCompletedStoryEvent.register(this);
@@ -53,36 +35,40 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 		StoryEndEvent.register(this);
 
 		FinalStageEvent.register(this);
+
+		GWT.log(toString());
+	}
+
+	public final static GameSession get() {
+		if (instance == null) {
+			String sessionJs = GameSessionJs.restore();
+			
+			if (sessionJs != null && !sessionJs.isEmpty())
+				instance = new GameSession((GameSessionJs) JsonUtils.safeEval(sessionJs));
+			else
+				instance = new GameSession(GameSessionJs.create());
+		}
+		return instance;
 	}
 
 	@Override
 	public void onPlayerSelectedStory(PlayerSelectedStoryEvent event) {
-		activeStory = event.getStory();
 
-//		if (js.hasStory(activeStory.getKey()))
-//			activeStoryState = js.getStory(activeStory.getKey());
-//		else {
-			activeStoryState = StoryStateJs.create();
-			activeStoryState.setId(activeStory.getKey());
-			activeStoryState.setSummaryConditions(activeStory.getSummaryConditions());
-//		}
+		js.startStory((StoryStateJs) event.getStory());
+		store();
 
-		StoryStartEvent.fire(activeStory, getActiveStoryInitialStage());
+		StoryStartEvent.fire(event.getStory(), getActiveStoryInitialStage());
 	}
 
 	@Override
 	public void onPlayerCompletedStory(PlayerCompletedStoryEvent event) {
 
-		js.addStory(activeStoryState.getId(), activeStoryState);
-//		store();
 	}
 
 	@Override
 	public void onStoryEnd(StoryEndEvent event) {
-		activeStoryState = null;
-		activeStage = null;
-		stages = null;
-		passedStages = null;
+		js.completeStory();
+		store();
 	}
 
 	@Override
@@ -93,48 +79,19 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	@Override
 	public void onNextStage(NextStageEvent event) {
 
-		if (activeStage != null) {
-			if (passedStages == null)
-				passedStages = new ArrayList<>();
+		if (js.getActiveStory().hasActiveStage())
+			if (!event.getNextStage().getDontMemorisePreviosStage())
+				js.getActiveStory().addPathEntry(js.getActiveStory().getActiveStage().getKey());
 
-			if (!event.getNextStage().getDontMemorisePreviosStage()) {
-				GWT.log("memorise: " + activeStage.getKey());
-				passedStages.add(activeStage.getKey());
-			} else {
-				GWT.log("ignore: " + activeStage.getKey());
-			}
-		}
+		js.getActiveStory().setActiveStage(event.getNextStage());
+		
+		store();
 
-		activeStage = event.getNextStage();
-
-	}
-
-	public final static GameSession get() {
-		if (instance == null) {
-			String restoredState = Cookies.getCookie(COOKIE_KEY);
-
-			if (restoredState != null && !restoredState.isEmpty())
-				instance = new GameSession((GameSessionJs) JsonUtils.safeEval(restoredState));
-			else
-				instance = new GameSession();
-		}
-		return instance;
 	}
 
 	public final StageJs getStage(String stageKey) {
 
-		if (stages == null) {
-
-			stages = new HashMap<String, StageJs>();
-
-			for (int i = 0; i < activeStory.getStagesJs().length(); i++) {
-				StageJs stage = activeStory.getStagesJs().get(i);
-
-				stages.put(stage.getKey(), stage);
-			}
-		}
-
-		return stages.get(stageKey.startsWith("stage_") ? stageKey : "stage_" + stageKey);
+		return js.getActiveStory().getStage(stageKey);
 	}
 
 	public final String getPlayerName() {
@@ -156,29 +113,25 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	}
 
 	public final boolean isStoryCompleted(StoryJs story) {
-		return js.hasStory(story.getKey());
+		return js.hasStoryInCompleted(story.getKey());
 	}
 
 	public final boolean isStageCompleted(StageJs stage) {
-		return passedStages.contains(stage.getKey());
+		return js.getActiveStory().getUserPath().join().contains(stage.getKey());
 	}
 
 	public StageJs getActiveStoryInitialStage() {
 		return getStage("stage_початок");
 	}
 
-	public StoryJs getActiveStory() {
-		return activeStory;
+	public StoryStateJs getActiveStory() {
+		return js.getActiveStory();
 	}
 
-	public StoryStateJs getActiveStoryState() {
-		return activeStoryState;
-	}
+	public final List<DecisionOutcomeJs> getActiveStoryResults() {
+		JsArray<DecisionOutcomeJs> jsArray = js.getActiveStory().getResults();
 
-	public final List<StorySubResultJs> getActiveStoryResults() {
-		JsArray<StorySubResultJs> jsArray = activeStoryState.getResults();
-
-		List<StorySubResultJs> results = new ArrayList<>();
+		List<DecisionOutcomeJs> results = new ArrayList<>();
 
 		for (int i = 0; i < jsArray.length(); i++)
 			results.add(jsArray.get(i));
@@ -187,7 +140,7 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	}
 
 	public final List<SummaryConditionJs> getActiveStorySummaryConditions() {
-		JsArray<SummaryConditionJs> jsArray = activeStoryState.getSummaryConditions();
+		JsArray<SummaryConditionJs> jsArray = js.getActiveStory().getSummaryConditions();
 
 		List<SummaryConditionJs> results = new ArrayList<>();
 
@@ -199,20 +152,20 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 
 	public final int getActiveStoryCollectedPoints() {
 
-		if (activeStoryState != null)
-			return activeStoryState.getCollectedPoints();
+		if (js.getActiveStory() != null)
+			return js.getActiveStory().getCollectedPoints();
 
 		return 0;
 	}
 
 	public final void clear() {
 		js = GameSessionJs.create();
-		Cookies.removeCookie(COOKIE_KEY);
+		store();
 	}
 
 	@Override
 	public String toString() {
-		return "GameSession [" + JsonUtils.stringify(js) + "]";
+		return JsonUtils.stringify(js);
 	}
 
 	public final boolean isEmpty() {
@@ -220,21 +173,16 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	}
 
 	private void store() {
-		Cookies.setCookie(COOKIE_KEY, JsonUtils.stringify(js), expires);
+		GWT.log(toString());
+		js.store();
 	}
 
-	public void addSubResult(StorySubResultJs storySubResultJs) {
-		activeStoryState.addResult(storySubResultJs);
+	public void addSubResult(DecisionOutcomeJs storySubResultJs) {
+		js.getActiveStory().addResult(storySubResultJs);
 	}
 
 	public Optional<StoryStateJs> getCompletedStory(StoryJs story) {
-		return Optional.ofNullable(js.getStory(story.getKey()));
-	}
-
-	public void discardLastStage() {
-		GWT.log("is Discard");
-		if (!passedStages.isEmpty())
-			GWT.log("Discarded: " +  passedStages.remove(passedStages.size() - 1));
+		return Optional.ofNullable(js.getStoryFromCompleted(story.getKey()));
 	}
 
 }

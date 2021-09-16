@@ -1,53 +1,69 @@
 package com.karp.yakraina.client.model.session;
 
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
-import com.karp.yakraina.client.model.story.StorySubResultJs;
-import com.karp.yakraina.client.model.story.SummaryConditionJs;
+import com.google.gwt.core.client.JsArrayString;
+import com.karp.yakraina.client.model.story.StageJs;
+import com.karp.yakraina.client.model.story.StoryJs;
+import com.karp.yakraina.client.model.story.DecisionOutcomeJs;
 
-public class StoryStateJs extends JavaScriptObject {
+public class StoryStateJs extends StoryJs {
 
 	protected StoryStateJs() {
 	}
 
-	public static native StoryStateJs create() /*-{
-		return {
-			results : []
-		};
+	public final native StageJs getActiveStage() /*-{
+		return this.ActiveStage;
 	}-*/;
 
-	public final native String getId() /*-{
-		return this.id;
+	public final native void setActiveStage(StageJs stage) /*-{
+		this.ActiveStage = stage;
 	}-*/;
 
-	public final native void setId(String id) /*-{
-		this.id = id;
+	public final native boolean hasActiveStage() /*-{
+		return 'ActiveStage' in this;
 	}-*/;
 
-	public final native JsArray<SummaryConditionJs> getSummaryConditions() /*-{
-		return this.Summary;
+	public final native void addResult(DecisionOutcomeJs result) /*-{
+		if ('Results' in this) {
+			this['Results'].push(result);
+		} else {
+			this.Results = [];
+		}
 	}-*/;
 
-	public final native void setSummaryConditions(JsArray<SummaryConditionJs> summaryConditions) /*-{
-		this.Summary = summaryConditions;
+	public final native JsArray<DecisionOutcomeJs> getResults() /*-{
+		return this['Results'];
 	}-*/;
 
-	public final native void addResult(StorySubResultJs result) /*-{
-		this['results'].push(result);
+	public final native boolean hasResults() /*-{
+		return 'Results' in this;
 	}-*/;
 
-	public final native JsArray<StorySubResultJs> getResults() /*-{
-		return this['results'];
+	public final native void addPathEntry(String step) /*-{
+		if ('UserPath' in this) {
+			this['UserPath'].push(step);
+		} else {
+			this.UserPath = [];
+		}
+	}-*/;
+
+	public final native JsArrayString getUserPath() /*-{
+		return this.UserPath;
 	}-*/;
 
 	public final int getCollectedPoints() {
-		int points = 0;
+		if (hasResults()) {
+			int points = 0;
 
-		JsArray<StorySubResultJs> jsArray = getResults();
+			JsArray<DecisionOutcomeJs> jsArray = getResults();
 
-		for (int i = 0; i < jsArray.length(); i++)
-			points += jsArray.get(i).getPoints();
+			for (int i = 0; i < jsArray.length(); i++)
+				points += jsArray.get(i).getPoints();
 
-		return points;
+			return points;
+		} else {
+			return 0;
+
+		}
 	}
 }

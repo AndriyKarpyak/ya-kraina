@@ -45,8 +45,6 @@ public class StorySelectionView extends Composite {
 			StoryButton storyActivator = new StoryButton(story);
 
 			storyActivator.addClickHandler(event -> {
-
-				GWT.log(String.valueOf(story));
 				
 				PlayerSelectedStoryEvent.fire(story);
 				ColorThemeChangeEvent.fire("themeLight");
