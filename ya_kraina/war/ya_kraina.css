@@ -18,8 +18,8 @@ input {
 	font-size: 0.7em;
 }
 
-input[type="radio"]:hover,
-input[type="radio"]:hover+label {
+input[type="radio"]:not(:disabled):hover,
+input[type="radio"]:not(:disabled):hover+label {
 	cursor: pointer;
 	text-shadow: 0 0 1px darkslategray;
 }
@@ -65,6 +65,17 @@ input[type="radio"]:not(:checked) + label:after {
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
+
+input[type="radio"]:checked:disabled + label:after {
+    background: #77847C;
+}
+
+input[type="radio"]:disabled + label,
+input[type="radio"]:disabled + label:after,
+input[type="radio"]:disabled + label:before {
+	cursor: auto;
+}
+
 input[type="radio"]:not(:checked) + label:after {
     opacity: 0;
     -webkit-transform: scale(0);
@@ -241,14 +252,42 @@ button:not([disabled]):hover {
     font-size: 18px;
     padding: 15px 30px;
     margin: 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
 }
 
-.ya-YesNoOptionButton.yes {
-	background: green;
-}
-
+.ya-YesNoOptionButton.yes, 
 .ya-YesNoOptionButton.no {
-	background: red;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 140.19%;
+	/* or 25px */
+	letter-spacing: 0.035em;
+	text-transform: uppercase;
+	color: #837F7F;
+}
+
+.ya-YesNoOptionButton .gwt-RadioButton {
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 140.19%;
+	/* or 34px */
+	letter-spacing: 0.035em;
+	color: #575757;
+    margin: 0.2em 0;
+}
+
+.ya-YesNoOptionButton .gwt-RadioButton:disabled {
+
+}
+
+.ya-YesNoOptionButton.correct {
+	background-color: #B5E1B1;
+}
+
+.ya-YesNoOptionButton.wrong {
+	background-color: #FFCCC5;
 }
 
 .ya-YesNoOptionButton:hover {
@@ -257,25 +296,15 @@ button:not([disabled]):hover {
 }
 
 .ya-YesNoOptionButton:not([disabled]) div {
-	border-bottom: 1px solid white;
-	padding-bottom: 6px;
-	margin-bottom: 6px;
+
 }
 
 .ya-YesNoOptionButton button {
-	right: 0 8px;
+
 }
 
 .ya-YesNoOptionButton button:hover {
 	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
-}
-
-.ya-YesNoOptionButton .yes {
-	color: green;
-}
-
-.ya-YesNoOptionButton .no {
-	color: red;	
 }
 
 .rootPanel {

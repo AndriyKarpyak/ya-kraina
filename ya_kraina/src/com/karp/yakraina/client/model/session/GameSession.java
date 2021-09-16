@@ -35,8 +35,6 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 		StoryEndEvent.register(this);
 
 		FinalStageEvent.register(this);
-
-		GWT.log(toString());
 	}
 
 	public final static GameSession get() {
@@ -173,7 +171,6 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	}
 
 	private void store() {
-		GWT.log(toString());
 		js.store();
 	}
 

@@ -18,6 +18,8 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 import com.karp.yakraina.client.events.NextStageEvent;
 import com.karp.yakraina.client.model.session.GameSession;
+import com.karp.yakraina.client.model.story.DecisionOutcomeJs;
+import com.karp.yakraina.client.model.story.InformationStageJs;
 import com.karp.yakraina.client.model.story.StageJs;
 import com.karp.yakraina.client.model.story.YesNoOptionJs;
 import com.karp.yakraina.client.model.story.YesNoOptionsStageJs;
@@ -71,30 +73,31 @@ public class YesNoOptionsStageView extends Composite {
 
 		boolean allCompleted = true;
 		
-		final List<Widget> completed = new ArrayList<Widget>();
-
 		final JsArray<YesNoOptionJs> options = stageData.getOptionsJs();
 		for (int i = 0; i < options.length(); i++) {
 			final YesNoOptionJs option = options.get(i);
 
 			final YesNoOptionButton optionButton = new YesNoOptionButton(option.getText());
+			optionButton.setName(option.getText().hashCode()+"");
 
-			final StageJs yesStage = option.getOutcomeJs().getYesStage();
-			final StageJs noStage = option.getOutcomeJs().getNoStage();
+			final InformationStageJs yesStage = (InformationStageJs) option.getOutcomeJs().getYesStage();
+			final DecisionOutcomeJs yesOutcome = (DecisionOutcomeJs) yesStage.getOutcomeJs().cast();
+			
+			final InformationStageJs noStage = (InformationStageJs) option.getOutcomeJs().getNoStage();
+			final DecisionOutcomeJs noOutcome = (DecisionOutcomeJs) noStage.getOutcomeJs().cast();
 			
 			if (GameSession.get().isStageCompleted(yesStage) || GameSession.get().isStageCompleted(noStage)) {
 				optionButton.setEnabled(false);
 				optionButton.setYesSelected(GameSession.get().isStageCompleted(yesStage));
-				completed.add(optionButton);
+				optionButton.setAnsweredCorrectly(
+						(GameSession.get().isStageCompleted(yesStage) && yesOutcome.getPoints() > 0) 
+						|| (GameSession.get().isStageCompleted(noStage) && noOutcome.getPoints() > 0));
+				optionsPanel.add(optionButton);
 			} else {
 				allCompleted = false;
 				optionButton.addYesNoClickEventHandler(event -> NextStageEvent.fire(event.isYesClicked() ? yesStage : noStage));
 				optionsPanel.add(optionButton);
 			}
-		}
-		
-		for (Widget widget : completed) {
-			optionsPanel.add(widget);
 		}
 
 		button_Accept.setEnabled(allCompleted);

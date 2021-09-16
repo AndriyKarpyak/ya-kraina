@@ -64,8 +64,6 @@ public class StoryOutcome extends Composite implements HasClickHandlers {
 		
 		for (SummaryConditionJs condition : conditions) {
 			
-			GWT.log(condition.getBound() + " | " + JsonUtils.stringify(condition));
-			
 			if (collectedPoints < condition.getBound() || collectedPoints == 0) {
 				storySummaryText.setHTML(SafeHtmlUtils.fromTrustedString(condition.getText()));
 				break;

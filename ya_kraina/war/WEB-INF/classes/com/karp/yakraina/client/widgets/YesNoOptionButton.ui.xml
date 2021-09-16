@@ -3,8 +3,8 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	
 	<g:AbsolutePanel addStyleNames="ya-YesNoOptionButton">
+		<g:RadioButton addStyleNames="yes" ui:field="yes" >Tak</g:RadioButton>
+		<g:RadioButton addStyleNames="no" ui:field="no" >Ні</g:RadioButton>
 		<g:HTML addStyleNames="text" ui:field="text" />
-		<g:Button addStyleNames="yes" ui:field="yes" >Tak</g:Button>
-		<g:Button addStyleNames="no" ui:field="no" >Ні</g:Button>
 	</g:AbsolutePanel>
 </ui:UiBinder> 

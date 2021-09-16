@@ -11,7 +11,6 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
 import com.karp.yakraina.client.events.ColorThemeChangeEvent;
 import com.karp.yakraina.client.events.StoryEndEvent;
@@ -67,7 +66,7 @@ public class StorySummariesView extends Composite {
 					public void onClick(ClickEvent event) {
 						if (allMessagesRead) {
 							storyOutcome.hide();
-							
+
 							for (int i = 0; i < mainElements.size(); i++) {
 								DecisionOutcome outcome = mainElements.get(i);
 								if (outcome.isFirst()) {
@@ -75,13 +74,13 @@ public class StorySummariesView extends Composite {
 									outcome.setPosition(0);
 								}
 							}
-							
+
 							barElements.get(index).addStyleName("hidden");
 							Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
 								mainElements.get(index).setPosition(1);
 								return false;
 							}, 200));
-							
+
 						}
 					}
 				});
@@ -91,7 +90,6 @@ public class StorySummariesView extends Composite {
 				mainPanelElement.addClickHandler(new ClickHandler() {
 
 					int index = data.size();
-					
 
 					@Override
 					public void onClick(ClickEvent event) {
@@ -102,16 +100,16 @@ public class StorySummariesView extends Composite {
 							barElements.get(index).removeStyleName("hidden");
 
 							if (!allMessagesRead) {
-								for (int i = 0; i < 3; i++) 
-									if ((index + 1 + i) < mainElements.size()) 
+								for (int i = 0; i < 3; i++)
+									if ((index + 1 + i) < mainElements.size())
 										mainElements.get(index + 1 + i).setPosition(i + 1);
-	
+
 								Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
 									targetOutcomeView.setPosition(0);
 									return false;
 								}, 200));
-	
-								if (index == data.size() -1) {
+
+								if (index == data.size() - 1) {
 									allMessagesRead = true;
 									storyOutcome.show();
 								}
@@ -123,7 +121,7 @@ public class StorySummariesView extends Composite {
 								}, 200));
 							}
 						}
-						
+
 					}
 				});
 				mainElements.add(mainPanelElement);
@@ -136,19 +134,25 @@ public class StorySummariesView extends Composite {
 			barPanel.add(barElements.get(i));
 			mainPanel.add(mainElements.get(i));
 		}
-		
+
 		storyOutcome = new StoryOutcome();
 		storyOutcome.addClickHandler(event -> StoryEndEvent.fire());
-		
+
 		mainPanel.add(storyOutcome);
 
 		super.onLoad();
 
-		Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
-			for (int i = 0; i < (data.size() < 3 ? data.size() : 3); i++)
-				mainElements.get(i).setPosition(i + 1);
-			return false;
-		}, 200));
+		if (data.isEmpty())
+			Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
+				storyOutcome.show();
+				return false;
+			}, 200));
+		else
+			Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
+				for (int i = 0; i < (data.size() < 3 ? data.size() : 3); i++)
+					mainElements.get(i).setPosition(i + 1);
+				return false;
+			}, 200));
 	}
 
 }

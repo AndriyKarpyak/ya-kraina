@@ -6,9 +6,9 @@ import com.google.gwt.safehtml.shared.annotations.IsSafeHtml;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.Widget;
 import com.karp.yakraina.client.events.YesNoClickEvent;
 import com.karp.yakraina.client.events.YesNoClickEvent.HasYesNoClickEventHandlers;
@@ -33,10 +33,10 @@ public class YesNoOptionButton extends Composite implements HasYesNoClickEventHa
 	HTML text;
 
 	@UiField
-	Button yes;
+	RadioButton yes;
 
 	@UiField
-	Button no;
+	RadioButton no;
 
 	@UiHandler("yes")
 	void onYes(ClickEvent e) {
@@ -53,16 +53,18 @@ public class YesNoOptionButton extends Composite implements HasYesNoClickEventHa
 		addHandler(handler, YesNoClickEvent.TYPE);
 	}
 
+	public void setName(String name) {
+		yes.setName(yes.getName() + "-" + name);
+		no.setName(no.getName() + "-" + name);
+	}
+
 	public void setEnabled(boolean enabled) {
 
 		if (enabled)
 			getElement().removeAttribute("disabled");
-		else {
+		else
 			getElement().setAttribute("disabled", "");
-		}
 
-		yes.setVisible(enabled);
-		no.setVisible(enabled);
 		yes.setEnabled(enabled);
 		no.setEnabled(enabled);
 	}
@@ -70,12 +72,18 @@ public class YesNoOptionButton extends Composite implements HasYesNoClickEventHa
 	public void setYesSelected(boolean yesSelected) {
 
 		if (yesSelected) {
+			yes.setValue(true);
 			getElement().addClassName("yes");
 			getElement().removeClassName("no");
 		} else {
+			no.setValue(true);
 			getElement().addClassName("no");
 			getElement().removeClassName("yes");
 		}
+	}
+
+	public void setAnsweredCorrectly(boolean isCorrect) {
+		getElement().addClassName(isCorrect ? "correct" : "wrong");
 	}
 
 }
