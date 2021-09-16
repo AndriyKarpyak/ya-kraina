@@ -5,6 +5,7 @@
 *.war
 
 # gwt caches and compiled units #
+ya_kraina/
 war/ya_kraina/
 gwt-unitCache/
 *.cache.js
