@@ -30,7 +30,7 @@ public class DecisionOutcome extends Composite implements HasClickHandlers {
 	HTML text;
 
 	@UiField
-	MatteBytton button_Next;
+	MatteButton button_Next;
 
 	private DecisionOutcomeJs outcome;
 
