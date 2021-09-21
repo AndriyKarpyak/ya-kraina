@@ -12,7 +12,7 @@
 			<g:HTMLPanel addStyleNames="foreground" >
 				<ya:Emoji addStyleNames="emoji" ui:field="emoji" />
 				<g:HTML addStyleNames="text" ui:field="text" />
-				<ya:MatteBytton ui:field="button_Next"/>		
+				<ya:MatteButton ui:field="button_Next"/>		
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 </ui:UiBinder> 

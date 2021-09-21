@@ -1,21 +1,20 @@
 package com.karp.yakraina.client.views;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.karp.yakraina.client.events.ColorThemeChangeEvent;
 import com.karp.yakraina.client.events.ShowNextViewEvent;
 import com.karp.yakraina.client.model.session.GameSession;
-import com.karp.yakraina.client.views.game.StorySelectionView;
 
-public class WelcomeView extends Composite {
+public class WelcomeView extends View {
 
 	private static WelcomePageUiBinder uiBinder = GWT.create(WelcomePageUiBinder.class);
 
@@ -23,6 +22,7 @@ public class WelcomeView extends Composite {
 	}
 
 	public WelcomeView() {
+		super();
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
@@ -39,21 +39,31 @@ public class WelcomeView extends Composite {
 	InlineLabel welcome_player_label;
 
 	@Override
-	protected void onLoad() {
-		
-		ColorThemeChangeEvent.fire("themeDark");
+	protected void onUnload() {
+		super.onUnload();
+	}
 
+	@Override
+	protected void onShow() {
 		input_PlayerName.getElement().setAttribute("placeholder", "Твоє ім’я");
 
 		if (!GameSession.get().isEmpty()) {
 			input_PlayerName.setVisible(false);
-			welcome_player_label.setText(GameSession.get().getPlayerName());
+			welcome_player_label.setText(", " + GameSession.get().getPlayerName());
 			button_ChangeName.setVisible(true);
 		} else {
 			input_PlayerName.setVisible(true);
 			welcome_player_label.setVisible(false);
 			button_ChangeName.setVisible(false);
 		}
+		setVisible(true);
+	}
+
+	@Override
+	protected void onLoad() {
+
+		ColorThemeChangeEvent.fire("themeDark");
+		GameSession.get().discardActiveStory();
 
 		super.onLoad();
 	}
@@ -63,13 +73,12 @@ public class WelcomeView extends Composite {
 		if (input_PlayerName.isVisible())
 			GameSession.get().setPlayerName(input_PlayerName.getText());
 
-		ShowNextViewEvent.fire(new ShowNextViewEvent(new StorySelectionView()));
+		addStyleName("fadeOut");
 
-//
-//		if (GameSession.get().isEmpty())
-//			ShowNextViewEvent.fire(new WelcomeNewPlayerView());
-//		else
-//			ShowNextViewEvent.fire(new StorySelectionView());
+		Scheduler.get().scheduleFixedDelay(() -> {
+			ShowNextViewEvent.fire(new ShowNextViewEvent(new StoriesListView()));
+			return false;
+		}, 1600);
 	}
 
 	@UiHandler("button_ChangeName")
@@ -78,6 +87,11 @@ public class WelcomeView extends Composite {
 
 		ShowNextViewEvent.fire(new WelcomeView());
 
+	}
+
+	@Override
+	protected String getName() {
+		return getClass().getSimpleName();
 	}
 
 }

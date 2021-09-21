@@ -32,9 +32,11 @@ class GameSessionJs extends JavaScriptObject {
 	}-*/;
 
 	public final void completeStory() {
-		StoryStateJs activeStory = getActiveStory();
-		addStoryToCompleted(activeStory.getKey(), activeStory);
-		deleteActiveStory();
+		if (hasActiveStory()) {
+			StoryStateJs activeStory = getActiveStory();
+			addStoryToCompleted(activeStory.getKey(), activeStory);
+			deleteActiveStory();
+		}
 	}
 
 	public final native StoryStateJs getStoryFromCompleted(String id) /*-{
@@ -53,8 +55,8 @@ class GameSessionJs extends JavaScriptObject {
 		return this.ActiveStory;
 	}-*/;
 
-	private final native void deleteActiveStory() /*-{
-		delete this.ActiveStory
+	public final native void deleteActiveStory() /*-{
+		delete this.ActiveStory;
 	}-*/;
 
 	public final native boolean hasActiveStory() /*-{
@@ -64,11 +66,11 @@ class GameSessionJs extends JavaScriptObject {
 	public final native boolean isEmpty() /*-{
 		return JSON.stringify(this) === JSON.stringify({});
 	}-*/;
-	
+
 	public final native void store() /*-{
 		sessionStorage.setItem("autosave-ya-kraina", JSON.stringify(this));
 	}-*/;
-	
+
 	public static native String restore() /*-{
 		return sessionStorage.getItem("autosave-ya-kraina");
 	}-*/;

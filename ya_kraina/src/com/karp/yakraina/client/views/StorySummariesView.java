@@ -20,7 +20,7 @@ import com.karp.yakraina.client.widgets.DecisionOutcome;
 import com.karp.yakraina.client.widgets.Emoji;
 import com.karp.yakraina.client.widgets.StoryOutcome;
 
-public class StorySummariesView extends Composite {
+public class StorySummariesView extends View {
 
 	private static StorySummariesViewUiBinder uiBinder = GWT.create(StorySummariesViewUiBinder.class);
 
@@ -46,7 +46,7 @@ public class StorySummariesView extends Composite {
 
 	@Override
 	protected void onLoad() {
-		ColorThemeChangeEvent.fire("themeDark");
+		ColorThemeChangeEvent.fire("themeLight");
 
 		mainElements.clear();
 		barElements.clear();
@@ -153,6 +153,16 @@ public class StorySummariesView extends Composite {
 					mainElements.get(i).setPosition(i + 1);
 				return false;
 			}, 200));
+	}
+
+	@Override
+	protected String getName() {
+		return getClass().getSimpleName();
+	}
+
+	@Override
+	protected void onShow() {
+
 	}
 
 }
