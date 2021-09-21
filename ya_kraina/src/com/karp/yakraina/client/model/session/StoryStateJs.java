@@ -1,5 +1,6 @@
 package com.karp.yakraina.client.model.session;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;
 import com.karp.yakraina.client.model.story.StageJs;
@@ -57,10 +58,12 @@ public class StoryStateJs extends StoryJs {
 
 			JsArray<DecisionOutcomeJs> jsArray = getResults();
 
-			for (int i = 0; i < jsArray.length(); i++)
+			for (int i = 0; i < jsArray.length(); i++) {
+				GWT.log(jsArray.get(i).getText() + ": " + jsArray.get(i).getPoints());
 				points += jsArray.get(i).getPoints();
+			}
 
-			return points;
+			return points >= 0 ? points : 0;
 		} else {
 			return 0;
 
