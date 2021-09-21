@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes left-slide-in {
+  0% {
+    left: -250%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes righ-slide-out {
+  0% {
+    left: 0%;
+  }
+
+  100% {
+    left: 250%;
+  }
+}
+
+.optionsStageView .background,
+.optionsStageView .foreground .trivia,
+.optionsStageView .foreground .options,
+.optionsStageView .ya-MatteButton {
+	animation-duration: 1.3s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+}
+
+.optionsStageView .background,
+.optionsStageView .ya-MatteButton {
+	animation-name: fade-in;
+	animation-delay: 0s;
+}
+
+.optionsStageView .background {
+	animation-delay: 0s;
+}
+
+.optionsStageView .ya-MatteButton {
+	animation-delay: 2s;
+}
+
+.optionsStageView.fadeOut .background,
+.optionsStageView.fadeOut .ya-MatteButton {
+	animation-name: fade-out;
+	animation-delay: 0.2s;
+}
+
+.optionsStageView.fadeOut .background,
+.optionsStageView.fadeOut .foreground .ya-MatteButton {
+
+	/* animation initial value*/
+	opacity: 1;
+}
+
+.optionsStageView .foreground .trivia,
+.optionsStageView .foreground .options {
+	animation-name: left-slide-in;
+		
+	/* animation initial value*/
+	left: -200%;
+}
+
+.optionsStageView .foreground .trivia {
+	animation-delay: 0.5s;
+}
+
+.optionsStageView .foreground .options {
+	animation-delay: 0.5s;
+}
+
+.optionsStageView.fadeOut .foreground .trivia,
+.optionsStageView.fadeOut .foreground .options {
+	animation-name: righ-slide-out;
+	
+	/* animation initial value*/
+	left: 0;
+}
+
+.optionsStageView.fadeOut .foreground .trivia {
+	animation-delay: 0.1s;
+}
+
+.optionsStageView.fadeOut .foreground .options {
+	animation-delay: 0.3s;
+}
+
+/* > Options List Selection Stage View ________________________________________ */
+
+.optionsStageView {
+	position: relative;
+	background-color: white;
+	overflow: hidden;
+}
+
+.optionsStageView .background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	background-size: 50%;
+	margin: 3%;
+	/* animation initial value*/
+	opacity: 0;
+}
+
+.optionsStageView .foreground {
+	padding: 3% 5% 0 5%;
+}
+
+.optionsStageView .foreground .trivia {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	box-shadow: 0px 0px 15px #D8E3CB;
+	border-radius: 20px;
+	/* animation initial value*/
+	left: -200%;
+}
+
+.optionsStageView .foreground .trivia .border {
+	min-width: 16px;
+	border-radius: 0px 20px 20px 0px;
+	position: relative;
+}
+
+.optionsStageView .foreground .trivia .border div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.optionsStageView .foreground .trivia .border .layer0 {
+	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
+	box-shadow: 0px 0px 15px #d8e3cb;
+	border-radius: 0 20px 20px 0;
+}
+
+.optionsStageView .foreground .trivia .emoji {
+	display: inline-block;
+	width: 7%;
+	margin-left: 2em;
+	padding: 40px 0;
+}
+
+.optionsStageView .foreground .trivia .text {
+	padding: 40px 32px;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 140.19%;
+	flex-grow: 1;
+}
+
+.optionsStageView .foreground .options {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 2em 0;
+	/* animation initial value*/
+	left: -200%;
+}
+
+.optionsStageView .foreground .options button {
+	color: #054513;
+	background: #C4E5CD;
+	border-radius: 50px;
+	border: 8px solid white;
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+	text-transform: uppercase;
+	font-size: 18px;
+	padding: 15px 30px;
+	margin: 1em;
+	transition: background-color 0.2s linear 0.2s, color 0.2s linear 0s, filter 0.2s linear 0s;
+}
+
+.optionsStageView .foreground .options button:disabled {
+	color: #f3f3f3;
+	background-color: #cacaca;
+}
+
+.optionsStageView .foreground .options button:not([disabled]):hover {
+	color: white;
+	background-color: #2BA14C;
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
+}
+
+.optionsStageView .foreground .ya-MatteButton {
+	margin: 1em;
+	opacity: 0;
+}

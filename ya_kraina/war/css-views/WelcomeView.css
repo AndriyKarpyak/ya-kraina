@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flexanimation-align-items-left {
+  0% { 
+    flex-grow: 1; 
+  }
+  
+  100% { 
+    flex-grow: 0; 
+  }
+}
+
+.headerPanel,
+.welcomeView .background,
+.welcomeView .foreground .welcomeMsg,
+.welcomeView .foreground .descriptionMsg,
+.welcomeView .foreground .controlsPanel,
+.welcomeView .foreground .welcomeMsg div,
+.welcomeView .foreground .descriptionMsg div,
+.welcomeView .foreground .controlsPanel div:not(.cotrol) {
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+}
+
+.headerPanel,
+.welcomeView .background,
+.welcomeView .foreground .welcomeMsg,
+.welcomeView .foreground .descriptionMsg,
+.welcomeView .foreground .controlsPanel {
+	animation-name: fade-in;
+	animation-timing-function: ease;
+}
+
+.welcomeView.fadeOut .background,
+.welcomeView.fadeOut .foreground .welcomeMsg,
+.welcomeView.fadeOut .foreground .descriptionMsg,
+.welcomeView.fadeOut .foreground .controlsPanel {
+	animation-name: fade-out;
+	animation-timing-function: ease;
+	animation-duration: 1.3s;
+	animation-delay: 0s;
+}
+
+.headerPanel {
+	animation-duration: 1.3s;
+	animation-delay: 4.5s;
+}
+
+.welcomeView .background {
+	animation-duration: 1.3s;
+	animation-delay: 0.0s;
+}
+
+.welcomeView .foreground .welcomeMsg{
+	animation-duration: 1.3s;
+	animation-delay: 0.8s;
+}
+
+.welcomeView .foreground .descriptionMsg {
+	animation-duration: 1.3s;
+	animation-delay: 1.5s;
+}
+
+.welcomeView .foreground .controlsPanel {
+	animation-duration: 1.3s;
+	animation-delay: 2.9s;
+}
+
+/* .welcomeView .foreground .welcomeMsg div, */
+/* .welcomeView .foreground .descriptionMsg div, */
+/* .welcomeView .foreground .controlsPanel div:not(.cotrol) { */
+/* 	animation-name: flexanimation-align-items-left; */
+/* 	animation-duration: 2.3s; */
+/* 	animation-delay: 2.9s; */
+/* 	animation-timing-function: ease-out; */
+/* } */
+
+.headerPanel {
+	
+	/* animation initial value*/
+	opacity: 0;
+}
+
+/* > Welcome ______________________________________________________________ */
+
+.welcomeView {
+	position: relative;
+	color: white;
+}
+
+.welcomeView .background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url("../images/puzzle_picture_logo.svg");
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	/* animation initial value*/
+	opacity: 0;
+}
+
+.welcomeView .foreground {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 5% 10% 5%;
+	box-sizing: border-box;
+	gap: 2em;
+}
+
+.welcomeView .foreground .welcomeMsg, 
+.welcomeView .foreground .descriptionMsg,
+.welcomeView .foreground .controlsPanel {
+	display: flex;
+	/* animation initial value*/
+	opacity: 0;
+}
+
+.welcomeView .foreground .welcomeMsg div, 
+.welcomeView .foreground .descriptionMsg div,
+.welcomeView .foreground .controlsPanel div:not(.cotrol) {
+	/* animation initial value*/
+	flex-grow: 0;
+}
+
+.welcomeView .foreground .welcomeMsg :not(div), 
+.welcomeView .foreground .descriptionMsg :not(div),
+.welcomeView .foreground .controlsPanel .cotrol {
+	flex-shrink: 0;
+}
+
+.welcomeView .foreground .controlsPanel .cotrol {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1em;
+}
+
+.welcomeView .foreground .controlsPanel input {
+	display: block;
+	background-color: rgba(27, 22, 77, 0.8);
+}
+
+.welcomeView .foreground .controlsPanel button {
+	display: block;
+}

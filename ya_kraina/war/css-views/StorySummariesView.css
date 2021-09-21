@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+
+
+
+
+/* > Story Summaries View ____________________________________________________ */
+
+.storySummariesView {
+	color: white;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.storySummariesView .nextSubSummary {
+    position: relative;
+    text-align: center;
+    display: flex;
+    color: white;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    border: 0.6em solid #00a0ff;
+    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.storySummariesView .nextSubSummary span {
+    font-size: xxx-large;
+}
+
+.storySummariesView .lasSubSummary {
+    position: relative;
+    text-align: center;
+    font-size: small;
+    display: flex;
+    color: white;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 0.6em solid #00a0ff;
+    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.storySummariesView .lasSubSummary span {
+    font-size: small;
+}
+
+
+
+/* > Story Summaries View ____________________________________________________ */
+
+.storySummariesView {
+	justify-content: flex-start;
+}
+
+.storySummariesView .bar {
+	display: flex;
+    gap: 1em;
+    border-bottom: 2px solid white;
+    padding: 1em;
+    min-height: 6em;
+    min-width: 40%;
+    justify-content: center;
+    align-items: center;
+}
+
+.storySummariesView .bar div {
+	transition: all 1s;
+	width: 5em;
+	height: 5em;
+}
+
+.storySummariesView .bar img {
+	width: 100%;
+}
+
+.storySummariesView .bar img:hover {
+	cursor: pointer;
+}
+
+.storySummariesView .bar .hidden {
+	width: 0;
+	height: 0;
+	border: none;
+	opacity: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.storySummariesView .bar .visible {
+	padding: 2em;
+}
+
+.storySummariesView .main {
+	flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    width: 75%;
+}

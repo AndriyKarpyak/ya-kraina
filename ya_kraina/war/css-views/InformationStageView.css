@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes left-slide-in {
+  0% {
+    left: -250%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes righ-slide-out {
+  0% {
+    left: 0%;
+  }
+
+  100% {
+    left: 250%;
+  }
+}
+
+.informationStageView .background,
+.informationStageView .foreground .trivia,
+.informationStageView .ya-MatteButton {
+	animation-duration: 1.3s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+}
+
+.informationStageView .background,
+.informationStageView .ya-MatteButton {
+	animation-name: fade-in;
+}
+
+.informationStageView .background {
+	animation-delay: 0s;
+}
+
+.informationStageView .ya-MatteButton {
+	animation-delay: 1.9s;
+}
+
+.informationStageView.fadeOut .background,
+.informationStageView.fadeOut .ya-MatteButton {
+	animation-name: fade-out;
+	animation-delay: 0.2s;
+}
+
+.informationStageView.fadeOut .background,
+.informationStageView.fadeOut .foreground .ya-MatteButton {
+
+	/* animation initial value*/
+	opacity: 1;
+}
+
+.informationStageView .foreground .trivia {
+	animation-name: left-slide-in;
+		
+	/* animation initial value*/
+	left: -200%;
+}
+
+.informationStageView .foreground .trivia {
+	animation-delay: 0.5s;
+}
+
+.informationStageView.fadeOut .foreground .trivia {
+	animation-name: righ-slide-out;
+	
+	/* animation initial value*/
+	left: 0;
+}
+
+.informationStageView.fadeOut .foreground .trivia {
+	animation-delay: 0.1s;
+}
+
+/* > Information Stage View _______________________________________________ */
+
+.informationStageView {
+	position: relative;
+	background-color: white;
+	overflow: hidden;
+}
+
+.informationStageView .background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	background-size: contain;
+	
+	/* animation initial value*/
+	opacity: 0;
+}
+
+.informationStageView .foreground {
+	padding: 3% 10% 0 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.informationStageView .foreground .trivia {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	box-shadow: 0px 0px 15px #D8E3CB;
+	border-radius: 20px;
+	margin-bottom: 3em;
+	background-color: white;
+	/* animation initial value*/
+	left: -200%;
+}
+
+.informationStageView .foreground .trivia img {
+	display: inline-block;
+	width: 7%;
+	margin-left: 2em;
+	padding: 40px 0;
+}
+
+.informationStageView .foreground .trivia .border {
+	min-width: 16px;
+	border-radius: 0px 20px 20px 0px;
+	position: relative;
+}
+
+.informationStageView .foreground .trivia .border div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.informationStageView .foreground .trivia .border .layer0 {
+	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
+	box-shadow: 0px 0px 15px #d8e3cb;
+	border-radius: 0 20px 20px 0;
+}
+
+.informationStageView .foreground .trivia .text {
+	padding: 40px 32px;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 140.19%;
+}
+
+.informationStageView .foreground .ya-MatteButton {
+	opacity: 0;
+}

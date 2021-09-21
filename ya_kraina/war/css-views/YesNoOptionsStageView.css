@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes left-slide-in {
+  0% {
+    left: -250%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes righ-slide-out {
+  0% {
+    left: 0%;
+  }
+
+  100% {
+    left: 250%;
+  }
+}
+
+.yesNoOptionsStageView .background,
+.yesNoOptionsStageView .foreground .trivia,
+.yesNoOptionsStageView .foreground .options,
+.yesNoOptionsStageView .ya-MatteButton {
+	animation-duration: 1.3s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+}
+
+.yesNoOptionsStageView .background,
+.yesNoOptionsStageView .ya-MatteButton,
+.yesNoOptionsStageView .foreground .options {
+	animation-name: fade-in;
+}
+
+.yesNoOptionsStageView .background {
+	animation-delay: 0s;
+}
+
+.yesNoOptionsStageView .ya-MatteButton {
+	animation-delay: 2s;
+}
+
+.yesNoOptionsStageView .foreground .options {
+	animation-delay: 1.9s;
+}
+
+.yesNoOptionsStageView.fadeOut .background,
+.yesNoOptionsStageView.fadeOut .ya-MatteButton,
+.yesNoOptionsStageView.fadeOut .foreground .options {
+	animation-name: fade-out;
+	animation-delay: 0.2s;
+}
+
+.yesNoOptionsStageView.fadeOut .background,
+.yesNoOptionsStageView.fadeOut .foreground .ya-MatteButton,
+.yesNoOptionsStageView.fadeOut .foreground .options {
+
+	/* animation initial value*/
+	opacity: 1;
+}
+
+.yesNoOptionsStageView .foreground .trivia {
+	animation-name: left-slide-in;
+		
+	/* animation initial value*/
+	left: -200%;
+}
+
+.yesNoOptionsStageView .foreground .trivia {
+	animation-delay: 0.5s;
+}
+
+.yesNoOptionsStageView.fadeOut .foreground .trivia {
+	animation-name: righ-slide-out;
+	
+	/* animation initial value*/
+	left: 0;
+}
+
+.yesNoOptionsStageView.fadeOut .foreground .options {
+	animation-delay: 0.3s;
+}
+
+.yesNoOptionsStageView.fadeOut .foreground .trivia {
+	animation-delay: 0.1s;
+}
+
+
+
+/* > Yes No Options List Selection Stage View ________________________________________ */
+
+.yesNoOptionsStageView {
+	position: relative;
+	background-color: white;
+	overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.yesNoOptionsStageView .background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+
+	/* animation initial value*/
+	opacity: 0;
+}
+
+.yesNoOptionsStageView .foreground {
+	padding: 3% 5% 0 5%;
+}
+
+.yesNoOptionsStageView .foreground .trivia {
+	position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    box-shadow: 0px 0px 15px #D8E3CB;
+	border-radius: 20px;
+	margin-bottom: 3em;
+	/* animation initial value*/
+	left: -200%;
+}
+
+.yesNoOptionsStageView .foreground .trivia img {
+	display: inline-block;
+    width: 7%;
+    margin-left: 2em;
+    padding: 40px 0;
+}
+
+.yesNoOptionsStageView .foreground .trivia .border {
+    min-width: 16px;
+    border-radius: 0px 20px 20px 0px;
+    position: relative;
+}
+
+.yesNoOptionsStageView .foreground .trivia .border div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.yesNoOptionsStageView .foreground .trivia .border .layer0 {
+	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
+	box-shadow: 0px 0px 15px #d8e3cb;
+	border-radius: 0 20px 20px 0;
+}
+
+.yesNoOptionsStageView .foreground .trivia .text {
+	padding: 40px 32px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 140.19%;
+    flex-grow: 1;
+}
+
+.yesNoOptionsStageView .foreground .options {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	/* animation initial value*/
+	opacity: 0;
+}
+
+.yesNoOptionsStageView .ya-MatteButton {
+	margin: 1em;
+}
