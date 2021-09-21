@@ -7,6 +7,8 @@
 			<g:HTMLPanel addStyleNames="background">
 				<g:HTML />
 				<g:HTML />
+				<g:HTML />
+				<g:HTML />
 			</g:HTMLPanel>
 			
 			<g:HTMLPanel addStyleNames="foreground" >

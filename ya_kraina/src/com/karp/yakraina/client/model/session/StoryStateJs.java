@@ -46,7 +46,7 @@ public class StoryStateJs extends StoryJs {
 			this['UserPath'].push(step);
 		} else {
 			this.UserPath = [];
-			this['UserPath'].push(result);
+			this['UserPath'].push(step);
 		}
 	}-*/;
 
