@@ -200,4 +200,5 @@
 
 .yesNoOptionsStageView .ya-MatteButton {
 	margin: 1em;
+	opacity: 0;
 }

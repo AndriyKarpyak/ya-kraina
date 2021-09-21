@@ -27,21 +27,37 @@ public class StoryButton extends Composite implements HasClickHandlers {
 		initWidget(uiBinder.createAndBindUi(this));
 
 		storyName.setText(story.getName());
-		storyIcon.setUrl(UriUtils.fromTrustedString(
-				"images/story_selection/" + story.getName().replace(" ", "_").toLowerCase() + ".svg"));
 
 		StoryState state = StoryState.calculate(story, GameSession.get());
 
 		stateIcon.setUrl(state.getIconUri());
 		disabled = StoryState.BLOCKED.equals(state);
-		if (disabled)
+		if (disabled) {
 			getElement().setAttribute("disabled", "");
+			storyIcon.setUrl(UriUtils.fromTrustedString(
+					"images/story_selection/" + story.getName().replace(" ", "_").toLowerCase() + "_locked.svg"));
+		} else {
+			storyIcon.setUrl(UriUtils.fromTrustedString(
+					"images/story_selection/" + story.getName().replace(" ", "_").toLowerCase() + ".svg"));
+		}
 
 		GameSession.get().getCompletedStory(story).ifPresent(storyState -> {
 			stateIcon.setStyleName("done", true);
 			result.getElement().getStyle().clearDisplay();
 			result.setText(storyState.getCollectedPoints() + "");
 		});
+
+		storyName.addMouseOverHandler(event -> {
+			if (!disabled)
+				storyIcon.setUrl(UriUtils.fromTrustedString(
+						"images/story_selection/" + story.getName().replace(" ", "_").toLowerCase() + "_in.svg"));
+		});
+
+		storyName.addMouseOutHandler(event -> {
+			storyIcon.setUrl(UriUtils.fromTrustedString(
+					"images/story_selection/" + story.getName().replace(" ", "_").toLowerCase() + ".svg"));
+		});
+
 	}
 
 	@UiField

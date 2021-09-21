@@ -29,6 +29,7 @@ public class StoryStateJs extends StoryJs {
 			this['Results'].push(result);
 		} else {
 			this.Results = [];
+			this['Results'].push(result);
 		}
 	}-*/;
 
@@ -45,6 +46,7 @@ public class StoryStateJs extends StoryJs {
 			this['UserPath'].push(step);
 		} else {
 			this.UserPath = [];
+			this['UserPath'].push(result);
 		}
 	}-*/;
 

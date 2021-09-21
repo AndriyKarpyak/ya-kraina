@@ -1,7 +1,5 @@
 package com.karp.yakraina.client.model.story;
 
-import java.util.HashMap;
-
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 

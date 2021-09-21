@@ -30,8 +30,7 @@ input[type="radio"]:not(:checked) {
     left: -9999px;
 }
 input[type="radio"]:checked + label,
-input[type="radio"]:not(:checked) + label
-{
+input[type="radio"]:not(:checked) + label {
     position: relative;
     padding-left: 56px;
     cursor: pointer;
@@ -186,11 +185,35 @@ button:not([disabled]):hover {
 	margin: 1em 0;
 }
 
+.ya-UserInput {
+	background-image: url("images/body_outline.svg");
+	background-repeat: no-repeat;
+	background-position-y: center;
+    background-position-x: 94%;
+	font-size: 24px;
+	outline-width: 0px;
+	display: block;
+	height: 70px;
+    width: 285px;
+    background-color: #ffffff;
+	border: 3px solid gray;
+	box-sizing: border-box;
+	border-radius: 50px;
+	margin: 1em 0;
+    color: white;
+    padding: 0 2em;
+}
+
+.ya-UserInput:hover,
+.ya-UserInput:focus {
+	border-color: white;
+}
+
 /* > StoryButton __________________________________________________________ */
 
 .ya-StoryButton {
 	display: inline-block;
-	margin: 1em;
+	margin: 1em 0.2em;
 	width: 125px;
 }
 
@@ -208,10 +231,10 @@ button:not([disabled]):hover {
 	position: relative;
 }
 
-.ya-StoryButton:not([disabled]):hover .icon > img:first-child,
-.ya-StoryButton:not([disabled]) .icon > img:first-child:hover {
-	filter: drop-shadow(0 0 0.75rem darkslategray);
-}
+/* .ya-StoryButton:not([disabled]):hover .icon > img:first-child, */
+/* .ya-StoryButton:not([disabled]) .icon > img:first-child:hover { */
+/* 	filter: drop-shadow(0 0 0.75rem darkslategray); */
+/* } */
 
 .ya-StoryButton .icon > img:nth-child(2) {
 	position: absolute;
@@ -255,6 +278,7 @@ button:not([disabled]):hover {
     display: flex;
     align-items: center;
     gap: 1em;
+    	transition: background-color 0.3s linear 0s, filter 0.3s linear 0s;
 }
 
 .ya-YesNoOptionButton.yes, 
@@ -300,6 +324,7 @@ button:not([disabled]):hover {
 }
 
 .ya-YesNoOptionButton button {
+		transition: background-color 0.3s linear 0s, filter 0.3s linear 0s;
 
 }
 
@@ -322,7 +347,6 @@ button:not([disabled]):hover {
 	                     "content content content"
 						 "footer footer footer";
 }
-
 
 .pos_footer {
 	grid-area: footer;
@@ -381,8 +405,15 @@ button:not([disabled]):hover {
 	cursor: pointer;
 }
 
+.rootPanel {
+}
+
 .rootPanel.themeDark {
 	background-color: #0B0734;
+}
+
+.rootPanel.themeLight {
+	background-color: #ffffff;
 }
 
 .themeDark .headerPanel {
@@ -395,10 +426,6 @@ button:not([disabled]):hover {
 
 .themeDark .headerPanel span:hover {
 	text-shadow: 0 0 5px grey;
-}
-
-.rootPanel.themeLight {
-	background-color: #ffffff;
 }
 
 .themeLight .headerPanel {
@@ -430,528 +457,6 @@ button:not([disabled]):hover {
 	right: 0;
 	bottom: 0;
 	left: 0;
-}
-
-/* > Welcome ______________________________________________________________ */
-
-.welcomePanel {
-	background-image: url("images/puzzle_picture_logo.svg");
-	background-repeat: no-repeat;
-	background-position-y: bottom;
-	background-position-x: right;
-	margin: 5% 5%;
-	color: white;
-}
-
-.welcomePanel .subMessage {
-	display: inline-block;
-    max-width: 45%;
-    margin: 1em 0 3em 0;
-}
-
-.welcomePanel input {
-	background-image: url("images/body_outline.svg");
-	background-repeat: no-repeat;
-	background-position-y: center;
-    background-position-x: 94%;
-	font-size: 24px;
-	outline-width: 0px;
-	display: block;
-	height: 70px;
-    width: 285px;
-    background-color: #ffffff00;
-	border: 3px solid gray;
-	box-sizing: border-box;
-	border-radius: 50px;
-	margin: 1em 0;
-    color: white;
-    padding: 0 2em;
-}
-
-.welcomePanel input:hover,
-.welcomePanel input:focus {
-	border-color: white;
-}
-
-.welcomePanel button {
-	display: block;
-	margin: 1em 0;
-}
-
-/* > Story selection view _________________________________________________ */
-
-.storySelectionPanel {
-	padding: 7% 0;
-	text-align: center;
-	color: white;
-	argin: 3em 0;
-}
-
-.storySelectionList {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-content: flex-start;
-	flex-wrap: wrap;
-}
-
-/* > Decision With Introduction Stage View ________________________________ */
-
-.decisionWithIntroStageView {
-	background-color: white;
-	background-repeat: no-repeat;
-	background-position-y: bottom;
-	background-position-x: right;
-	background-size: 50%;
-}
-
-.decisionWithIntroStageView-Content {
-	width: 50%;
-	padding: 3% 0 0 5%;
-}
-
-.decisionWithIntroStageView-Content-Trivia {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    box-shadow: 0px 0px 15px #D8E3CB;
-	border-radius: 20px;
-}
-
-.decisionWithIntroStageView-Content-Trivia .border {
-    min-width: 16px;
-    border-radius: 20px 0px 0px 20px;
-    position: relative;
-}
-
-.decisionWithIntroStageView-Content-Trivia .border div {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-
-.decisionWithIntroStageView-Content-Trivia .border .layer0 {
-	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
-	box-shadow: 0px 0px 15px #D8E3CB;
-	border-radius: 20px 0px 0px 20px;
-}
-
-.decisionWithIntroStageView-Content-Trivia .border .layer1 {
-	background: radial-gradient(73.02% 357.03% at 57.03% 131.25%, #575757 7.65%, #313131
-		25.94%, #161616 48.44%, #060606 88%, #000000 100%);
-	background-blend-mode: color-dodge;
-	mix-blend-mode: color-dodge;
-	transform: matrix(0, -13, -1, 0, 0, 19);
-    top: 23.84%;
-    bottom: 57.03%;
-}
-    
-
-.decisionWithIntroStageView-Content-Trivia .text {
-	padding: 18px 32px;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 140.19%;
-}
-
-.decisionWithIntroStageView-Content-Options {
-	position: relative;
-	margin: 3em 0;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 140.19%;
-	/* or 25px */
-	letter-spacing: 0.035em;
-	color: #03290B;
-}
-
-/* > Decision With Question Stage View ____________________________________ */
-
-.decisionWithQuestionStageView {
-	background-color: white;
-	background-repeat: no-repeat;
-	background-position-y: bottom;
-	background-position-x: right;
-	background-size: 100%;
-}
-
-.decisionWithQuestionStageView-Content {
-	padding: 3% 5% 0 5%;
-}
-
-.decisionWithQuestionStageView-Content-Trivia {
-	display: block;
-    text-align: center;
-}
-
-.decisionWithQuestionStageView-Content-Trivia .text {
-	padding: 18px 32px;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 140.19%;
-}
-
-.decisionWithQuestionStageView-Content-Options {
-	position: relative;
-	margin: 3em 0;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 140.19%;
-	/* or 25px */
-	letter-spacing: 0.035em;
-	color: #03290B;
-	text-transform: uppercase;
-}
-
-.decisionWithQuestionStageView-Content-Options span {
-	padding: 10px 3em 10px 12px;
-    border: 5px solid white;
-    border-radius: 50px;
-	background-color: #EBEBEB;
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
-}
-
-.decisionWithQuestionStageView-Content-Options span:hover {
-	background-color: #d6d6d6;
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
-}
-
-/* > Information Stage View _______________________________________________ */
-
-.InformationStageView {
-	background-color: white;
-	background-repeat: no-repeat;
-	background-position-y: bottom;
-	background-position-x: right;
-	background-size: 100%;
-}
-
-.InformationStageView-Content {
-	padding: 3% 10% 0 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.InformationStageView-Content-Trivia {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    box-shadow: 0px 0px 15px #D8E3CB;
-	border-radius: 20px;
-	margin-bottom: 3em;
-	background-color: white;
-}
-
-.InformationStageView-Content-Trivia img {
-	display: inline-block;
-    width: 7%;
-    margin-left: 2em;
-    padding: 40px 0;
-}
-
-.InformationStageView-Content-Trivia .border {
-    min-width: 16px;
-    border-radius: 0px 20px 20px 0px;
-    position: relative;
-}
-
-.InformationStageView-Content-Trivia .border div {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-
-.InformationStageView-Content-Trivia .border .layer0 {
-	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
-	box-shadow: 0px 0px 15px #d8e3cb;
-	border-radius: 0 20px 20px 0;
-}
-
-.InformationStageView-Content-Trivia .text {
-	padding: 40px 32px;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 140.19%;
-}
-
-/* > Options List Selection Stage View ________________________________________ */
-
-.OptionsStageView {
-	background-color: white;
-	background-repeat: no-repeat;
-	background-position-y: bottom;
-	background-position-x: right;
-	background-size: 60%;
-	margin: 5% 5%;
-}
-
-.OptionsStageView .btn-PinkMatte {
-	margin: 1em;
-}
-
-.OptionsStageView-Content {
-	width: 50%;
-	padding: 3% 0 0 5%;
-}
-
-.OptionsStageView-Content-Trivia {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    box-shadow: 0px 0px 15px #D8E3CB;
-	border-radius: 20px;
-	margin-bottom: 3em;
-}
-
-.OptionsStageView-Content-Trivia img {
-	display: inline-block;
-    width: 7%;
-    margin-left: 2em;
-    padding: 40px 0;
-}
-
-.OptionsStageView-Content-Trivia .border {
-    min-width: 16px;
-    border-radius: 0px 20px 20px 0px;
-    position: relative;
-}
-
-.OptionsStageView-Content-Trivia .border div {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-
-.OptionsStageView-Content-Trivia .border .layer0 {
-	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
-	box-shadow: 0px 0px 15px #d8e3cb;
-	border-radius: 0 20px 20px 0;
-}
-
-.OptionsStageView-Content-Trivia .text {
-	padding: 40px 32px;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 140.19%;
-    flex-grow: 1;
-}
-
-.OptionsStageView-Options {
-	display: flex;
-	flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-.OptionsStageView-Options button {
-	color: #054513;
-    background: #C4E5CD;
-    border-radius: 50px;
-    border: 8px solid white;
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
-    text-transform: uppercase;
-    font-size: 18px;
-    padding: 15px 30px;
-    margin: 1em;
-}
-
-.OptionsStageView-Options button:disabled {
-	color: #f3f3f3;
-    background: #cacaca;
-}
-
-.OptionsStageView-Options button:not([disabled]):hover {
-	color: white;
-    background: #2BA14C;
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
-}
-
-/* > Yes No Options List Selection Stage View ________________________________________ */
-
-.YesNoOptionsStageView {
-	background-color: white;
-	background-repeat: no-repeat;
-	background-position-y: bottom;
-	background-position-x: right;
-	background-size: 60%;
-	margin: 5% 5%;
-}
-
-.YesNoOptionsStageView .btn-PinkMatte {
-	margin: 1em;
-}
-
-.YesNoOptionsStageView-Content {
-	width: 50%;
-	padding: 3% 0 0 5%;
-}
-
-.YesNoOptionsStageView-Content-Trivia {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    box-shadow: 0px 0px 15px #D8E3CB;
-	border-radius: 20px;
-	margin-bottom: 3em;
-}
-
-.YesNoOptionsStageView-Content-Trivia img {
-	display: inline-block;
-    width: 7%;
-    margin-left: 2em;
-    padding: 40px 0;
-}
-
-.YesNoOptionsStageView-Content-Trivia .border {
-    min-width: 16px;
-    border-radius: 0px 20px 20px 0px;
-    position: relative;
-}
-
-.YesNoOptionsStageView-Content-Trivia .border div {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-
-.YesNoOptionsStageView-Content-Trivia .border .layer0 {
-	background: linear-gradient(278.85deg, #087732 21.33%, #07C84F 114.32%);
-	box-shadow: 0px 0px 15px #d8e3cb;
-	border-radius: 0 20px 20px 0;
-}
-
-.YesNoOptionsStageView-Content-Trivia .text {
-	padding: 40px 32px;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 140.19%;
-    flex-grow: 1;
-}
-
-.YesNoOptionsStageView-Options {
-	display: flex;
-	flex-direction: column;
-}
-
-/* > Story Summaries View ____________________________________________________ */
-
-.storySummariesView {
-	color: white;
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
-}
-
-
-
-
-.storySummariesView .nextSubSummary {
-    position: relative;
-    text-align: center;
-    display: flex;
-    color: white;
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
-    border: 0.6em solid #00a0ff;
-    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.storySummariesView .nextSubSummary span {
-    font-size: xxx-large;
-}
-
-.storySummariesView .lasSubSummary {
-    position: relative;
-    text-align: center;
-    font-size: small;
-    display: flex;
-    color: white;
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    border: 0.6em solid #00a0ff;
-    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.storySummariesView .lasSubSummary span {
-    font-size: small;
-}
-
-
-
-/* > Story Summaries View ____________________________________________________ */
-
-.storySummariesView {
-	justify-content: flex-start;
-}
-
-.storySummariesView .bar {
-	display: flex;
-    gap: 1em;
-    border-bottom: 2px solid white;
-    padding: 1em;
-    min-height: 6em;
-    min-width: 40%;
-    justify-content: center;
-    align-items: center;
-}
-
-.storySummariesView .bar div {
-	transition: all 1s;
-	width: 5em;
-	height: 5em;
-}
-
-.storySummariesView .bar img {
-	width: 100%;
-}
-
-.storySummariesView .bar img:hover {
-	cursor: pointer;
-}
-
-.storySummariesView .bar .hidden {
-	width: 0;
-	height: 0;
-	border: none;
-	opacity: 0;
-	margin: 0;
-	padding: 0;
-}
-
-.storySummariesView .bar .visible {
-	padding: 2em;
-}
-
-.storySummariesView .main {
-	flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    width: 75%;
 }
 
 .ya-DecisionOutcome {
