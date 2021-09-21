@@ -129,12 +129,11 @@ button:not([disabled]):hover {
 
 .btn-PinkMatte {
     position: relative;
-    height: 60px;
-    width: 160px;
+    height: 3vmax;
+    width: 9vmax;
     font-family: Comfortaa;
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
     letter-spacing: 0.035em;
 }
 
@@ -148,6 +147,7 @@ button:not([disabled]):hover {
     left: 0;
     width: 100%;
     height: 100%;
+    font-size: 1em;
 }
 
 .btn-PinkMatte button:hover {
@@ -467,6 +467,8 @@ button:not([disabled]):hover {
     box-sizing: border-box;
     max-width: 86vmin;
     min-width: 42vmax;
+    font-size: 1.4vmax;
+    line-height: 2vmax;
 }
 
 .ya-DecisionOutcome>div:nth-child(2) {
@@ -478,12 +480,12 @@ button:not([disabled]):hover {
     background-repeat: no-repeat;
 }
 
-.ya-DecisionOutcome .background>img {
+.ya-DecisionOutcome>img {
     width: 100%;
     height: 100%;
 }
 
-.ya-DecisionOutcome .foreground {
+.ya-DecisionOutcome>.foreground {
     display: grid;
     grid-template-columns: [left] 15% [middle] auto;
     grid-template-rows: [top] auto [bottom] auto;
@@ -496,7 +498,7 @@ button:not([disabled]):hover {
     transition: opacity 1s linear .3s;
 }
 
-.ya-DecisionOutcome .foreground .emoji {
+.ya-DecisionOutcome>.foreground .emoji {
     position: relative;
     width: fit-content;
     grid-area: emoji;
@@ -504,29 +506,34 @@ button:not([disabled]):hover {
     justify-self: center;
 }
 
-.ya-DecisionOutcome .foreground .emoji img {
+.ya-DecisionOutcome>.foreground .emoji img {
     width: 100%;
 }
 
-.ya-DecisionOutcome .foreground .text {
-    font-size: 1.4vmax;
-    line-height: 2vmax;
+.ya-DecisionOutcome>.foreground .text {
     position: relative;
     grid-area: text;
     padding-right: 7ch;
     align-self: flex-end;
 }
 
-.ya-DecisionOutcome .foreground .btn-PinkMatte {
+.ya-DecisionOutcome>.foreground .btn-PinkMatte {
     grid-area: footer;
     justify-self: center;
 }
 
+
+/* _______________________________________________________________________________________________________ */
+
 .ya-StoryOutcome {
     position: relative;
-    opacity: 1;
+    color: white;
+    box-sizing: border-box;
     transition: width 1s, height 1s, opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1) 1.2s;
-    overflow: hidden;
+    max-width: 86vmin;
+    min-width: 42vmax;
+    font-size: 1vmax;
+    line-height: 1.3vmax;
 }
 
 .ya-StoryOutcome.hidden {
@@ -535,37 +542,16 @@ button:not([disabled]):hover {
     opacity: 0;
 }
 
-.ya-StoryOutcome .background {
-    border-radius: 10% / 50%;
-    border: 0.6em solid #00a0ff;
-    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
+.ya-StoryOutcome>img {
+    width: 100%;
+    height: 100%;
 }
 
-.ya-StoryOutcome .background,
-.ya-StoryOutcome .background div {
+.ya-StoryOutcome>.foreground {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
-    background-repeat: no-repeat;
-}
-
-.ya-StoryOutcome .background>div:nth-child(1) {
-    background-image: url(images/bg-summaries-top.svg);
-    background-position: top;
-    background-size: 86%;
-}
-
-.ya-StoryOutcome .background>div:nth-child(2) {
-    background-image: url(images/bg-summaries-bottom.svg);
-    background-position: bottom;
-    background-size: 86%;
-}
-
-.ya-StoryOutcome .foreground {
-    position: relative;
-    top: 0;
     left: 0;
     display: flex;
     gap: 1em;
@@ -573,44 +559,58 @@ button:not([disabled]):hover {
     align-items: center;
     padding: 2em 2em 1em 2em;
     box-sizing: border-box;
+    justify-content: center;
 }
 
-.ya-StoryOutcome .foreground .storyName {
+.ya-StoryOutcome>.foreground .storyName {
     position: relative;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 2em;
 }
 
-.ya-StoryOutcome .foreground .storySummaryText {
+.ya-StoryOutcome>.foreground .storySummaryText {
     position: relative;
     padding: 1em;
     border-bottom: 2px solid white;
 }
 
-.ya-StoryOutcome .foreground>span {
+.ya-StoryOutcome>.foreground>span {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1em;
     text-transform: uppercase;
     color: #ffffff99;
 }
 
-.ya-StoryOutcome .foreground .resultDisplay {
-    width: 15em;
-    border: 5px solid white;
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    align-items: center;
-    padding: 5px 5px;
-    border-radius: 57px;
+.resultDisplay {
     position: relative;
-    box-sizing: border-box;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url(images/button-pink.svg);
+    width: 38%;
 }
 
-.ya-StoryOutcome .foreground .resultDisplay span {
+.resultDisplay>img {
+    width: 100%;
+    height: 100%;
+}
+
+.resultDisplay>.foreground {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 1em;
+}
+
+.resultDisplay>.foreground>img {
+    width: 45%;
+}
+
+.resultDisplay .foreground span {
     font-size: 3em;
     flex-grow: 1;
     text-align: center;

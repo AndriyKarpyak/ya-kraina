@@ -4,9 +4,7 @@
 	xmlns:ya="urn:import:com.karp.yakraina.client.widgets">
 
 		<g:HTMLPanel addStyleNames="ya-DecisionOutcome">
-			<g:HTMLPanel addStyleNames="background">
-				<g:Image url="images/bg-summaries.svg" />
-			</g:HTMLPanel>
+			<g:Image url="images/bg-summaries.svg" />
 			
 			<g:HTMLPanel addStyleNames="foreground" >
 				<ya:Emoji addStyleNames="emoji" ui:field="emoji" />

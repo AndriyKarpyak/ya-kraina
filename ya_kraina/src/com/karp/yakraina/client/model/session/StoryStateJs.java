@@ -61,7 +61,7 @@ public class StoryStateJs extends StoryJs {
 			JsArray<DecisionOutcomeJs> jsArray = getResults();
 
 			for (int i = 0; i < jsArray.length(); i++) {
-				GWT.log(jsArray.get(i).getText() + ": " + jsArray.get(i).getPoints());
+				GWT.log(getName() + ": [" + jsArray.get(i).getText() + ": " + jsArray.get(i).getPoints() + "]");
 				points += jsArray.get(i).getPoints();
 			}
 

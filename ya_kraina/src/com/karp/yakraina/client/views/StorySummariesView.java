@@ -50,7 +50,7 @@ public class StorySummariesView extends View {
 		mainElements.clear();
 		barElements.clear();
 		data.clear();
-
+		
 		for (DecisionOutcomeJs outcome : GameSession.get().getActiveStoryResults()) {
 			if (outcome.hasText() && !outcome.getText().isEmpty()) {
 

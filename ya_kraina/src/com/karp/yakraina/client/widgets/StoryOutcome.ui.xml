@@ -4,18 +4,19 @@
 	xmlns:ya="urn:import:com.karp.yakraina.client.widgets">
 	
 		<g:HTMLPanel addStyleNames="ya-StoryOutcome" ui:field="pointsPanel">
-			<g:HTMLPanel addStyleNames="background">
-				<g:HTML />
-				<g:HTML />
-			</g:HTMLPanel>
+			<g:Image url="images/bg-summaries.svg" />
 
 			<g:HTMLPanel addStyleNames="foreground">
 				<g:HTML addStyleNames="storyName" ui:field="storyNameLabel" />
 				<g:HTML addStyleNames="storySummaryText" ui:field="storySummaryText" />
 				<g:InlineLabel>ВАШ РЕЗУЛЬТАТ</g:InlineLabel>
 				<g:HTMLPanel addStyleNames="resultDisplay">
-					<g:Image ui:field="storyIcon" />
-					<g:InlineLabel ui:field="pointsText" />
+					<g:Image url="images/bg-result.svg" />
+					
+					<g:HTMLPanel addStyleNames="foreground">
+						<g:Image ui:field="storyIcon" />
+						<g:InlineLabel ui:field="pointsText" />
+					</g:HTMLPanel>
 				</g:HTMLPanel>
 				<ya:MatteBytton ui:field="button_Accept" />
 			</g:HTMLPanel>

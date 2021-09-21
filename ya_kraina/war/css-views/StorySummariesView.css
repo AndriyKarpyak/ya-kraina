@@ -1,66 +1,15 @@
 @charset "UTF-8";
 
-
-
-
-
-/* > Story Summaries View ____________________________________________________ */
-
-.storySummariesView {
-	color: white;
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
-}
-
-.storySummariesView .nextSubSummary {
-    position: relative;
-    text-align: center;
-    display: flex;
-    color: white;
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
-    border: 0.6em solid #00a0ff;
-    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.storySummariesView .nextSubSummary span {
-    font-size: xxx-large;
-}
-
-.storySummariesView .lasSubSummary {
-    position: relative;
-    text-align: center;
-    font-size: small;
-    display: flex;
-    color: white;
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    border: 0.6em solid #00a0ff;
-    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.storySummariesView .lasSubSummary span {
-    font-size: small;
-}
-
-
-
 /* > Story Summaries View ____________________________________________________ */
 
 .storySummariesView {
 	position: relative;
+	color: white;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 	justify-content: flex-start;
+    gap: 2em;
 	overflow-y: hidden;
 }
 
@@ -68,7 +17,6 @@
 	position: relative;
 	display: flex;
     gap: 1em;
-    border-bottom: 2px solid white;
     padding: 1em;
     height: 9vmin;
     min-height: 9vmin;
