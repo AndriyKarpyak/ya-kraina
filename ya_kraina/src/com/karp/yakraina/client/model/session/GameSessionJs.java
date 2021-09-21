@@ -53,7 +53,7 @@ class GameSessionJs extends JavaScriptObject {
 		return this.ActiveStory;
 	}-*/;
 
-	private final native void deleteActiveStory() /*-{
+	public final native void deleteActiveStory() /*-{
 		delete this.ActiveStory
 	}-*/;
 
