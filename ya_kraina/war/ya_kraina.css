@@ -1,27 +1,29 @@
 /** Add css rules here for your application. */
-body, html {
-	height: 100%;
-	width: 100%;
-	border: 0;
-	margin: 0;
-	padding: 0;
-	font-family: Roboto, "Open Sans", Helvetica, Arial, sans-serif;
-	font-style: normal;
-	line-height: 140.19%;
-	letter-spacing: 0.035em;
-	direction: ltr;
-	overflow: hidden;
-	box-sizing: border-box;
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, "Open Sans", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    line-height: 140.19%;
+    letter-spacing: 0.035em;
+    direction: ltr;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 input {
-	font-size: 0.7em;
+    font-size: 0.7em;
 }
 
 input[type="radio"]:not(:disabled):hover,
 input[type="radio"]:not(:disabled):hover+label {
-	cursor: pointer;
-	text-shadow: 0 0 1px darkslategray;
+    cursor: pointer;
+    text-shadow: 0 0 1px darkslategray;
 }
 
 input[type="radio"]:checked,
@@ -29,8 +31,9 @@ input[type="radio"]:not(:checked) {
     position: absolute;
     left: -9999px;
 }
-input[type="radio"]:checked + label,
-input[type="radio"]:not(:checked) + label {
+
+input[type="radio"]:checked+label,
+input[type="radio"]:not(:checked)+label {
     position: relative;
     padding-left: 56px;
     cursor: pointer;
@@ -39,8 +42,9 @@ input[type="radio"]:not(:checked) + label {
     min-height: 38px;
     align-items: center;
 }
-input[type="radio"]:checked + label:before,
-input[type="radio"]:not(:checked) + label:before {
+
+input[type="radio"]:checked+label:before,
+input[type="radio"]:not(:checked)+label:before {
     content: '';
     position: absolute;
     left: 0;
@@ -51,8 +55,9 @@ input[type="radio"]:not(:checked) + label:before {
     border-radius: 100%;
     background: #fff;
 }
-input[type="radio"]:checked + label:after,
-input[type="radio"]:not(:checked) + label:after {
+
+input[type="radio"]:checked+label:after,
+input[type="radio"]:not(:checked)+label:after {
     content: '';
     width: 30px;
     height: 30px;
@@ -65,22 +70,23 @@ input[type="radio"]:not(:checked) + label:after {
     transition: all 0.2s ease;
 }
 
-input[type="radio"]:checked:disabled + label:after {
+input[type="radio"]:checked:disabled+label:after {
     background: #77847C;
 }
 
-input[type="radio"]:disabled + label,
-input[type="radio"]:disabled + label:after,
-input[type="radio"]:disabled + label:before {
-	cursor: auto;
+input[type="radio"]:disabled+label,
+input[type="radio"]:disabled+label:after,
+input[type="radio"]:disabled+label:before {
+    cursor: auto;
 }
 
-input[type="radio"]:not(:checked) + label:after {
+input[type="radio"]:not(:checked)+label:after {
     opacity: 0;
     -webkit-transform: scale(0);
     transform: scale(0);
 }
-input[type="radio"]:checked + label:after {
+
+input[type="radio"]:checked+label:after {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -91,178 +97,184 @@ button {
     background-color: #ffffff00;
     color: white;
     font-weight: bold;
-	font-size: 24px;
-	border: none;
+    font-size: 24px;
+    border: none;
 }
 
 button:not([disabled]):hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .btn-GreenGlass {
-	height: 70px;
+    height: 70px;
     width: 285px;
     background-image: url(images/button_green_glass_out.svg);
 }
 
 .btn-GreenGlass:hover {
-	cursor: pointer;
+    cursor: pointer;
     background-image: url(images/button_green_glass_in.svg);
 }
 
 .btn-YellowGlass {
-	height: 70px;
+    height: 70px;
     width: 285px;
     background-image: url(images/button_yellow_glass_out.svg);
 }
 
 .btn-YellowGlass:hover {
-	cursor: pointer;
+    cursor: pointer;
     background-image: url(images/button_yellow_glass_in.svg);
 }
 
 .btn-PinkMatte {
-	position: relative;
-	height: 60px;
-	width: 160px;
-	font-family: Comfortaa;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 24px;
-	letter-spacing: 0.035em;
+    position: relative;
+    height: 60px;
+    width: 160px;
+    font-family: Comfortaa;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 0.035em;
 }
 
 .btn-PinkMatte button {
-	border: 3px solid white;
-	border-radius: 50px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
-	background: none;
-	position: relative;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+    border: 3px solid white;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+    background: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .btn-PinkMatte button:hover {
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.55);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.55);
 }
 
 .btn-PinkMatte div {
-	position: absolute;
-	top: 3px;
-	right: 3px;
-	bottom: 3px;
-	left: 3px;
-	border-radius: 50px;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    bottom: 3px;
+    left: 3px;
+    border-radius: 50px;
 }
 
 .btn-PinkMatte .layer0 {
-	background: radial-gradient(76.56% 187% at 82.4% 140.51%, #858585 17%, #575757 36%,
-		#313131 55%, #161616 73%, #060606 88%, #000000 100%);
-	background-blend-mode: color-dodge;
-	mix-blend-mode: color-dodge;
+    background: radial-gradient(76.56% 187% at 82.4% 140.51%, #858585 17%, #575757 36%, #313131 55%, #161616 73%, #060606 88%, #000000 100%);
+    background-blend-mode: color-dodge;
+    mix-blend-mode: color-dodge;
 }
 
 .btn-PinkMatte .layer1 {
-	background: linear-gradient(180deg, #FFFFFF 2.96%, #FCFCFC 23.22%, #F1F1F1 40.45%,
-		#E0E0E0 56.66%, #C8C8C8 71.86%, #ABABAB 86.04%, #FFFFFF 104.28%);
-	background-blend-mode: color-burn;
-	mix-blend-mode: color-burn;
+    background: linear-gradient(180deg, #FFFFFF 2.96%, #FCFCFC 23.22%, #F1F1F1 40.45%, #E0E0E0 56.66%, #C8C8C8 71.86%, #ABABAB 86.04%, #FFFFFF 104.28%);
+    background-blend-mode: color-burn;
+    mix-blend-mode: color-burn;
 }
 
 .btn-PinkMatte .layer2 {
-	background: #D6007E;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    background: #D6007E;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn-PinkMatte .layer3:hover {
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
 }
 
 .gwt-RadioButton {
-	display: table;
-	margin: 1em 0;
+    display: table;
+    margin: 1em 0;
 }
 
 .ya-UserInput {
-	background-image: url("images/body_outline.svg");
-	background-repeat: no-repeat;
-	background-position-y: center;
+    background-image: url("images/body_outline.svg");
+    background-repeat: no-repeat;
+    background-position-y: center;
     background-position-x: 94%;
-	font-size: 24px;
-	outline-width: 0px;
-	display: block;
-	height: 70px;
+    font-size: 24px;
+    outline-width: 0px;
+    display: block;
+    height: 70px;
     width: 285px;
     background-color: #ffffff;
-	border: 3px solid gray;
-	box-sizing: border-box;
-	border-radius: 50px;
-	margin: 1em 0;
+    border: 3px solid gray;
+    box-sizing: border-box;
+    border-radius: 50px;
+    margin: 1em 0;
     color: white;
     padding: 0 2em;
 }
 
 .ya-UserInput:hover,
 .ya-UserInput:focus {
-	border-color: white;
+    border-color: white;
 }
+
 
 /* > StoryButton __________________________________________________________ */
 
 .ya-StoryButton {
-	display: inline-block;
-	margin: 1em 0.2em;
-	width: 125px;
+    display: inline-block;
+    margin: 1em 0.2em;
+    width: 125px;
 }
 
 .ya-StoryButton:not([disabled]):hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .ya-StoryButton .icon {
-	width: 125px;
-	height: 120px;
-	position: relative;
+    width: 125px;
+    height: 120px;
+    position: relative;
 }
 
 .ya-StoryButton .icon img:first-child {
-	position: relative;
+    position: relative;
 }
 
+
 /* .ya-StoryButton:not([disabled]):hover .icon > img:first-child, */
+
+
 /* .ya-StoryButton:not([disabled]) .icon > img:first-child:hover { */
+
+
 /* 	filter: drop-shadow(0 0 0.75rem darkslategray); */
+
+
 /* } */
 
-.ya-StoryButton .icon > img:nth-child(2) {
-	position: absolute;
+.ya-StoryButton .icon>img:nth-child(2) {
+    position: absolute;
     bottom: 16px;
 }
 
 .ya-StoryButton .icon img.done {
-	left: 4px;
+    left: 4px;
 }
 
 .ya-StoryButton .icon img:not(.done):nth-child(2) {
-	right: 16px;
+    right: 16px;
 }
 
 .ya-StoryButton .icon span {
-	position: absolute;
+    position: absolute;
     bottom: 16px;
-	left: 13px;
+    left: 13px;
     font-size: 14px;
     font-weight: bold;
 }
 
 .ya-StoryButton .storyName {
-	user-select: none;
+    user-select: none;
 }
 
 .ya-StoryButton:not([disabled]):hover .storyName {
-	text-shadow: 0 0 5px lightgrey;
+    text-shadow: 0 0 5px lightgrey;
 }
 
 .ya-YesNoOptionButton {
@@ -278,104 +290,93 @@ button:not([disabled]):hover {
     display: flex;
     align-items: center;
     gap: 1em;
-    	transition: background-color 0.3s linear 0s, filter 0.3s linear 0s;
+    transition: background-color 0.3s linear 0s, filter 0.3s linear 0s;
 }
 
-.ya-YesNoOptionButton.yes, 
+.ya-YesNoOptionButton.yes,
 .ya-YesNoOptionButton.no {
-	font-weight: bold;
-	font-size: 18px;
-	line-height: 140.19%;
-	/* or 25px */
-	letter-spacing: 0.035em;
-	text-transform: uppercase;
-	color: #837F7F;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 140.19%;
+    /* or 25px */
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+    color: #837F7F;
 }
 
 .ya-YesNoOptionButton .gwt-RadioButton {
-	font-weight: bold;
-	font-size: 24px;
-	line-height: 140.19%;
-	/* or 34px */
-	letter-spacing: 0.035em;
-	color: #575757;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 140.19%;
+    /* or 34px */
+    letter-spacing: 0.035em;
+    color: #575757;
     margin: 0.2em 0;
 }
 
-.ya-YesNoOptionButton .gwt-RadioButton:disabled {
-
-}
-
 .ya-YesNoOptionButton.correct {
-	background-color: #B5E1B1;
+    background-color: #B5E1B1;
 }
 
 .ya-YesNoOptionButton.wrong {
-	background-color: #FFCCC5;
+    background-color: #FFCCC5;
 }
 
 .ya-YesNoOptionButton:hover {
-	user-select: none;
+    user-select: none;
     filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
 }
 
-.ya-YesNoOptionButton:not([disabled]) div {
-
-}
-
 .ya-YesNoOptionButton button {
-		transition: background-color 0.3s linear 0s, filter 0.3s linear 0s;
-
+    transition: background-color 0.3s linear 0s, filter 0.3s linear 0s;
 }
 
 .ya-YesNoOptionButton button:hover {
-	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.35));
 }
 
 .rootPanel {
-	box-sizing: border-box;
-	background-size: 100% 100%;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	display: grid;
-	grid-template-columns: [left] 1% [middle] auto [right] 1%;
-	grid-template-rows: [top] 87px [middle] auto [bottom] 1%;
-	grid-template-areas: "header header header" 
-	                     "content content content"
-						 "footer footer footer";
+    box-sizing: border-box;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: [left] 1% [middle] auto [right] 1%;
+    grid-template-rows: [top] 87px [middle] auto [bottom] 1%;
+    grid-template-areas: "header header header" "content content content" "footer footer footer";
 }
 
 .pos_footer {
-	grid-area: footer;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	align-content: center;
+    grid-area: footer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
 }
 
 .pos_footer img {
-	height: 1em;
+    height: 1em;
 }
 
 .error {
-	color: red;
+    color: red;
 }
+
 
 /* > Header _______________________________________________________________ */
 
 .pos_header {
-	grid-area: header;
+    grid-area: header;
 }
 
 .headerPanel {
-	
-	background-size: 100% 100%;
-	display: flex;
+    background-size: 100% 100%;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
@@ -383,201 +384,133 @@ button:not([disabled]):hover {
 }
 
 .headerPanel img {
-	height: 61px;
-	width: auto;	
+    height: 61px;
+    width: auto;
 }
 
 .headerPanel img:hover {
-	cursor: pointer;	
+    cursor: pointer;
 }
 
 .headerPanel div {
-	flex-grow: 1;	
+    flex-grow: 1;
 }
 
 .headerPanel span {
-	font-weight: bold;
-	margin: 0 0 0 40px;
-	user-select: none;
+    font-weight: bold;
+    margin: 0 0 0 40px;
+    user-select: none;
 }
 
 .headerPanel span:hover {
-	cursor: pointer;
-}
-
-.rootPanel {
+    cursor: pointer;
 }
 
 .rootPanel.themeDark {
-	background-color: #0B0734;
+    background-color: #0B0734;
 }
 
 .rootPanel.themeLight {
-	background-color: #ffffff;
+    background-color: #ffffff;
 }
 
 .themeDark .headerPanel {
-	background-color: #1B164D;
+    background-color: #1B164D;
 }
 
 .themeDark .headerPanel span {
-	color: white;
+    color: white;
 }
 
 .themeDark .headerPanel span:hover {
-	text-shadow: 0 0 5px grey;
+    text-shadow: 0 0 5px grey;
 }
 
 .themeLight .headerPanel {
-	background-color: #F2F6F7;
+    background-color: #F2F6F7;
 }
 
 .themeLight .headerPanel span {
-	color: #181151;
+    color: #181151;
 }
 
 .themeLight .headerPanel span:hover {
-	text-shadow: 0 0 1px darkslategray;
+    text-shadow: 0 0 1px darkslategray;
 }
+
 
 /* > Content ______________________________________________________________ */
 
 .pos_content {
-	grid-area: content;
+    grid-area: content;
 }
 
 .contentViewPanel {
-	position: relative;
-	overflow: auto;
+    position: relative;
+    overflow: auto;
 }
 
-.contentViewPanel > div:first-child {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+.contentViewPanel>div:first-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
+
+
+/* _______________________________________________________________________________________________________ */
 
 .ya-DecisionOutcome {
-	position: relative;
+    position: relative;
     color: white;
     padding: 2em;
     box-sizing: border-box;
     transition: all 1s;
-}
-
-.ya-DecisionOutcome div {
-}
-
-.ya-DecisionOutcome.pos-1 {
-	top:110%;
-	width: 0;
-	height: 0;
-	border: none;
-	opacity: 0;
-	margin: 0;
-	padding: 0;
-}
-
-.ya-DecisionOutcome.pos-1 .foreground {
-	opacity: 0;
-}
-
-.ya-DecisionOutcome.pos0 {
-	top:0%;
-	width: 0;
-	height: 0;
-	opacity: 0;
-	margin: 0;
-	padding: 0;
-}
-
-.ya-DecisionOutcome.pos0 .background {
-	border-width: 0;
-	overflow: hidden;
-}
-
-.ya-DecisionOutcome.pos0 .foreground {
-	display: none;
-	opacity: 0;
-}
-
-.ya-DecisionOutcome.pos1 {
-	top:0%;
-	height: 20em;
-    width: 100%;
-    overflow: hidden;
-}
-
-.ya-DecisionOutcome.pos1 .foreground {
-	opacity: 1;
-}
-
-.ya-DecisionOutcome.pos2 {
-	top:15%;
-	height: 10em;
-	width: 10em;
-}
-
-.ya-DecisionOutcome.pos2 .background {
-	border-radius: 50%;
-	overflow: hidden;
-}
-
-.ya-DecisionOutcome.pos2 .foreground {
-	opacity: 0;
-}
-
-.ya-DecisionOutcome.pos3 {
-	top:20%;
-	height: 5em;
-	width: 5em;
-}
-
-.ya-DecisionOutcome.pos3 .background {
-	border-radius: 50%;
-	overflow: hidden;
-}
-
-.ya-DecisionOutcome.pos3 .foreground {
-	opacity: 0;
-}
-
-.ya-DecisionOutcome .background {
-    border-radius: 10% / 50%;
-    border: 0.6em solid #00a0ff;
-    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
+    margin: 5em 0;
 }
 
 .ya-DecisionOutcome .background,
-.ya-DecisionOutcome .background div {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+.ya-DecisionOutcome .background>div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background-repeat: no-repeat;
 }
 
-.ya-DecisionOutcome .background > div:nth-child(1) {
-	background-image: url(images/bg-summaries-top.svg);
-    background-position: top;
-    background-size: 86%;
+.ya-DecisionOutcome .background>div:nth-child(1) {
+    /* border-radius: 10%/50%; */
+    border-top-left-radius: 20em;
+    border-top-right-radius: 20em;
+    border-bottom-left-radius: 20em;
+    border-bottom-right-radius: 20em;
+    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
 }
 
-.ya-DecisionOutcome .background > div:nth-child(2) {
-	background-image: url(images/bg-summaries-bottom.svg);
+.ya-DecisionOutcome .background>div:nth-child(2) {
+    /* border-radius: 10%/50%;
+    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%); */
+}
+
+.ya-DecisionOutcome .background>div:nth-child(3) {
+    /* background-image: url(images/bg-summaries-top.svg);
+    background-position: top;
+    background-size: 86%; */
+}
+
+.ya-DecisionOutcome .background>div:nth-child(4) {
+    /* background-image: url(images/bg-summaries-bottom.svg);
     background-position: bottom;
-    background-size: 86%;
+    background-size: 86%; */
 }
 
 .ya-DecisionOutcome .foreground {
-	display: grid;
-	grid-template-columns: [left] 15% [middle] auto;
-	grid-template-rows: [top] auto [bottom] auto;
-	grid-template-areas: "emoji text"
-						 "footer footer";
+    display: grid;
+    grid-template-columns: [left] 15% [middle] auto;
+    grid-template-rows: [top] auto [bottom] auto;
+    grid-template-areas: "emoji text" "footer footer";
     column-gap: 1.2em;
     row-gap: 2em;
     width: 100%;
@@ -587,7 +520,7 @@ button:not([disabled]):hover {
 }
 
 .ya-DecisionOutcome .foreground .emoji {
-	position: relative;
+    position: relative;
     width: fit-content;
     grid-area: emoji;
     display: inline;
@@ -595,30 +528,28 @@ button:not([disabled]):hover {
 }
 
 .ya-DecisionOutcome .foreground .text {
-	position: relative;
-	grid-area: text;
-	padding-right: 6em;
-	align-self: center;
+    position: relative;
+    grid-area: text;
+    padding-right: 6em;
+    align-self: center;
 }
 
 .ya-DecisionOutcome .foreground .btn-PinkMatte {
-	grid-area: footer;
-	justify-self: center;
+    grid-area: footer;
+    justify-self: center;
 }
 
-
-
 .ya-StoryOutcome {
-	position: relative;
-	opacity: 1;
-	transition: width 1s, height 1s, opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1) 1.2s;
-	overflow: hidden;
+    position: relative;
+    opacity: 1;
+    transition: width 1s, height 1s, opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1) 1.2s;
+    overflow: hidden;
 }
 
 .ya-StoryOutcome.hidden {
-	width: 0;
-	height: 0;
-	opacity: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
 }
 
 .ya-StoryOutcome .background {
@@ -629,32 +560,32 @@ button:not([disabled]):hover {
 
 .ya-StoryOutcome .background,
 .ya-StoryOutcome .background div {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background-repeat: no-repeat;
 }
 
-.ya-StoryOutcome .background > div:nth-child(1) {
-	background-image: url(images/bg-summaries-top.svg);
+.ya-StoryOutcome .background>div:nth-child(1) {
+    background-image: url(images/bg-summaries-top.svg);
     background-position: top;
     background-size: 86%;
 }
 
-.ya-StoryOutcome .background > div:nth-child(2) {
-	background-image: url(images/bg-summaries-bottom.svg);
+.ya-StoryOutcome .background>div:nth-child(2) {
+    background-image: url(images/bg-summaries-bottom.svg);
     background-position: bottom;
     background-size: 86%;
 }
 
 .ya-StoryOutcome .foreground {
-	position: relative;
-	top: 0;
-	left: 0;
-	display: flex;
-	gap: 1em;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 1em;
     flex-direction: column;
     align-items: center;
     padding: 2em 2em 1em 2em;
@@ -662,19 +593,19 @@ button:not([disabled]):hover {
 }
 
 .ya-StoryOutcome .foreground .storyName {
-	position: relative;
-	font-weight: bold;
+    position: relative;
+    font-weight: bold;
     font-size: 36px;
 }
 
 .ya-StoryOutcome .foreground .storySummaryText {
-	position: relative;
-	padding: 1em;
-	border-bottom: 2px solid white;
+    position: relative;
+    padding: 1em;
+    border-bottom: 2px solid white;
 }
 
-.ya-StoryOutcome .foreground > span {
-	font-weight: bold;
+.ya-StoryOutcome .foreground>span {
+    font-weight: bold;
     font-size: 18px;
     text-transform: uppercase;
     color: #ffffff99;
@@ -694,10 +625,6 @@ button:not([disabled]):hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(images/button-pink.svg);
-}
-
-.ya-StoryOutcome .foreground .resultDisplay img {
-	
 }
 
 .ya-StoryOutcome .foreground .resultDisplay span {
