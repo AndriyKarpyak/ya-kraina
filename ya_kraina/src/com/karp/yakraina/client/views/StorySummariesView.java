@@ -50,7 +50,7 @@ public class StorySummariesView extends View {
 		mainElements.clear();
 		barElements.clear();
 		data.clear();
-
+		
 		for (DecisionOutcomeJs outcome : GameSession.get().getActiveStoryResults()) {
 			if (outcome.hasText() && !outcome.getText().isEmpty()) {
 
@@ -78,7 +78,7 @@ public class StorySummariesView extends View {
 							Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
 								mainElements.get(index).setPosition(1);
 								return false;
-							}, 200));
+							}, 500));
 
 						}
 					}

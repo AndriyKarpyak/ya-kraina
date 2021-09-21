@@ -61,9 +61,10 @@ public class StoryOutcome extends Composite implements HasClickHandlers {
 		storyIcon.setUrl(UriUtils.fromTrustedString(
 				"images/story_selection/" + story.getName().replace(" ", "_").toLowerCase() + ".svg"));
 		
-		for (SummaryConditionJs condition : conditions) {
+		for (int i = conditions.size() - 1; i >= 0; i--) {
+			SummaryConditionJs condition = conditions.get(i);
 			
-			if (collectedPoints < condition.getBound() || collectedPoints == 0) {
+			if (collectedPoints >= condition.getBound() || collectedPoints == 0) {
 				storySummaryText.setHTML(SafeHtmlUtils.fromTrustedString(condition.getText()));
 				break;
 			}

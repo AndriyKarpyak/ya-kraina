@@ -1,73 +1,26 @@
 @charset "UTF-8";
 
-
-
-
-
 /* > Story Summaries View ____________________________________________________ */
 
 .storySummariesView {
+	position: relative;
 	color: white;
 	display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2em;
-}
-
-.storySummariesView .nextSubSummary {
-    position: relative;
-    text-align: center;
-    display: flex;
-    color: white;
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
-    border: 0.6em solid #00a0ff;
-    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.storySummariesView .nextSubSummary span {
-    font-size: xxx-large;
-}
-
-.storySummariesView .lasSubSummary {
-    position: relative;
-    text-align: center;
-    font-size: small;
-    display: flex;
-    color: white;
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    border: 0.6em solid #00a0ff;
-    background: radial-gradient(47.64% 52.72% at 49.97% 50%, #0244A8 0%, #008CCA 100%);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.storySummariesView .lasSubSummary span {
-    font-size: small;
-}
-
-
-
-/* > Story Summaries View ____________________________________________________ */
-
-.storySummariesView {
 	justify-content: flex-start;
+    gap: 1em;
+	overflow-y: hidden;
 }
 
 .storySummariesView .bar {
+	position: relative;
 	display: flex;
     gap: 1em;
-    border-bottom: 2px solid white;
-    padding: 1em;
-    min-height: 6em;
+    padding: 1em 0 0 0;
+    height: 9vmin;
+    min-height: 9vmin;
+    max-height: 9vmin;
     min-width: 40%;
     justify-content: center;
     align-items: center;
@@ -101,10 +54,36 @@
 }
 
 .storySummariesView .main {
+	position: relative;
 	flex-grow: 1;
 	flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2vmax;
+	overflow-y: clip;
 }
+
+.storySummariesView .main .ya-DecisionOutcome {
+	transition: opacity 0.5s, top 1.2s;
+}
+
+.storySummariesView .main .ya-DecisionOutcome.pos0 {
+	position: absolute;
+	top: -300%;
+	opacity: 0;
+}
+
+.storySummariesView .main .ya-DecisionOutcome.pos1 {
+	top: 0%;
+	opacity: 1;
+}
+
+.storySummariesView .main .ya-DecisionOutcome.pos2,
+.storySummariesView .main .ya-DecisionOutcome.pos3,
+.storySummariesView .main .ya-DecisionOutcome.pos-1 {
+	position: absolute;
+	top: 3000%;
+}
+
+
