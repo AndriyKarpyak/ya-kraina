@@ -529,7 +529,7 @@ button:not([disabled]):hover {
     position: relative;
     color: white;
     box-sizing: border-box;
-    transition: width 1s, height 1s, opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1) 1.2s;
+    transition: opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1) 1.2s;
     max-width: 86vmin;
     min-width: 42vmax;
     font-size: 1vmax;
@@ -537,9 +537,8 @@ button:not([disabled]):hover {
 }
 
 .ya-StoryOutcome.hidden {
-    width: 0;
-    height: 0;
     opacity: 0;
+    top: 300%;
 }
 
 .ya-StoryOutcome>img {
@@ -571,7 +570,7 @@ button:not([disabled]):hover {
 .ya-StoryOutcome>.foreground .storySummaryText {
     position: relative;
     padding: 1em;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.36);
 }
 
 .ya-StoryOutcome>.foreground>span {
@@ -598,7 +597,7 @@ button:not([disabled]):hover {
     bottom: 0;
     left: 0;
     display: flex;
-    gap: 1em;
+    gap: .7em;
     flex-direction: row;
     box-sizing: border-box;
     justify-content: center;
@@ -611,7 +610,8 @@ button:not([disabled]):hover {
 }
 
 .resultDisplay .foreground span {
-    font-size: 3em;
+    font-size: 4em;
     flex-grow: 1;
-    text-align: center;
+    text-align: start;
+    font-weight: bold;
 }

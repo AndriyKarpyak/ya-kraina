@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
 	justify-content: flex-start;
-    gap: 2em;
+    gap: 1em;
 	overflow-y: hidden;
 }
 
@@ -17,7 +17,7 @@
 	position: relative;
 	display: flex;
     gap: 1em;
-    padding: 1em;
+    padding: 1em 0 0 0;
     height: 9vmin;
     min-height: 9vmin;
     max-height: 9vmin;
