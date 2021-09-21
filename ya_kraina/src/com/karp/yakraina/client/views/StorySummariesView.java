@@ -78,7 +78,7 @@ public class StorySummariesView extends View {
 							Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
 								mainElements.get(index).setPosition(1);
 								return false;
-							}, 200));
+							}, 500));
 
 						}
 					}
