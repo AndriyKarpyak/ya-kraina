@@ -7,8 +7,8 @@
 	}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="pos_footer">
-<!-- 		<g:Anchor href="https://www.facebook.com/platform.chas.gromad/?ref=page_internal"> -->
-<!-- 			<img src="images/chas_gromad_logo.png"></img> -->
-<!-- 		</g:Anchor> -->
+		<g:Anchor href="https://www.facebook.com/platform.chas.gromad/?ref=page_internal">
+			<img src="images/chas_gromad_logo.png"></img>
+		</g:Anchor>
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -41,7 +41,7 @@ public class StoryOutcome extends Composite implements HasClickHandlers {
 	InlineLabel pointsText;
 
 	@UiField
-	MatteButton button_Accept;
+	MatteBytton button_Accept;
 
 	@UiConstructor
 	public StoryOutcome() {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsonUtils;
 import com.karp.yakraina.client.events.FinalStageEvent;
@@ -12,9 +13,9 @@ import com.karp.yakraina.client.events.PlayerCompletedStoryEvent;
 import com.karp.yakraina.client.events.PlayerSelectedStoryEvent;
 import com.karp.yakraina.client.events.StoryEndEvent;
 import com.karp.yakraina.client.events.StoryStartEvent;
-import com.karp.yakraina.client.model.story.DecisionOutcomeJs;
 import com.karp.yakraina.client.model.story.StageJs;
 import com.karp.yakraina.client.model.story.StoryJs;
+import com.karp.yakraina.client.model.story.DecisionOutcomeJs;
 import com.karp.yakraina.client.model.story.SummaryConditionJs;
 
 public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerCompletedStoryEvent.Handler,
@@ -23,11 +24,9 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	private static GameSession instance;
 
 	private GameSessionJs js;
-	private List<String> cssResources;
 
 	private GameSession(GameSessionJs js) {
 		this.js = js;
-		this.cssResources = new ArrayList<>();
 
 		PlayerSelectedStoryEvent.register(this);
 		PlayerCompletedStoryEvent.register(this);
@@ -54,7 +53,7 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	public void onPlayerSelectedStory(PlayerSelectedStoryEvent event) {
 
 		js.startStory((StoryStateJs) event.getStory());
-		js.store();
+		store();
 
 		StoryStartEvent.fire(event.getStory(), getActiveStoryInitialStage());
 	}
@@ -67,7 +66,7 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 	@Override
 	public void onStoryEnd(StoryEndEvent event) {
 		js.completeStory();
-		js.store();
+		store();
 	}
 
 	@Override
@@ -84,7 +83,8 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 
 		js.getActiveStory().setActiveStage(event.getNextStage());
 		
-		js.store();
+		store();
+
 	}
 
 	public final StageJs getStage(String stageKey) {
@@ -98,7 +98,7 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 
 	public final void setPlayerName(String playerName) {
 		js.setPlayerName(playerName);
-		js.store();
+		store();
 	}
 
 	public final String getFBId() {
@@ -107,7 +107,7 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 
 	public final void setFBId(String fbId) {
 		js.setFBId(fbId);
-		js.store();
+		store();
 	}
 
 	public final boolean isStoryCompleted(StoryJs story) {
@@ -155,18 +155,10 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 
 		return 0;
 	}
-	
-	public final void discardActiveStory() {
-
-		if (js.hasActiveStory()) {
-			js.deleteActiveStory();
-			js.store();
-		}
-	}
 
 	public final void clear() {
 		js = GameSessionJs.create();
-		js.store();
+		store();
 	}
 
 	@Override
@@ -178,20 +170,16 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 		return js.isEmpty();
 	}
 
+	private void store() {
+		js.store();
+	}
+
 	public void addSubResult(DecisionOutcomeJs storySubResultJs) {
 		js.getActiveStory().addResult(storySubResultJs);
 	}
 
 	public Optional<StoryStateJs> getCompletedStory(StoryJs story) {
 		return Optional.ofNullable(js.getStoryFromCompleted(story.getKey()));
-	}
-
-	public boolean isCssAdded(String name) {
-		if (cssResources.contains(name))
-			return true;
-		
-		cssResources.add(name);
-		return false;
 	}
 
 }

@@ -17,7 +17,7 @@
 					<g:Image ui:field="storyIcon" />
 					<g:InlineLabel ui:field="pointsText" />
 				</g:HTMLPanel>
-				<ya:MatteButton ui:field="button_Accept" />
+				<ya:MatteBytton ui:field="button_Accept" />
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 </ui:UiBinder> 

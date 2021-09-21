@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.karp.yakraina.client.events.ShowNextViewEvent;
+import com.karp.yakraina.client.views.game.StorySelectionView;
 
 public class GameRulesView extends Composite {
 
@@ -27,7 +28,7 @@ public class GameRulesView extends Composite {
 	@UiHandler("button_Accept")
 	public void onAcceptPlayerName(ClickEvent event) {
 
-		ShowNextViewEvent.fire(new StoriesListView());
+		ShowNextViewEvent.fire(new StorySelectionView());
 
 	}
 }

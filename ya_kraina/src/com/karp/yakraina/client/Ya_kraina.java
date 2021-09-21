@@ -18,17 +18,17 @@ import com.karp.yakraina.client.model.story.InformationStageJs;
 import com.karp.yakraina.client.model.story.OptionsStageJs;
 import com.karp.yakraina.client.model.story.StageJs;
 import com.karp.yakraina.client.model.story.YesNoOptionsStageJs;
-import com.karp.yakraina.client.views.StoriesListView;
 import com.karp.yakraina.client.views.StorySummariesView;
 import com.karp.yakraina.client.views.ViewWrapper;
 import com.karp.yakraina.client.views.WelcomeView;
 import com.karp.yakraina.client.views.footer.Footer;
+import com.karp.yakraina.client.views.game.DecisionWithIntroStageView;
+import com.karp.yakraina.client.views.game.DecisionWithQuestionStageView;
+import com.karp.yakraina.client.views.game.InformationStageView;
+import com.karp.yakraina.client.views.game.OptionsStageView;
+import com.karp.yakraina.client.views.game.StorySelectionView;
+import com.karp.yakraina.client.views.game.YesNoOptionsStageView;
 import com.karp.yakraina.client.views.header.Header;
-import com.karp.yakraina.client.views.stages.DecisionWithIntroStageView;
-import com.karp.yakraina.client.views.stages.DecisionWithQuestionStageView;
-import com.karp.yakraina.client.views.stages.InformationStageView;
-import com.karp.yakraina.client.views.stages.OptionsStageView;
-import com.karp.yakraina.client.views.stages.YesNoOptionsStageView;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -107,7 +107,7 @@ public class Ya_kraina implements EntryPoint {
 
 		PlayerCompletedStoryEvent.register(event -> ShowNextViewEvent.fire(new StorySummariesView()));
 
-		StoryEndEvent.register(event -> ShowNextViewEvent.fire(new StoriesListView()));
+		StoryEndEvent.register(event -> ShowNextViewEvent.fire(new StorySelectionView()));
 
 		ColorThemeChangeEvent.register(new ColorThemeChangeEvent.Handler() {
 
