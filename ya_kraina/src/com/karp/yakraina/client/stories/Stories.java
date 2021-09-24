@@ -10,7 +10,8 @@ import com.karp.yakraina.client.model.story.StoryJs;
 public enum Stories {
 
 	Story1(StoriesClientBundle.INSTANCE.dymmyStory1().getText()),
-	Story2(StoriesClientBundle.INSTANCE.dymmyStory2().getText());
+	Story2(StoriesClientBundle.INSTANCE.dymmyStory2().getText()),
+	Story3(StoriesClientBundle.INSTANCE.dymmyStory3().getText());
 
 	private final String storyString;
 
