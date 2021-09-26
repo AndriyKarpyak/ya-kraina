@@ -2,7 +2,6 @@ package com.karp.yakraina.client.views.stages;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.JsonUtils;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -55,8 +54,6 @@ public class DecisionStageView extends View {
 		
 		button_Accept.setHTML(SafeHtmlUtils.fromTrustedString("ДАЛІ &#x2192;"));
 		button_Accept.setVisible(false);
-		
-		GWT.log("DecisionStageView: " + JsonUtils.stringify(stageData));
 	}
 	
 
@@ -67,9 +64,7 @@ public class DecisionStageView extends View {
 
 	@Override
 	protected void onShow() {
-		
-		GWT.log("DecisionStageView#onShow(): " + JsonUtils.stringify(stageData));
-		
+
 		String bgUri = UriUtils.fromTrustedString("images/stories/" + GameSession.get().getActiveStory().getKey() + "/" + stageData.getKey() + ".svg").asString();
 		background.getElement().getStyle().setBackgroundImage("url(\"" + bgUri + "\")");
 

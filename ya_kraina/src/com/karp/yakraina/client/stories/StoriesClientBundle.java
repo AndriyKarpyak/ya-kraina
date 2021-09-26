@@ -10,7 +10,7 @@ public interface StoriesClientBundle extends ClientBundle {
 	@Source("зберігання_велосипеда.yaml")
 	TextResource dymmyStory1();
 
-	@Source("громадськи_бюджет.yaml")
+	@Source("громадський_бюджет.yaml")
 	TextResource dymmyStory2();
 	
 	@Source("освітлення_парку.yaml")

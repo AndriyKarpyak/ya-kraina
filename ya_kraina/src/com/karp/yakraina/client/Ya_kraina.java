@@ -61,7 +61,7 @@ public class Ya_kraina implements EntryPoint {
 		NextStageEvent.register((final NextStageEvent event) -> {
 
 			final StageJs nextStage = event.getNextStage();
-
+			
 			GWT.log(nextStage.getKey() + ": " + nextStage.getText());
 
 			switch (nextStage.getType()) {

@@ -203,9 +203,8 @@ button:not([disabled]):hover {
     background-position-x: 94%;
     outline-width: 0px;
     font-size: 0.7em;
+    color: white;
     display: block;
-/*     height: 8em; */
-/*     width: 32em; */
 	height: 6ch;
 	width: 28ch;
     border: 3px solid gray;
