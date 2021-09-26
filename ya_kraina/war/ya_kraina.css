@@ -9,14 +9,15 @@ html {
     padding: 0;
     font-family: Roboto, "Open Sans", Helvetica, Arial, sans-serif;
     font-style: normal;
-    line-height: 140.19%;
-    letter-spacing: 0.035em;
     direction: ltr;
     overflow: hidden;
     box-sizing: border-box;
+    font-size: 14pt;
+    line-height: 1.2em;
+    letter-spacing: 0.05ch;
 }
 
-input {
+input[type="radio"] {
     font-size: 0.7em;
 }
 
@@ -37,7 +38,7 @@ input[type="radio"]:not(:checked)+label {
     position: relative;
     padding-left: 56px;
     cursor: pointer;
-    line-height: 20px;
+/*     line-height: 20px; */
     display: inline-flex;
     min-height: 38px;
     align-items: center;
@@ -93,21 +94,29 @@ input[type="radio"]:checked+label:after {
 }
 
 button {
-    background-position: center;
-    background-color: #ffffff00;
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
-    border: none;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #ffffff00;
+	color: white;
+	font-weight: bold;
+	border: none;
+	box-sizing: border-box;
+	font-size: 0.7em;
 }
 
 button:not([disabled]):hover {
     cursor: pointer;
 }
 
+.btn-GreenGlass, .btn-YellowGlass {
+	/*     height: 8em; */
+	/*     width: 32em; */
+	height: 7ch;
+	width: 28ch;
+}
+
 .btn-GreenGlass {
-    height: 70px;
-    width: 285px;
     background-image: url(images/button_green_glass_out.svg);
 }
 
@@ -117,8 +126,6 @@ button:not([disabled]):hover {
 }
 
 .btn-YellowGlass {
-    height: 70px;
-    width: 285px;
     background-image: url(images/button_yellow_glass_out.svg);
 }
 
@@ -147,7 +154,7 @@ button:not([disabled]):hover {
     left: 0;
     width: 100%;
     height: 100%;
-    font-size: 1em;
+/*     font-size: 1em; */
 }
 
 .btn-PinkMatte button:hover {
@@ -194,17 +201,17 @@ button:not([disabled]):hover {
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 94%;
-    font-size: 24px;
     outline-width: 0px;
+    font-size: 0.7em;
     display: block;
-    height: 70px;
-    width: 285px;
-    background-color: #ffffff;
+/*     height: 8em; */
+/*     width: 32em; */
+	height: 6ch;
+	width: 28ch;
     border: 3px solid gray;
     box-sizing: border-box;
     border-radius: 50px;
     margin: 1em 0;
-    color: white;
     padding: 0 2em;
 }
 
@@ -265,7 +272,7 @@ button:not([disabled]):hover {
     position: absolute;
     bottom: 16px;
     left: 13px;
-    font-size: 14px;
+/*     font-size: 14px; */
     font-weight: bold;
 }
 
@@ -284,7 +291,7 @@ button:not([disabled]):hover {
     border: 8px solid white;
     filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
     text-transform: uppercase;
-    font-size: 18px;
+/*     font-size: 18px; */
     padding: 15px 30px;
     margin: 1em;
     display: flex;
@@ -296,20 +303,20 @@ button:not([disabled]):hover {
 .ya-YesNoOptionButton.yes,
 .ya-YesNoOptionButton.no {
     font-weight: bold;
-    font-size: 18px;
-    line-height: 140.19%;
+/*     font-size: 18px; */
+/*     line-height: 140.19%; */
     /* or 25px */
-    letter-spacing: 0.035em;
+/*     letter-spacing: 0.035em; */
     text-transform: uppercase;
     color: #837F7F;
 }
 
 .ya-YesNoOptionButton .gwt-RadioButton {
     font-weight: bold;
-    font-size: 24px;
-    line-height: 140.19%;
+/*     font-size: 24px; */
+/*     line-height: 140.19%; */
     /* or 34px */
-    letter-spacing: 0.035em;
+/*     letter-spacing: 0.035em; */
     color: #575757;
     margin: 0.2em 0;
 }
@@ -345,7 +352,7 @@ button:not([disabled]):hover {
     left: 0;
     display: grid;
     grid-template-columns: [left] 1% [middle] auto [right] 1%;
-    grid-template-rows: [top] 87px [middle] auto [bottom] 1%;
+    grid-template-rows: [top] 9% [middle] auto [bottom] 1%;
     grid-template-areas: "header header header" "content content content" "footer footer footer";
 }
 
@@ -357,6 +364,7 @@ button:not([disabled]):hover {
     flex-direction: column;
     align-items: center;
     align-content: center;
+/*     font-size: 2vmin; */
 }
 
 .pos_footer img {
@@ -381,10 +389,37 @@ button:not([disabled]):hover {
     flex-wrap: nowrap;
     align-items: center;
     padding: 0 5%;
+    overflow: hidden;
+    gap:2ch;
+    line-height: 1.1em;
+}
+
+@media (max-width: 780px) {
+	.headerPanel {
+		font-size: 0.8em;
+	}
+}
+
+@media ( max-width : 425px) {
+	.headerPanel {
+		padding: 0 2%;
+		font-size: 0.6em;
+	}
+	.welcomeView .background {
+		background-size: contain;
+	}
+}
+
+@media ( max-width : 375px) {
+	.headerPanel {
+		padding: 0 1%;
+		font-size: 0.58em;
+	}
 }
 
 .headerPanel img {
-    height: 61px;
+	position:relative;
+    height: 62%;
     width: auto;
 }
 
@@ -398,8 +433,10 @@ button:not([disabled]):hover {
 
 .headerPanel span {
     font-weight: bold;
-    margin: 0 0 0 40px;
+    margin: 0;
+    padding: 0;
     user-select: none;
+    text-align: left;
 }
 
 .headerPanel span:hover {
@@ -450,6 +487,12 @@ button:not([disabled]):hover {
     overflow: auto;
 }
 
+@media ( max-width : 425px) {
+	.contentViewPanel {
+		font-size: 0.66em;
+	}
+}
+
 .contentViewPanel>div:first-child {
     position: absolute;
     top: 0;
@@ -467,8 +510,8 @@ button:not([disabled]):hover {
     box-sizing: border-box;
     max-width: 86vmin;
     min-width: 42vmax;
-    font-size: 1.4vmax;
-    line-height: 2vmax;
+/*     font-size: 1.4vmax; */
+/*     line-height: 2vmax; */
 }
 
 .ya-DecisionOutcome>div:nth-child(2) {
@@ -532,8 +575,8 @@ button:not([disabled]):hover {
     transition: opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1) 1.2s;
     max-width: 86vmin;
     min-width: 42vmax;
-    font-size: 0.78vmax;
-    line-height: 1.3vmax;
+/*     font-size: 0.78vmax; */
+/*     line-height: 1.3vmax; */
 }
 
 .ya-StoryOutcome.hidden {
@@ -564,7 +607,7 @@ button:not([disabled]):hover {
 .ya-StoryOutcome>.foreground .storyName {
     position: relative;
     font-weight: bold;
-    font-size: 2em;
+/*     font-size: 2em; */
 }
 
 .ya-StoryOutcome>.foreground .storySummaryText {
@@ -575,7 +618,7 @@ button:not([disabled]):hover {
 
 .ya-StoryOutcome>.foreground>span {
     font-weight: bold;
-    font-size: 1em;
+/*     font-size: 1em; */
     text-transform: uppercase;
     color: #ffffff99;
 }
@@ -610,7 +653,7 @@ button:not([disabled]):hover {
 }
 
 .resultDisplay .foreground span {
-    font-size: 4em;
+/*     font-size: 4em; */
     flex-grow: 1;
     text-align: start;
     font-weight: bold;

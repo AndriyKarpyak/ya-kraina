@@ -5,7 +5,7 @@
 	
 		<g:Image ui:field="logo" />
 		
-		<g:HTML></g:HTML>
+		<g:HTML />
 		
 		<g:InlineLabel ui:field="menuHome">ГОЛОВНА</g:InlineLabel>
 		<g:InlineLabel ui:field="menuAboutGame">ПРО ГРУ</g:InlineLabel>

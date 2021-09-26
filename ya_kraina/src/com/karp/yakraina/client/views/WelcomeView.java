@@ -70,8 +70,11 @@ public class WelcomeView extends View {
 
 	@UiHandler("button_Accept")
 	public void onStartGame(ClickEvent event) {
-		if (input_PlayerName.isVisible())
+		if (input_PlayerName.isVisible()) {
+			if (input_PlayerName.getText().isEmpty())
+				return;
 			GameSession.get().setPlayerName(input_PlayerName.getText());
+		}
 
 		addStyleName("fadeOut");
 

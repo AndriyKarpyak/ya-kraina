@@ -88,15 +88,6 @@
 	animation-delay: 2.9s;
 }
 
-/* .welcomeView .foreground .welcomeMsg div, */
-/* .welcomeView .foreground .descriptionMsg div, */
-/* .welcomeView .foreground .controlsPanel div:not(.cotrol) { */
-/* 	animation-name: flexanimation-align-items-left; */
-/* 	animation-duration: 2.3s; */
-/* 	animation-delay: 2.9s; */
-/* 	animation-timing-function: ease-out; */
-/* } */
-
 .headerPanel {
 	
 	/* animation initial value*/
@@ -106,7 +97,6 @@
 /* > Welcome ______________________________________________________________ */
 
 .welcomeView {
-	position: relative;
 	color: white;
 }
 
@@ -121,21 +111,40 @@
 	background-position-y: bottom;
 	background-position-x: right;
 	/* animation initial value*/
+	background-size: initial;
 	opacity: 0;
+}
+
+@media (max-width: 780px) {
+	.welcomeView .background {
+		background-size: 80%;
+	}
+}
+
+
+@media (max-width: 425px) {
+	.welcomeView .background {
+		background-size: 80%;
+	}
 }
 
 .welcomeView .foreground {
 	position: relative;
-	top: 0;
+	top: 18vmin;
 	left: 0;
 	width: 100%;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	padding: 0 5% 10% 5%;
 	box-sizing: border-box;
 	gap: 2em;
+}
+
+@media (max-width: 425px) {
+	.welcomeView .foreground {
+		top: 12vmin;
+	}
 }
 
 .welcomeView .foreground .welcomeMsg, 
@@ -167,10 +176,5 @@
 }
 
 .welcomeView .foreground .controlsPanel input {
-	display: block;
 	background-color: rgba(27, 22, 77, 0.8);
-}
-
-.welcomeView .foreground .controlsPanel button {
-	display: block;
 }

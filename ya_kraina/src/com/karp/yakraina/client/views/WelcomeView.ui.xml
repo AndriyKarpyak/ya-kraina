@@ -8,19 +8,16 @@
 		<g:HTMLPanel styleName="foreground">
 			
 			<g:HTMLPanel styleName="welcomeMsg">
-				<g:HTML />
 				<h1>Вітаю<g:InlineLabel ui:field="welcome_player_label" /></h1>
-				<g:HTML />
 			</g:HTMLPanel>
 			
-			<g:HTMLPanel styleName="descriptionMsg" >
-				<g:HTML />
-					<span>це демо-версія гри про місцеве самоврядування <br></br> та інструменти громадської участі "Я - країна". <br></br> Протестуй її та допоможи покращити, заповнивши коротку анкету після її завершення.</span>
-				<g:HTML />
+			<g:HTMLPanel styleName="descriptionMsg">
+				це демо-версія гри про місцеве самоврядування<br></br>
+				та інструменти громадської участі "Я - країна".<br></br>
+				Протестуй її та допоможи покращити, заповнивши коротку анкету після її завершення.
 			</g:HTMLPanel>
 			
 			<g:HTMLPanel styleName="controlsPanel">
-				<g:HTML />
 				<g:HTMLPanel styleName="cotrol" >
 					<g:TextBox title="Твоє ім’я" ui:field="input_PlayerName" addStyleNames="ya-UserInput"></g:TextBox>
 					<g:Button ui:field="button_Accept" addStyleNames="btn-GreenGlass">РОЗПОЧАТИ ГРУ</g:Button>
