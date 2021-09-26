@@ -16,6 +16,10 @@ public class StoryJs extends JavaScriptObject {
 		return this.Name;
 	}-*/;
 
+	public final native String getColor() /*-{
+		return this.Color;
+	}-*/;
+
 	public final native int getMinPoints() /*-{
 		return this.MinPoints;
 	}-*/;

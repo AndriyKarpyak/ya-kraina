@@ -2,6 +2,7 @@ package com.karp.yakraina.client.views.stages;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsonUtils;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -22,19 +23,18 @@ import com.karp.yakraina.client.model.story.OptionJs;
 import com.karp.yakraina.client.views.View;
 import com.karp.yakraina.client.widgets.MatteButton;
 
-public class DecisionWithQuestionStageView extends View {
+public class DecisionStageView extends View {
 
-	private static DecisionWithQuestionStageViewUiBinder uiBinder = GWT
-			.create(DecisionWithQuestionStageViewUiBinder.class);
+	private static DecisionStageViewUiBinder uiBinder = GWT.create(DecisionStageViewUiBinder.class);
 
-	interface DecisionWithQuestionStageViewUiBinder extends UiBinder<Widget, DecisionWithQuestionStageView> {
+	interface DecisionStageViewUiBinder extends UiBinder<Widget, DecisionStageView> {
 	}
-	
-	@UiField
-	HTML background;
 
 	@UiField
 	HTML text;
+	
+	@UiField
+	HTML background;
 
 	@UiField
 	HTMLPanel optionsPanel;
@@ -45,42 +45,20 @@ public class DecisionWithQuestionStageView extends View {
 	private DecisionStageJs stageData;
 
 	private OptionJs selectedOption;
+	
 
-	public DecisionWithQuestionStageView(DecisionStageJs stage) {
+	public DecisionStageView(DecisionStageJs stage) {
+		super();
 		this.stageData = stage;
 
 		initWidget(uiBinder.createAndBindUi(this));
-
+		
 		button_Accept.setHTML(SafeHtmlUtils.fromTrustedString("ДАЛІ &#x2192;"));
 		button_Accept.setVisible(false);
+		
+		GWT.log("DecisionStageView: " + JsonUtils.stringify(stageData));
 	}
-
-	@UiHandler("button_Accept")
-	public void onAcceptPlayerName(ClickEvent event) {
-
-		if (selectedOption != null) {
-
-			addStyleName("fadeOut");
-
-			Scheduler.get().scheduleFixedDelay(() -> {
-				NextStageEvent.fire(selectedOption.getOutcomeJs().getNextStage());
-				return false;
-			}, 1600);
-		}
-	}
-
-	@Override
-	protected void onLoad() {
-
-		String bgUri = UriUtils.fromTrustedString(
-				"images/stories/" + GameSession.get().getActiveStory().getKey() + "/" + stageData.getKey() + ".svg")
-				.asString();
-		background.getElement().getStyle().setBackgroundImage("url(\"" + bgUri + "\")");
-
-		ColorThemeChangeEvent.fire("themeLight");
-
-		super.onLoad();
-	}
+	
 
 	@Override
 	protected String getName() {
@@ -89,6 +67,11 @@ public class DecisionWithQuestionStageView extends View {
 
 	@Override
 	protected void onShow() {
+		
+		GWT.log("DecisionStageView#onShow(): " + JsonUtils.stringify(stageData));
+		
+		String bgUri = UriUtils.fromTrustedString("images/stories/" + GameSession.get().getActiveStory().getKey() + "/" + stageData.getKey() + ".svg").asString();
+		background.getElement().getStyle().setBackgroundImage("url(\"" + bgUri + "\")");
 
 		text.setHTML(SafeHtmlUtils.fromTrustedString(stageData.getText()));
 
@@ -111,5 +94,29 @@ public class DecisionWithQuestionStageView extends View {
 			optionsPanel.add(optionButton);
 		}
 	}
+
+	@UiHandler("button_Accept")
+	public void onAcceptPlayerName(ClickEvent event) {
+
+		if (selectedOption != null) {
+			
+			addStyleName("fadeOut");
+			
+			Scheduler.get().scheduleFixedDelay(() -> {
+				NextStageEvent.fire(selectedOption.getOutcomeJs().getNextStage());
+				return false;
+			}, 1600);
+		} else {
+			addStyleName("notSelected");
+		}
+	}
+
+	@Override
+	protected void onLoad() {
+		ColorThemeChangeEvent.fire("themeLight");
+		
+		super.onLoad();
+	}
+
 
 }

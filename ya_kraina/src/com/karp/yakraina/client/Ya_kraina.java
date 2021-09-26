@@ -4,28 +4,24 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.karp.yakraina.client.events.ColorThemeChangeEvent;
-import com.karp.yakraina.client.events.FinalStageEvent;
 import com.karp.yakraina.client.events.NextStageEvent;
-import com.karp.yakraina.client.events.PlayerCompletedStoryEvent;
 import com.karp.yakraina.client.events.ShowNextViewEvent;
 import com.karp.yakraina.client.events.StoryEndEvent;
 import com.karp.yakraina.client.events.StoryStartEvent;
 import com.karp.yakraina.client.model.session.GameSession;
 import com.karp.yakraina.client.model.session.StoryStateJs;
 import com.karp.yakraina.client.model.story.DecisionStageJs;
-import com.karp.yakraina.client.model.story.FinalStageJs;
 import com.karp.yakraina.client.model.story.InformationStageJs;
 import com.karp.yakraina.client.model.story.OptionsStageJs;
 import com.karp.yakraina.client.model.story.StageJs;
 import com.karp.yakraina.client.model.story.YesNoOptionsStageJs;
 import com.karp.yakraina.client.views.StoriesListView;
-import com.karp.yakraina.client.views.StorySummariesView;
 import com.karp.yakraina.client.views.ViewWrapper;
 import com.karp.yakraina.client.views.WelcomeView;
 import com.karp.yakraina.client.views.footer.Footer;
 import com.karp.yakraina.client.views.header.Header;
-import com.karp.yakraina.client.views.stages.DecisionWithIntroStageView;
-import com.karp.yakraina.client.views.stages.DecisionWithQuestionStageView;
+import com.karp.yakraina.client.views.stages.DecisionStageView;
+import com.karp.yakraina.client.views.stages.FinalStageView;
 import com.karp.yakraina.client.views.stages.InformationStageView;
 import com.karp.yakraina.client.views.stages.OptionsStageView;
 import com.karp.yakraina.client.views.stages.YesNoOptionsStageView;
@@ -66,14 +62,11 @@ public class Ya_kraina implements EntryPoint {
 
 			final StageJs nextStage = event.getNextStage();
 
-//			GWT.log(nextStage.getKey() + ": " + nextStage.getText());
+			GWT.log(nextStage.getKey() + ": " + nextStage.getText());
 
 			switch (nextStage.getType()) {
-			case DECISION_INTRO:
-				ShowNextViewEvent.fire(new DecisionWithIntroStageView((DecisionStageJs) nextStage));
-				break;
-			case DECISION_QUESTION:
-				ShowNextViewEvent.fire(new DecisionWithQuestionStageView((DecisionStageJs) nextStage));
+			case DECISION:
+				ShowNextViewEvent.fire(new DecisionStageView((DecisionStageJs) nextStage));
 				break;
 			case OPTIONS:
 				ShowNextViewEvent.fire(new OptionsStageView((OptionsStageJs) nextStage));
@@ -84,28 +77,14 @@ public class Ya_kraina implements EntryPoint {
 			case INFORMATION:
 				ShowNextViewEvent.fire(new InformationStageView((InformationStageJs) nextStage));
 				break;
-			case SUB_SUMMARY:
-				ShowNextViewEvent.fire(new InformationStageView((InformationStageJs) nextStage));
-				break;
 			case FINAL:
-				FinalStageEvent.fire((FinalStageJs) nextStage);
+				ShowNextViewEvent.fire(new FinalStageView());
 				break;
 			default:
 				GWT.log("Not supported stage type: " + nextStage.getType().name());
 				break;
 			}
 		});
-
-		FinalStageEvent.register(new FinalStageEvent.Handler() {
-
-			@Override
-			public void onFinalStage(final FinalStageEvent event) {
-
-				PlayerCompletedStoryEvent.fire();
-			}
-		});
-
-		PlayerCompletedStoryEvent.register(event -> ShowNextViewEvent.fire(new StorySummariesView()));
 
 		StoryEndEvent.register(event -> ShowNextViewEvent.fire(new StoriesListView()));
 
@@ -139,9 +118,8 @@ public class Ya_kraina implements EntryPoint {
 
 		rootPanel.add(new Footer());
 
-		
 		StoryStateJs activeStory = GameSession.get().getActiveStory();
-		
+
 		if (activeStory != null && activeStory.getActiveStage() != null) {
 			NextStageEvent.fire(new NextStageEvent(activeStory.getActiveStage()));
 		} else {

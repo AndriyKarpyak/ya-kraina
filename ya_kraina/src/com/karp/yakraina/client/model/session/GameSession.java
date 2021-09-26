@@ -6,9 +6,7 @@ import java.util.Optional;
 
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsonUtils;
-import com.karp.yakraina.client.events.FinalStageEvent;
 import com.karp.yakraina.client.events.NextStageEvent;
-import com.karp.yakraina.client.events.PlayerCompletedStoryEvent;
 import com.karp.yakraina.client.events.PlayerSelectedStoryEvent;
 import com.karp.yakraina.client.events.StoryEndEvent;
 import com.karp.yakraina.client.events.StoryStartEvent;
@@ -17,8 +15,7 @@ import com.karp.yakraina.client.model.story.StageJs;
 import com.karp.yakraina.client.model.story.StoryJs;
 import com.karp.yakraina.client.model.story.SummaryConditionJs;
 
-public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerCompletedStoryEvent.Handler,
-		FinalStageEvent.Handler, StoryEndEvent.Handler, NextStageEvent.Handler {
+public class GameSession implements PlayerSelectedStoryEvent.Handler, StoryEndEvent.Handler, NextStageEvent.Handler {
 
 	private static GameSession instance;
 
@@ -30,12 +27,9 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 		this.cssResources = new ArrayList<>();
 
 		PlayerSelectedStoryEvent.register(this);
-		PlayerCompletedStoryEvent.register(this);
 		NextStageEvent.register(this);
 
 		StoryEndEvent.register(this);
-
-		FinalStageEvent.register(this);
 	}
 
 	public final static GameSession get() {
@@ -56,23 +50,13 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 		js.startStory((StoryStateJs) event.getStory());
 		js.store();
 
-		StoryStartEvent.fire(event.getStory(), getActiveStoryInitialStage());
-	}
-
-	@Override
-	public void onPlayerCompletedStory(PlayerCompletedStoryEvent event) {
-
+		StoryStartEvent.fire(event.getStory(), getStage("stage_початок"));
 	}
 
 	@Override
 	public void onStoryEnd(StoryEndEvent event) {
 		js.completeStory();
 		js.store();
-	}
-
-	@Override
-	public void onFinalStage(FinalStageEvent event) {
-
 	}
 
 	@Override
@@ -116,10 +100,6 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, PlayerComp
 
 	public final boolean isStageCompleted(StageJs stage) {
 		return js.getActiveStory().getUserPath().join().contains(stage.getKey());
-	}
-
-	public StageJs getActiveStoryInitialStage() {
-		return getStage("stage_початок");
 	}
 
 	public StoryStateJs getActiveStory() {

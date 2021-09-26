@@ -2,12 +2,10 @@ package com.karp.yakraina.client.model;
 
 public enum StageType {
 
-	DECISION_INTRO("DecisionWithIntro"),
-	DECISION_QUESTION("DecisionWithQuestion"),
+	DECISION("Decision"),
 	OPTIONS("OptionsList"),
 	YES_NO_OPTIONS("YesNoOptions"),
 	INFORMATION("Information"),
-	SUB_SUMMARY("SubSummary"),
 	DISCARD("Discard"),
 	FINAL("Final"),
 	UNDEFINED("");

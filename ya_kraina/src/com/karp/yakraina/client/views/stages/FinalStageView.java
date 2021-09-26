@@ -1,4 +1,4 @@
-package com.karp.yakraina.client.views;
+package com.karp.yakraina.client.views.stages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,15 +15,16 @@ import com.karp.yakraina.client.events.ColorThemeChangeEvent;
 import com.karp.yakraina.client.events.StoryEndEvent;
 import com.karp.yakraina.client.model.session.GameSession;
 import com.karp.yakraina.client.model.story.DecisionOutcomeJs;
+import com.karp.yakraina.client.views.View;
 import com.karp.yakraina.client.widgets.DecisionOutcome;
 import com.karp.yakraina.client.widgets.Emoji;
 import com.karp.yakraina.client.widgets.StoryOutcome;
 
-public class StorySummariesView extends View {
+public class FinalStageView extends View {
 
-	private static StorySummariesViewUiBinder uiBinder = GWT.create(StorySummariesViewUiBinder.class);
+	private static FinalStageViewUiBinder uiBinder = GWT.create(FinalStageViewUiBinder.class);
 
-	interface StorySummariesViewUiBinder extends UiBinder<Widget, StorySummariesView> {
+	interface FinalStageViewUiBinder extends UiBinder<Widget, FinalStageView> {
 	}
 
 	@UiField
@@ -39,7 +40,7 @@ public class StorySummariesView extends View {
 	private StoryOutcome storyOutcome;
 	private boolean allMessagesRead = false;
 
-	public StorySummariesView() {
+	public FinalStageView() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
