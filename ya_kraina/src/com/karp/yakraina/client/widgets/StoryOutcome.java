@@ -64,7 +64,7 @@ public class StoryOutcome extends Composite implements HasClickHandlers {
 		for (int i = conditions.size() - 1; i >= 0; i--) {
 			SummaryConditionJs condition = conditions.get(i);
 			
-			if (collectedPoints >= condition.getBound() || collectedPoints == 0) {
+			if (collectedPoints >= condition.getBound()) {
 				storySummaryText.setHTML(SafeHtmlUtils.fromTrustedString(condition.getText()));
 				break;
 			}
