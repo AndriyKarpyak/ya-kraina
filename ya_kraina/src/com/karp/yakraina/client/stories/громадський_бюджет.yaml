@@ -186,7 +186,7 @@ Stages:
 
   - Key: подача_проекту
     Type: YesNoOptions
-    Emoji: confused
+    Emoji: attention
     Text: Які з перелічних кроків, необхідно зробити для подачі проекту на конкурс "Громадський бюджет"
     Outcome:
       GoTo: кінець
