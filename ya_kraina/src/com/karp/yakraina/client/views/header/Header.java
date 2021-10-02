@@ -12,6 +12,8 @@ import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
 import com.karp.yakraina.client.events.ColorThemeChangeEvent;
 import com.karp.yakraina.client.events.ShowNextViewEvent;
+import com.karp.yakraina.client.views.AboutProjectView;
+import com.karp.yakraina.client.views.AboutGameView;
 import com.karp.yakraina.client.views.WelcomeView;
 
 public class Header extends Composite {
@@ -69,11 +71,11 @@ public class Header extends Composite {
 
 	@UiHandler("menuAboutGame")
 	public void onMenuAboutGameClicked(ClickEvent event) {
-		ShowNextViewEvent.fire(new WelcomeView());
+		ShowNextViewEvent.fire(new AboutGameView());
 	}
 
 	@UiHandler("menuAboutUs")
 	public void onMenuAboutUsClicked(ClickEvent event) {
-		ShowNextViewEvent.fire(new WelcomeView());
+		ShowNextViewEvent.fire(new AboutProjectView());
 	}
 }

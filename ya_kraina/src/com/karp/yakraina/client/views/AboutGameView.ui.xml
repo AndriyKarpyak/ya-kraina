@@ -1,0 +1,29 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<g:HTMLPanel addStyleNames="aboutGameView">
+		<g:Image addStyleNames="close" url="images/close.svg" ui:field="close" />
+		<p></p>
+		<h1>ПРО ГРУ</h1>
+		<p></p>
+		<b>“Я - країна”</b> - симуляційна онлайн-гра про використання інструментів громадської участі для вирішення питань, що хвилюють молодь.
+		<p></p>
+		Гра дає можливість в легкій ігровій формі учасникам ознайомитись з інструментами впливу молоді на владу. А також за допомогою конкретних прикладів та завдань перевірити ефективність використання тих чи інших інструментів.
+		<p></p>
+		Гра рекомендована для використання під час проходження навчання з громадянської освіти.
+		<p></p>
+		<h3>Автори проекту:</h3>
+		<p></p> 
+		<g:Anchor addStyleNames="childfriendly" target="_blank" href="http://childfriendly.lviv.ua/uk" />
+		<g:Anchor addStyleNames="chasgromad" target="_blank" href="https://www.facebook.com/platform.chas.gromad" />
+		<p></p>
+		<h3>Дизайн:</h3>
+		<p></p>
+		<g:Anchor addStyleNames="abra" target="_blank" href="https://abra.agency/uk/" />
+		<p></p>
+		<h3>Проект реалізовано за підтримки Львівської міської ради:</h3>
+		<p></p>
+		<g:Anchor addStyleNames="lmr" target="_blank" href="https://city-adm.lviv.ua/" />
+	</g:HTMLPanel>
+</ui:UiBinder> 

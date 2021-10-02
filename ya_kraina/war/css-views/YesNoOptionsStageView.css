@@ -193,6 +193,7 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	gap: 1em;
 	/* animation initial value*/
 	opacity: 0;
 }

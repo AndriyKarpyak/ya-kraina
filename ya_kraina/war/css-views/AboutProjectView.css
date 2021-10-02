@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.aboutProjectView {
+	padding: 3% 12%;
+	color: #181151;
+}
+
+.aboutProjectView a {
+	display: inline-block;
+	text-decoration: none;
+	font-weight: bold;
+	margin-top: 2ch;
+	background-color: white;
+	background-image: url(../images/download.svg);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: 3ch;
+	padding: 0.4ch 3.6ch;
+	border: 0.6ch solid white;
+	border-radius: 3ch;
+	transition: filter 0.3s linear 0s;
+}
+
+.aboutProjectView a:hover {
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+}
+
+.aboutProjectView h1 {
+	margin-top: 1ch;
+}
+
+.aboutProjectView h2 {
+	margin-top: 4ch;
+	display: inline-block;
+}
+
+.aboutProjectView img {
+	width: 4ch;
+	margin: 0 1ch;
+}
+
+.aboutProjectView .close {
+	width: 2ch;
+	cursor: pointer;
+	float: right;
+}
+;
