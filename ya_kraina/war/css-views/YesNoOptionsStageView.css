@@ -118,10 +118,9 @@
 /* > Yes No Options List Selection Stage View ________________________________________ */
 
 .yesNoOptionsStageView {
-	position: relative;
 	background-color: white;
 	overflow-x: hidden;
-    overflow-y: auto;
+	overflow-y: auto;
 }
 
 .yesNoOptionsStageView .background {

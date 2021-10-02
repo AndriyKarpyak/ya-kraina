@@ -102,9 +102,9 @@
 /* > Information Stage View _______________________________________________ */
 
 .informationStageView {
-	position: relative;
 	background-color: white;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .informationStageView .background {
@@ -172,11 +172,37 @@
 
 .informationStageView .foreground .trivia .text {
 	padding: 40px 32px;
-	font-size: 24px;
 	font-weight: bold;
-	line-height: 140.19%;
 }
 
 .informationStageView .foreground .ya-MatteButton {
 	opacity: 0;
+}
+
+@media (min-width: 0px) {
+	.informationStageView .foreground {
+	}
+}
+
+@media (min-width: 425px) {
+	.informationStageView .foreground {
+	}
+}
+
+@media (min-width: 780px) {
+	.informationStageView .foreground {
+	}
+}
+
+@media (min-width: 1280px) {
+	.informationStageView .foreground {
+	}
+}
+
+@media ( min-width : 2560px) {
+	
+	.informationStageView .foreground {
+		font-size: 2.2vmin;
+		line-height: 2.5vmin;
+	}
 }

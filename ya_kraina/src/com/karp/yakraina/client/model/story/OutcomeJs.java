@@ -12,28 +12,31 @@ public class OutcomeJs extends JavaScriptObject {
 
 		if (hasPoints())
 			GameSession.get().addSubResult((DecisionOutcomeJs) this.cast());
-		
 
 		StageJs nextStage = GameSession.get().getStage(getGoTo());
-		
+
 		if (isIgnored())
 			nextStage.setDontMemorisePreviosStageJs();
-		
+
 		return nextStage;
 	}
 
-	private final native String getGoTo() /*-{
+	public final native String getGoTo() /*-{
 		return this.GoTo;
 	}-*/;
 
 	private final native boolean hasPoints() /*-{
 		return 'Points' in this;
 	}-*/;
-	
-	private final native boolean isIgnored() /*-{
+
+	public final boolean isIgnored() {
+		return hasIgnore() && isIgnoredJs();
+	}
+
+	private final native boolean isIgnoredJs() /*-{
 		return this.Ignore;
 	}-*/;
-	
+
 	private final native boolean hasIgnore() /*-{
 		return 'Ignore' in this;
 	}-*/;

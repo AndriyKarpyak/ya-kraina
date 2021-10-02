@@ -18,7 +18,6 @@ import com.karp.yakraina.client.events.NextStageEvent;
 import com.karp.yakraina.client.model.session.GameSession;
 import com.karp.yakraina.client.model.story.OptionJs;
 import com.karp.yakraina.client.model.story.OptionsStageJs;
-import com.karp.yakraina.client.model.story.StageJs;
 import com.karp.yakraina.client.views.View;
 import com.karp.yakraina.client.widgets.MatteButton;
 
@@ -71,11 +70,10 @@ public class OptionsStageView extends View {
 
 			Button optionButton = new Button(subStory.getText());
 
-			StageJs nextStage = subStory.getOutcomeJs().getNextStage();
-			if (!GameSession.get().isStageCompleted(nextStage)) {
+			if (!GameSession.get().isStageCompleted(subStory.getCompleteStage())) {
 				allCompleted = false;
 				optionButton.addClickHandler(event -> {
-					NextStageEvent.fire(nextStage);
+					NextStageEvent.fire(subStory.getOutcomeJs().getNextStage());
 				});
 			} else
 				optionButton.setEnabled(false);

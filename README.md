@@ -2,7 +2,7 @@
 
 ### To deploy 
 
->    gcloud app deploy
+>    gcloud app deploy --no-cache --stop-previous-version
 
 
 ### To run 

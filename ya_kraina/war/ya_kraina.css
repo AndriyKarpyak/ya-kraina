@@ -201,6 +201,7 @@ button:not([disabled]):hover {
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 94%;
+    background-size: 10%;
     outline-width: 0px;
     font-size: 0.7em;
     color: white;
@@ -393,6 +394,12 @@ button:not([disabled]):hover {
     line-height: 1.1em;
 }
 
+@media (min-width: 2560px) {
+	.headerPanel {
+		font-size: 1vw;
+	}
+}
+
 @media (max-width: 780px) {
 	.headerPanel {
 		font-size: 0.8em;
@@ -509,8 +516,8 @@ button:not([disabled]):hover {
     box-sizing: border-box;
     max-width: 86vmin;
     min-width: 42vmax;
-/*     font-size: 1.4vmax; */
-/*     line-height: 2vmax; */
+    font-size: 1.4vmax;
+    line-height: 2vmax;
 }
 
 .ya-DecisionOutcome>div:nth-child(2) {

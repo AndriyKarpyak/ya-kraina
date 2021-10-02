@@ -115,19 +115,6 @@
 	opacity: 0;
 }
 
-@media (max-width: 780px) {
-	.welcomeView .background {
-		background-size: 80%;
-	}
-}
-
-
-@media (max-width: 425px) {
-	.welcomeView .background {
-		background-size: 80%;
-	}
-}
-
 .welcomeView .foreground {
 	position: relative;
 	top: 18vmin;
@@ -139,12 +126,6 @@
 	padding: 0 5% 10% 5%;
 	box-sizing: border-box;
 	gap: 2em;
-}
-
-@media (max-width: 425px) {
-	.welcomeView .foreground {
-		top: 12vmin;
-	}
 }
 
 .welcomeView .foreground .welcomeMsg, 
@@ -177,4 +158,31 @@
 
 .welcomeView .foreground .controlsPanel input {
 	background-color: rgba(27, 22, 77, 0.8);
+}
+
+@media ( min-width : 2560px) {
+	.welcomeView .background {
+		background-size: 40%;
+	}
+	
+	.welcomeView .foreground {
+		font-size: 2.2vmin;
+		line-height: 2.5vmin;
+	}
+}
+
+@media (max-width: 780px) {
+	.welcomeView .background {
+		background-size: 80%;
+	}
+}
+
+@media (max-width: 425px) {
+	.welcomeView .background {
+		background-size: 80%;
+	}
+	
+	.welcomeView .foreground {
+		top: 12vmin;
+	}
 }
