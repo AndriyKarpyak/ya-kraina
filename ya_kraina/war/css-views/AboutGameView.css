@@ -29,15 +29,15 @@
 	display: inline-block;
 	text-decoration: none;
 	font-weight: bold;
-	margin-top: 2ch;
+	margin-bottom: 3ch;
+	margin-right: 3ch;
 	background-color: white;
 	background-repeat: no-repeat;
 	background-position: left;
-	background-size: 3ch;
-	padding: 0.4ch 3.6ch;
+	background-size: contain;
 	border: 0ch solid white;
-	border-radius: 3ch;
-	transition: filter 0.3s linear 0s;
+	height: 3em;
+	width: 10em;
 }
 
 .aboutGameView .childfriendly {
@@ -54,8 +54,4 @@
 
 .aboutGameView .lmr {
 	background-image: url(../images/logo_lmr.svg);
-}
-
-.aboutGameView a:hover {
-	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
 }

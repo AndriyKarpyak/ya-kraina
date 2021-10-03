@@ -73,6 +73,7 @@ public class OptionsStageView extends View {
 			if (!GameSession.get().isStageCompleted(subStory.getCompleteStage())) {
 				allCompleted = false;
 				optionButton.addClickHandler(event -> {
+					addStyleName("fadeOut");
 					NextStageEvent.fire(subStory.getOutcomeJs().getNextStage());
 				});
 			} else
@@ -102,6 +103,7 @@ public class OptionsStageView extends View {
 
 	@UiHandler("button_Accept")
 	public void onAcceptPlayerName(ClickEvent event) {
+		addStyleName("fadeOut");
 		NextStageEvent.fire(stageData.getOutcomeJs().getNextStage());
 	}
 

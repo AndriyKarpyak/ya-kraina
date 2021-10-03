@@ -174,4 +174,8 @@ public class GameSession implements PlayerSelectedStoryEvent.Handler, StoryEndEv
 		return false;
 	}
 
+	public int getTotalPoints() {
+		return js.getTotalPoints();
+	}
+
 }

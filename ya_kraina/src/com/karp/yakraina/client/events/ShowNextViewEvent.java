@@ -1,5 +1,6 @@
 package com.karp.yakraina.client.events;
 
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -22,7 +23,10 @@ public class ShowNextViewEvent extends GwtEvent<ShowNextViewEvent.Handler> {
 	}
 
 	public static void fire(final ShowNextViewEvent event) {
-		EventBus.get().fireEvent(event);
+		Scheduler.get().scheduleFixedDelay(() -> {
+			EventBus.get().fireEvent(event);
+			return false;
+		}, 700);
 	}
 
 	private final Widget nextView;

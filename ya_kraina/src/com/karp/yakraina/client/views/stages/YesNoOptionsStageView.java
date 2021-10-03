@@ -2,7 +2,6 @@ package com.karp.yakraina.client.views.stages;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.safehtml.shared.UriUtils;
@@ -62,11 +61,7 @@ public class YesNoOptionsStageView extends View {
 		
 		addStyleName("fadeOut");
 		
-		Scheduler.get().scheduleFixedDelay(() -> {
-			NextStageEvent.fire(stageData.getOutcomeJs().getNextStage());
-			return false;
-		}, 1600);
-		
+		NextStageEvent.fire(stageData.getOutcomeJs().getNextStage());
 	}
 
 	@Override
@@ -120,11 +115,7 @@ public class YesNoOptionsStageView extends View {
 				optionButton.addYesNoClickEventHandler(
 						event -> {
 							addStyleName("fadeOut");
-							
-							Scheduler.get().scheduleFixedDelay(() -> {
-								NextStageEvent.fire(event.isYesClicked() ? yesStage : noStage);
-								return false;
-							}, 1600);
+							NextStageEvent.fire(event.isYesClicked() ? yesStage : noStage);
 						});
 				optionsPanel.add(optionButton);
 			}

@@ -43,72 +43,42 @@
 .optionsStageView .background,
 .optionsStageView .foreground .trivia,
 .optionsStageView .foreground .options,
-.optionsStageView .ya-MatteButton {
-	animation-duration: 1.3s;
+.optionsStageView .ya-MatteButton,
+.optionsStageView.fadeOut .background,
+.optionsStageView.fadeOut .foreground .trivia,
+.optionsStageView.fadeOut .foreground .options,
+.optionsStageView.fadeOut .ya-MatteButton {
+	animation-duration: 0.7s;
 	animation-timing-function: ease;
 	animation-iteration-count: 1;
 	animation-direction: normal;
 	animation-fill-mode: forwards;
 	animation-play-state: running;
+	animation-delay: 0s;
 }
 
 .optionsStageView .background,
 .optionsStageView .ya-MatteButton {
 	animation-name: fade-in;
-	animation-delay: 0s;
-}
-
-.optionsStageView .background {
-	animation-delay: 0s;
-}
-
-.optionsStageView .ya-MatteButton {
-	animation-delay: 2s;
-}
-
-.optionsStageView.fadeOut .background,
-.optionsStageView.fadeOut .ya-MatteButton {
-	animation-name: fade-out;
-	animation-delay: 0.2s;
-}
-
-.optionsStageView.fadeOut .background,
-.optionsStageView.fadeOut .foreground .ya-MatteButton {
-
-	/* animation initial value*/
-	opacity: 1;
 }
 
 .optionsStageView .foreground .trivia,
 .optionsStageView .foreground .options {
 	animation-name: left-slide-in;
-		
-	/* animation initial value*/
-	left: -200%;
-}
-
-.optionsStageView .foreground .trivia {
-	animation-delay: 0.5s;
 }
 
 .optionsStageView .foreground .options {
-	animation-delay: 0.5s;
+	animation-delay: 0.3s;
+}
+
+.optionsStageView.fadeOut .background,
+.optionsStageView.fadeOut .ya-MatteButton {
+	animation-name: fade-out;
 }
 
 .optionsStageView.fadeOut .foreground .trivia,
 .optionsStageView.fadeOut .foreground .options {
 	animation-name: righ-slide-out;
-	
-	/* animation initial value*/
-	left: 0;
-}
-
-.optionsStageView.fadeOut .foreground .trivia {
-	animation-delay: 0.1s;
-}
-
-.optionsStageView.fadeOut .foreground .options {
-	animation-delay: 0.3s;
 }
 
 /* > Options List Selection Stage View ________________________________________ */
@@ -128,7 +98,7 @@
 	background-repeat: no-repeat;
 	background-position-y: bottom;
 	background-position-x: right;
-	background-size: 50%;
+	background-size: contain;
 	margin: 3%;
 	/* animation initial value*/
 	opacity: 0;

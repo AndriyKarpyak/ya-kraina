@@ -44,8 +44,8 @@ public class Header extends Composite {
 	@UiField
 	Image logo;
 
-	@UiField
-	InlineLabel menuHome;
+//	@UiField
+//	InlineLabel menuHome;
 
 	@UiField
 	InlineLabel menuAboutGame;
@@ -64,10 +64,10 @@ public class Header extends Composite {
 		ShowNextViewEvent.fire(new WelcomeView());
 	}
 
-	@UiHandler("menuHome")
-	public void onMenuHomeClicked(ClickEvent event) {
-		ShowNextViewEvent.fire(new WelcomeView());
-	}
+//	@UiHandler("menuHome")
+//	public void onMenuHomeClicked(ClickEvent event) {
+//		ShowNextViewEvent.fire(new WelcomeView());
+//	}
 
 	@UiHandler("menuAboutGame")
 	public void onMenuAboutGameClicked(ClickEvent event) {

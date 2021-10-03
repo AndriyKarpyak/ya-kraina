@@ -37,11 +37,21 @@
 .welcomeView .foreground .controlsPanel,
 .welcomeView .foreground .welcomeMsg div,
 .welcomeView .foreground .descriptionMsg div,
-.welcomeView .foreground .controlsPanel div:not(.cotrol) {
+.welcomeView .foreground .controlsPanel div:not(.cotrol),
+.welcomeView.fadeOut .background,
+.welcomeView.fadeOut .foreground .welcomeMsg,
+.welcomeView.fadeOut .foreground .descriptionMsg,
+.welcomeView.fadeOut .foreground .controlsPanel,
+.welcomeView.fadeOut .foreground .welcomeMsg div,
+.welcomeView.fadeOut .foreground .descriptionMsg div,
+.welcomeView.fadeOut .foreground .controlsPanel div:not(.cotrol) {
 	animation-iteration-count: 1;
 	animation-direction: normal;
 	animation-fill-mode: forwards;
 	animation-play-state: running;
+	animation-timing-function: ease;
+	animation-duration: 0.7s;
+	animation-delay: 0s;
 }
 
 .headerPanel,
@@ -50,7 +60,6 @@
 .welcomeView .foreground .descriptionMsg,
 .welcomeView .foreground .controlsPanel {
 	animation-name: fade-in;
-	animation-timing-function: ease;
 }
 
 .welcomeView.fadeOut .background,
@@ -58,39 +67,34 @@
 .welcomeView.fadeOut .foreground .descriptionMsg,
 .welcomeView.fadeOut .foreground .controlsPanel {
 	animation-name: fade-out;
-	animation-timing-function: ease;
-	animation-duration: 1.3s;
-	animation-delay: 0s;
 }
 
 .headerPanel {
-	animation-duration: 1.3s;
-	animation-delay: 4.5s;
+	animation-delay: 1.5s;
 }
 
 .welcomeView .background {
-	animation-duration: 1.3s;
 	animation-delay: 0.0s;
 }
 
 .welcomeView .foreground .welcomeMsg{
-	animation-duration: 1.3s;
-	animation-delay: 0.8s;
+	animation-delay: 0.4s;
 }
 
 .welcomeView .foreground .descriptionMsg {
-	animation-duration: 1.3s;
-	animation-delay: 1.5s;
+	animation-delay: 1.0s;
 }
 
 .welcomeView .foreground .controlsPanel {
-	animation-duration: 1.3s;
-	animation-delay: 2.9s;
+	animation-delay: 1.5s;
 }
 
+/* animation initial value*/
 .headerPanel {
-	
-	/* animation initial value*/
+	opacity: 0;
+}
+
+.welcomeView .background {
 	opacity: 0;
 }
 
@@ -110,9 +114,7 @@
 	background-repeat: no-repeat;
 	background-position-y: bottom;
 	background-position-x: right;
-	/* animation initial value*/
 	background-size: initial;
-	opacity: 0;
 }
 
 .welcomeView .foreground {

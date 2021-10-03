@@ -20,7 +20,7 @@
 		<p></p>
 		<h3>Дизайн:</h3>
 		<p></p>
-		<g:Anchor addStyleNames="abra" target="_blank" href="https://abra.agency/uk/" />
+		<g:Anchor addStyleNames="abra" target="_blank" href="https://abra.agency/uk/" ></g:Anchor>
 		<p></p>
 		<h3>Проект реалізовано за підтримки Львівської міської ради:</h3>
 		<p></p>

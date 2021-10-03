@@ -2,7 +2,6 @@ package com.karp.yakraina.client.views.stages;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
@@ -10,6 +9,7 @@ import com.google.gwt.safehtml.shared.UriUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RadioButton;
@@ -86,7 +86,11 @@ public class DecisionStageView extends View {
 				button_Accept.setVisible(true);
 			});
 
-			optionsPanel.add(optionButton);
+			AbsolutePanel wrapper = new AbsolutePanel();
+			wrapper.setStyleName(optionButton.getStyleName());
+			optionButton.getElement().removeAttribute("class");
+			wrapper.add(optionButton);
+			optionsPanel.add(wrapper);
 		}
 	}
 
@@ -97,10 +101,7 @@ public class DecisionStageView extends View {
 			
 			addStyleName("fadeOut");
 			
-			Scheduler.get().scheduleFixedDelay(() -> {
-				NextStageEvent.fire(selectedOption.getOutcomeJs().getNextStage());
-				return false;
-			}, 1600);
+			NextStageEvent.fire(selectedOption.getOutcomeJs().getNextStage());
 		} else {
 			addStyleName("notSelected");
 		}

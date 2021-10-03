@@ -7,7 +7,7 @@
 		
 		<g:HTML />
 		
-		<g:InlineLabel ui:field="menuHome">ГОЛОВНА</g:InlineLabel>
+<!-- 		<g:InlineLabel ui:field="menuHome">ГОЛОВНА</g:InlineLabel> -->
 		<g:InlineLabel ui:field="menuAboutGame">ПРО ГРУ</g:InlineLabel>
 		<g:InlineLabel ui:field="menuAboutUs">ПРО ПРОЕКТ</g:InlineLabel>
 	

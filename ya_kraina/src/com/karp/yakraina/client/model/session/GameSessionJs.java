@@ -27,6 +27,21 @@ class GameSessionJs extends JavaScriptObject {
 		this.fbId = fbId;
 	}-*/;
 
+	public final native int getTotalPoints() /*-{
+		var points = 0;
+		for (var key in this) {
+			var field = this[key];
+			if (field !== null && typeof field === 'object' && 'Results' in field) {
+				field['Results'].forEach(function(result, index) {
+					if ('Points' in result) {
+						points = points + result['Points']
+					}
+				});
+			}
+		}
+		return points;
+	}-*/;
+
 	public final native void startStory(StoryStateJs story) /*-{
 		this.ActiveStory = story;
 	}-*/;
@@ -64,11 +79,11 @@ class GameSessionJs extends JavaScriptObject {
 	public final native boolean isEmpty() /*-{
 		return JSON.stringify(this) === JSON.stringify({});
 	}-*/;
-	
+
 	public final native void store() /*-{
 		sessionStorage.setItem("autosave-ya-kraina", JSON.stringify(this));
 	}-*/;
-	
+
 	public static native String restore() /*-{
 		return sessionStorage.getItem("autosave-ya-kraina");
 	}-*/;

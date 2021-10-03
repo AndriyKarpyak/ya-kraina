@@ -24,12 +24,13 @@
 .storiesListView .storySelectionList,
 .storiesListView.fadeOut .h1,
 .storiesListView.fadeOut .storySelectionList {
-	animation-duration: 1.3s;
+	animation-duration: 0.7s;
 	animation-timing-function: ease;
 	animation-iteration-count: 1;
 	animation-direction: normal;
 	animation-fill-mode: forwards;
 	animation-play-state: running;
+	animation-delay: 0s;
 }
 
 .storiesListView h1,
@@ -40,19 +41,18 @@
 .storiesListView.fadeOut h1,
 .storiesListView.fadeOut .storySelectionList {
 	animation-name: fade-out;
-	animation-delay: 0s;
+}
+
+.storiesListView h1 {
+	animation-delay: 0.0s;
+}
+
+.storiesListView .storySelectionList {
+	animation-delay: 0.4s;
 }
 
 .headerPanel {
 	opacity: 1;
-}
-
-.storiesListView h1 {
-	animation-delay: 0.2s;
-}
-
-.storiesListView .storySelectionList {
-	animation-delay: 0.6s;
 }
 
 /* > Story selection view _________________________________________________ */

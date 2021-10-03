@@ -43,59 +43,43 @@
 .decisionWithIntroStageView .background,
 .decisionWithIntroStageView .foreground .trivia,
 .decisionWithIntroStageView .foreground .options,
-.decisionWithIntroStageView .ya-MatteButton {
-	animation-duration: 1.3s;
+.decisionWithIntroStageView .ya-MatteButton,
+.decisionWithIntroStageView.fadeOut .background,
+.decisionWithIntroStageView.fadeOut .foreground .trivia,
+.decisionWithIntroStageView.fadeOut .foreground .options,
+.decisionWithIntroStageView.fadeOut .ya-MatteButton {
+	animation-duration: 0.7s;
 	animation-timing-function: ease;
 	animation-iteration-count: 1;
 	animation-direction: normal;
 	animation-fill-mode: forwards;
 	animation-play-state: running;
+	animation-delay: 0s;
 }
 
 .decisionWithIntroStageView .background,
 .decisionWithIntroStageView .ya-MatteButton {
 	animation-name: fade-in;
-	animation-delay: 0s;
-}
-
-.decisionWithIntroStageView.fadeOut .background,
-.decisionWithIntroStageView.fadeOut .ya-MatteButton {
-	animation-name: fade-out;
-	animation-delay: 0.2s;
-}
-
-.decisionWithIntroStageView.fadeOut .background,
-.decisionWithIntroStageView.fadeOut .foreground .ya-MatteButton {
-
-	/* animation initial value*/
-	opacity: 1;
 }
 
 .decisionWithIntroStageView .foreground .trivia,
 .decisionWithIntroStageView .foreground .options {
 	animation-name: left-slide-in;
+	animation-delay: 0.2s;
 }
 
-.decisionWithIntroStageView .foreground .trivia {
-	animation-delay: 0.5s;
-}
-
-.decisionWithIntroStageView .foreground .options {
-	animation-delay: 0.5s;
+.decisionWithIntroStageView.fadeOut .background,
+.decisionWithIntroStageView.fadeOut .foreground .ya-MatteButton {
+	animation-name: fade-out;
+	
+	/* animation initial value*/
+/* 	opacity: 1; */
 }
 
 .decisionWithIntroStageView.fadeOut .foreground .trivia,
 .decisionWithIntroStageView.fadeOut .foreground .options {
 	animation-name: righ-slide-out;
-	left: 0;
-}
-
-.decisionWithIntroStageView.fadeOut .foreground .trivia {
-	animation-delay: 0.1s;
-}
-
-.decisionWithIntroStageView.fadeOut .foreground .options {
-	animation-delay: 0.1s;
+/* 	left: 0; */
 }
 
 /* > Decision With Introduction Stage View ________________________________ */
@@ -115,7 +99,8 @@
 	background-repeat: no-repeat;
 	background-position-y: bottom;
 	background-position-x: right;
-	background-size: 50%;
+	background-size: contain;
+	
 	/* animation initial value*/
 	opacity: 0;
 }

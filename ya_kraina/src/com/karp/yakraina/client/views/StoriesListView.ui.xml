@@ -9,6 +9,6 @@
 		<g:HTMLPanel addStyleNames="storySelectionList" ui:field="root" />
 
 
-		<g:Button ui:field="button_Accept" addStyleNames="btn-GreenGlass">ПРОДОВЖИТИ</g:Button>
+		<g:Button ui:field="button_Accept" addStyleNames="btn-GreenGlass">ЗАВЕРШИТИ</g:Button>
 	</g:HTMLPanel>
 </ui:UiBinder> 

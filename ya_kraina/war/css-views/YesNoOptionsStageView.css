@@ -45,13 +45,18 @@
 .yesNoOptionsStageView .background,
 .yesNoOptionsStageView .foreground .trivia,
 .yesNoOptionsStageView .foreground .options,
-.yesNoOptionsStageView .ya-MatteButton {
-	animation-duration: 1.3s;
+.yesNoOptionsStageView .ya-MatteButton
+.yesNoOptionsStageView.fadeOut .background,
+.yesNoOptionsStageView.fadeOut .foreground .trivia,
+.yesNoOptionsStageView.fadeOut .foreground .options,
+.yesNoOptionsStageView.fadeOut .ya-MatteButton {
+	animation-duration: 0.7s;
 	animation-timing-function: ease;
 	animation-iteration-count: 1;
 	animation-direction: normal;
 	animation-fill-mode: forwards;
 	animation-play-state: running;
+	animation-delay: 0s;
 }
 
 .yesNoOptionsStageView .background,
@@ -60,60 +65,23 @@
 	animation-name: fade-in;
 }
 
-.yesNoOptionsStageView .background {
-	animation-delay: 0s;
-}
-
-.yesNoOptionsStageView .ya-MatteButton {
-	animation-delay: 2s;
+.yesNoOptionsStageView .foreground .trivia {
+	animation-name: left-slide-in;
 }
 
 .yesNoOptionsStageView .foreground .options {
-	animation-delay: 1.9s;
+	animation-delay: 0.3s;
 }
 
 .yesNoOptionsStageView.fadeOut .background,
 .yesNoOptionsStageView.fadeOut .ya-MatteButton,
 .yesNoOptionsStageView.fadeOut .foreground .options {
 	animation-name: fade-out;
-	animation-delay: 0.2s;
-}
-
-.yesNoOptionsStageView.fadeOut .background,
-.yesNoOptionsStageView.fadeOut .foreground .ya-MatteButton,
-.yesNoOptionsStageView.fadeOut .foreground .options {
-
-	/* animation initial value*/
-	opacity: 1;
-}
-
-.yesNoOptionsStageView .foreground .trivia {
-	animation-name: left-slide-in;
-		
-	/* animation initial value*/
-	left: -200%;
-}
-
-.yesNoOptionsStageView .foreground .trivia {
-	animation-delay: 0.5s;
 }
 
 .yesNoOptionsStageView.fadeOut .foreground .trivia {
 	animation-name: righ-slide-out;
-	
-	/* animation initial value*/
-	left: 0;
 }
-
-.yesNoOptionsStageView.fadeOut .foreground .options {
-	animation-delay: 0.3s;
-}
-
-.yesNoOptionsStageView.fadeOut .foreground .trivia {
-	animation-delay: 0.1s;
-}
-
-
 
 /* > Yes No Options List Selection Stage View ________________________________________ */
 
@@ -132,6 +100,7 @@
 	background-repeat: no-repeat;
 	background-position-y: bottom;
 	background-position-x: right;
+	background-size: contain;
 
 	/* animation initial value*/
 	opacity: 0;
@@ -200,5 +169,7 @@
 
 .yesNoOptionsStageView .ya-MatteButton {
 	margin: 1em;
+	
+	/* animation initial value*/
 	opacity: 0;
 }

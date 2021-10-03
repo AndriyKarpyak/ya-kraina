@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.karp.yakraina.client.events.ColorThemeChangeEvent;
 import com.karp.yakraina.client.events.PlayerSelectedStoryEvent;
+import com.karp.yakraina.client.events.ShowNextViewEvent;
 import com.karp.yakraina.client.model.session.GameSession;
 import com.karp.yakraina.client.model.story.StoryJs;
 import com.karp.yakraina.client.stories.Stories;
@@ -54,7 +55,7 @@ public class StoriesListView extends View {
 				Scheduler.get().scheduleFixedDelay(() -> {
 					PlayerSelectedStoryEvent.fire(story);
 					return false;
-				}, 1600);
+				}, 700);
 
 			});
 
@@ -79,7 +80,7 @@ public class StoriesListView extends View {
 
 	@UiHandler("button_Accept")
 	public void onAcceptPlayerName(ClickEvent event) {
-
+		ShowNextViewEvent.fire(new GameResultsView());
 	}
 
 }

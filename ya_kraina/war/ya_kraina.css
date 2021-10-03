@@ -19,6 +19,7 @@ html {
 
 input[type="radio"] {
     font-size: 0.7em;
+    border: 2px solid red;
 }
 
 input[type="radio"]:not(:disabled):hover,
