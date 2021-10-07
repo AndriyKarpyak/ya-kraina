@@ -1,29 +1,76 @@
 @charset "UTF-8";
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.storySummariesView > img {
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	animation-delay: 1s;
+	width: 100vmin;
+}
+
+.storySummariesView > .gwt-Image.fadeIn {
+	animation-name: fade-in;
+}
+
 /* > Story Summaries View ____________________________________________________ */
 
 .storySummariesView {
 	position: relative;
 	color: white;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
+	flex-direction: column;
+	align-items: center;
 	justify-content: flex-start;
-    gap: 1em;
+	gap: 1em;
 	overflow-y: hidden;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	background-size: 100vmin;
+}
+
+.storySummariesView > img {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	
+	opacity: 0;
 }
 
 .storySummariesView .bar {
 	position: relative;
 	display: flex;
-    gap: 1em;
-    padding: 1em 0 0 0;
-    height: 9vmin;
-    min-height: 9vmin;
-    max-height: 9vmin;
-    min-width: 40%;
-    justify-content: center;
-    align-items: center;
+	gap: 1em;
+	padding: 1em 0 0 0;
+	height: 9vmin;
+	min-height: 9vmin;
+	max-height: 9vmin;
+	min-width: 40%;
+	justify-content: center;
+	align-items: center;
 }
 
 .storySummariesView .bar div {
@@ -59,9 +106,10 @@
 	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	gap: 2vmax;
 	overflow-y: clip;
+/* 	width: 90%; */
 }
 
 .storySummariesView .main .ya-DecisionOutcome {
@@ -79,7 +127,7 @@
 	opacity: 1;
 }
 
-.storySummariesView .main .ya-DecisionOutcome.pos2,
+.storySummariesView .main .ya-DecisionOutcome.pos2, 
 .storySummariesView .main .ya-DecisionOutcome.pos3,
 .storySummariesView .main .ya-DecisionOutcome.pos-1 {
 	position: absolute;

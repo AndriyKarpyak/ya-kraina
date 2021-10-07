@@ -46,7 +46,7 @@
 .informationStageView.fadeOut .background,
 .informationStageView.fadeOut .foreground .trivia,
 .informationStageView.fadeOut .ya-MatteButton {
-	animation-duration: 0.6s;
+	animation-duration: 0.7s;
 	animation-timing-function: ease;
 	animation-iteration-count: 1;
 	animation-direction: normal;
@@ -65,7 +65,7 @@
 }
 
 .informationStageView .ya-MatteButton {
-	animation-delay: 1s;
+	animation-delay: 0.5s;
 }
 
 .informationStageView.fadeOut .background,
@@ -95,6 +95,7 @@
 	background-position-y: bottom;
 	background-position-x: right;
 	background-size: contain;
+	background-color: white;
 	
 	/* animation initial value*/
 	opacity: 0;
@@ -117,6 +118,7 @@
 	border-radius: 20px;
 	margin-bottom: 3em;
 	background-color: white;
+	
 	/* animation initial value*/
 	left: -200%;
 }

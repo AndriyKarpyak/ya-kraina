@@ -5,11 +5,14 @@ import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.safehtml.shared.UriUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 import com.karp.yakraina.client.events.ColorThemeChangeEvent;
 import com.karp.yakraina.client.events.StoryEndEvent;
@@ -26,6 +29,9 @@ public class FinalStageView extends View {
 
 	interface FinalStageViewUiBinder extends UiBinder<Widget, FinalStageView> {
 	}
+
+	@UiField
+	Image backImage;
 
 	@UiField
 	HTMLPanel barPanel;
@@ -51,7 +57,7 @@ public class FinalStageView extends View {
 		mainElements.clear();
 		barElements.clear();
 		data.clear();
-		
+
 		for (DecisionOutcomeJs outcome : GameSession.get().getActiveStoryResults()) {
 			if (outcome.hasText() && !outcome.getText().isEmpty()) {
 
@@ -65,6 +71,12 @@ public class FinalStageView extends View {
 					@Override
 					public void onClick(ClickEvent event) {
 						if (allMessagesRead) {
+							mainPanel.getElement().getStyle().clearWidth();
+							if (backImage.getStyleName().contains("fadeIn"))
+								backImage.removeStyleName("fadeIn");
+							
+							if (!backImage.getStyleName().contains("fadeOut"))
+								backImage.addStyleName("fadeOut");
 							storyOutcome.hide();
 
 							for (int i = 0; i < mainElements.size(); i++) {
@@ -111,12 +123,12 @@ public class FinalStageView extends View {
 
 								if (index == data.size() - 1) {
 									allMessagesRead = true;
-									storyOutcome.show();
+									showStoryOutcome();
 								}
 							} else {
 								Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
 									targetOutcomeView.setPosition(0);
-									storyOutcome.show();
+									showStoryOutcome();
 									return false;
 								}, 200));
 							}
@@ -140,11 +152,15 @@ public class FinalStageView extends View {
 
 		mainPanel.add(storyOutcome);
 
+		storyOutcome.getSatisfiedCondition()
+				.ifPresent(condition -> backImage.setUrl(UriUtils.fromTrustedString("images/stories/"
+						+ GameSession.get().getActiveStory().getKey() + "/points_" + condition.getBound() + ".svg")));
+
 		super.onLoad();
 
 		if (data.isEmpty())
 			Scheduler.get().scheduleDeferred(() -> Scheduler.get().scheduleFixedDelay(() -> {
-				storyOutcome.show();
+				showStoryOutcome();
 				return false;
 			}, 200));
 		else
@@ -155,6 +171,18 @@ public class FinalStageView extends View {
 			}, 200));
 	}
 
+	private void showStoryOutcome() {
+		Scheduler.get().scheduleFixedDelay(() -> {
+			mainPanel.getElement().getStyle().setWidth(90, Unit.PCT);
+			return false;
+		}, 1000);
+		
+		if (!backImage.getStyleName().contains("fadeIn"))
+			backImage.addStyleName("fadeIn");
+
+		storyOutcome.show();
+	}
+
 	@Override
 	protected String getName() {
 		return getClass().getSimpleName();
@@ -163,7 +191,7 @@ public class FinalStageView extends View {
 	@Override
 	protected void onShow() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -117,6 +117,7 @@
     align-items: stretch;
     box-shadow: 0px 0px 15px #D8E3CB;
 	border-radius: 20px;
+	background-color: white;
 	
 	/* animation initial value*/
 	left: -200%;

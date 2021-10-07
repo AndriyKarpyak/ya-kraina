@@ -5,6 +5,8 @@
 
 	<g:HTMLPanel addStyleNames="storySummariesView">
 	
+		<g:Image ui:field="backImage" />
+	
 		<g:HTMLPanel addStyleNames="bar" ui:field="barPanel" />
 		
 		<g:HTMLPanel addStyleNames="main" ui:field="mainPanel" />

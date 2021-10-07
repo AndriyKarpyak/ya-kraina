@@ -599,7 +599,7 @@ button:not([disabled]):hover {
     position: relative;
     color: white;
     box-sizing: border-box;
-    transition: opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1) 1.2s;
+    transition: opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1) 1s;
     max-width: 86vmin;
     min-width: 42vmax;
 /*     font-size: 0.78vmax; */
@@ -634,12 +634,12 @@ button:not([disabled]):hover {
 .ya-StoryOutcome>.foreground .storyName {
     position: relative;
     font-weight: bold;
-/*     font-size: 2em; */
 }
 
 .ya-StoryOutcome>.foreground .storySummaryText {
     position: relative;
     padding: 1em;
+    font-size: 0.7em; 
     border-bottom: 2px solid rgba(255, 255, 255, 0.36);
 }
 
