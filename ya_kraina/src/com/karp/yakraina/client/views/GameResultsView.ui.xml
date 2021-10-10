@@ -3,19 +3,23 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:c='urn:import:com.google.gwt.canvas.client'
 	xmlns:ya="urn:import:com.karp.yakraina.client.widgets">
-	
+
 	<g:HTMLPanel styleName="gameResultsView">
+		<g:HTMLPanel>
+			<g:Image url="images/bg-summaries.png" />
+		
+			<g:AbsolutePanel styleName="resultPoints">
+				<ya:Emoji ui:field="emoji" />
+				<g:HTML ui:field="points" />
+			</g:AbsolutePanel>
 	
-		<g:AbsolutePanel styleName="resultBar" >
-			<g:HTML styleName="background" />
-			<g:HTML ui:field="mask" styleName="mask" />
-		</g:AbsolutePanel>
-		
-		<g:AbsolutePanel styleName="resultPoints" >
-			<ya:Emoji ui:field="emoji" />
-			<g:HTML ui:field="points" />
-		</g:AbsolutePanel>
-		
-		<g:HTML ui:field="message" styleName="resultMessage" />
+			<g:AbsolutePanel styleName="resultBar">
+				<g:HTMLPanel styleName="background">
+					<g:HTML ui:field="mask" styleName="mask" />
+				</g:HTMLPanel>
+			</g:AbsolutePanel>
+	
+			<g:HTML ui:field="message" styleName="resultMessage" />
+		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

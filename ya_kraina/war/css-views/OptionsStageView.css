@@ -81,6 +81,10 @@
 	animation-name: righ-slide-out;
 }
 
+.optionsStageView .ya-MatteButton {
+	animation-delay: 1s;
+}
+
 /* > Options List Selection Stage View ________________________________________ */
 
 .optionsStageView {
@@ -96,6 +100,9 @@
 
 .optionsStageView .foreground {
 	padding: 3% 5% 0 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .optionsStageView .foreground .trivia {

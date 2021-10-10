@@ -51,19 +51,42 @@
 /* ========================================================================== */
 /* ========================================================================== */
 /* ========================================================================== */
+
 .gameResultsView {
 	color: white;
 	display: flex;
 	flex-direction: column;
-	gap: 1em;
 	align-items: center;
-	margin-top: 8%;
+	justify-content: center;
 	opacity: 0;
 }
 
+.gameResultsView>div {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	align-items: center;
+	padding: 4em 0;
+}
+
+.gameResultsView>div>img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 100%;
+	min-width: 100%;
+	max-height: 100%;
+	min-height: 100%;
+}
+
 .gameResultsView .resultBar {
-	width: 40%;
+	width: 84%;
 	height: 3em;
+	border: 10px solid rgba(0, 0, 0, 0);
+	border-radius: 2em;
+	box-shadow: 0px 0px 15px 10px #0c294f80;
+	background-color: rgb(25 50 80/ 70%);
 }
 
 .gameResultsView .background, .gameResultsView .mask {
@@ -75,18 +98,18 @@
 }
 
 .gameResultsView .background {
-	background: linear-gradient(90deg, rgba(50, 3, 86, 1) 0%,
-		rgba(128, 3, 111, 1) 13.7%, rgba(153, 6, 99, 1) 14.2%,
-		rgba(153, 6, 55, 1) 28%, rgba(186, 0, 49, 1) 28.5%, rgba(207, 3, 3, 1)
-		42.3%, rgba(222, 58, 1, 1) 42.8%, rgba(247, 151, 0, 1) 56.6%,
-		rgba(255, 207, 0, 1) 57.1%, rgba(176, 242, 22, 1) 70.9%,
-		rgba(101, 240, 22, 1) 71.4%, rgba(29, 241, 55, 1) 85.2%,
-		rgba(17, 201, 40, 1) 85.7%, rgba(15, 177, 33, 1) 100%);
+	border: 7px solid white;
+	border-radius: 2em;
+	background: linear-gradient(90deg, rgba(215,7,7,1) 0%, rgba(251,255,0,1) 50%, rgba(0,222,64,1) 100%);
+	overflow: hidden;
+	box-shadow: inset 0 0 6px 2px #6b7eaf;
 }
 
 .gameResultsView .mask {
-	background-color: #0B0734;
-	opacity: 0.8;
+	background-color: #003173;
+	opacity: 1;
+	border-left: 10px solid #15437a;
+	box-shadow: inset 0px 0px 11px 2px #030c18;
 }
 
 .gameResultsView .resultPoints {
@@ -102,6 +125,7 @@
 	gap: 1em;
 	min-height: 4em;
 	min-width: 6.5em;
+	box-shadow: 0px 0px 16px #05102d;
 }
 
 .gameResultsView .resultPoints .ya-Emoji {
@@ -113,11 +137,59 @@
 }
 
 .gameResultsView .resultMessage {
-	max-width: 35%;
+	max-width: 66%;
 	background: #04174A;
 	border-radius: 30px;
 	text-align: center;
 	padding: 2em 1em;
 	text-transform: uppercase;
-	min-height: 3em;
+	
+	box-shadow: 0px 0px 16px #05102d;
+}
+
+/* ========================================================================== */
+/* ========================================================================== */
+/* ========================================================================== */
+
+@media ( min-width : 0px) {
+	.gameResultsView>div {
+		width: 92%;
+	}
+	.gameResultsView .resultMessage {
+		min-height: 5.5em;
+	}
+	.gameResultsView .resultBar {
+		height: 4em;
+	}
+}
+
+@media ( min-width : 425px) {
+}
+
+@media ( min-width : 780px) {
+	.gameResultsView .resultMessage {
+		min-height: 3em;
+	}
+	.gameResultsView .resultBar {
+		height: 3em;
+	}
+}
+
+@media ( min-width : 1024px) {
+	.gameResultsView>div {
+		width: 68%;
+	}
+}
+
+@media ( min-width : 1280px) {
+	.gameResultsView>div {
+		width: 47%;
+	}
+}
+
+@media ( min-width : 2560px) {
+	.gameResultsView {
+		font-size: 2vmin;
+		line-height: 2.7vmin;
+	}
 }

@@ -153,6 +153,7 @@
 .informationStageView .foreground .trivia .text {
 	padding: 40px 32px;
 	font-weight: bold;
+	flex-grow: 1;
 }
 
 .informationStageView .foreground .ya-MatteButton {

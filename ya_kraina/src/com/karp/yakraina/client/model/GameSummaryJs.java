@@ -7,7 +7,11 @@ public class GameSummaryJs extends JavaScriptObject {
 	protected GameSummaryJs() {
 	}
 
-	public final native int getBound() /*-{
+	public final double getBound(double distance) {
+		return (getBoundJs() * distance) / 100;
+	}
+	
+	public final native int getBoundJs() /*-{
 		return this.Bound;
 	}-*/;
 	

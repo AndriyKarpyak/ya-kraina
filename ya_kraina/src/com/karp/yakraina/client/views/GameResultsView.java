@@ -56,8 +56,8 @@ public class GameResultsView extends View {
 
 			double value = 0;
 			double goalValue = GameSession.get().getTotalPoints();
-			double goalPositionPCT = (goalValue * 100.0) / Double
-					.valueOf(GameSummaries.get().getJs().getMaxPoints() - GameSummaries.get().getJs().getMinPoints());
+			double distance = GameSummaries.get().getJs().getMaxPoints() - GameSummaries.get().getJs().getMinPoints();
+			double goalPositionPCT = (goalValue * 100.0) / distance;
 			double stepPCT = goalPositionPCT / goalValue;
 			double positionPCT = 0;
 			JsArray<GameSummaryJs> summaries = GameSummaries.get().getJs().getSummaries();
@@ -65,18 +65,13 @@ public class GameResultsView extends View {
 
 			@Override
 			public boolean execute() {
-				if (summaries.length() > 0 && (value == 0 || value >= activeSummary.getBound())) {
+				if (activeSummary != null && (value == 0 || value >= activeSummary.getBound(distance))) {
 					
 					if (value > 0)
 						emoji.getElement().addClassName("fadeOut");
 					
-					Scheduler.get().scheduleFixedDelay(() -> {
-						emoji.setUrl(activeSummary);
-						emoji.getElement().removeClassName("fadeOut");
-						return false;
-					}, 20);
-					
-					
+					emoji.setUrl(activeSummary);
+					emoji.getElement().removeClassName("fadeOut");
 					message.setText(activeSummary.getText());
 					activeSummary = summaries.shift();
 				}
@@ -93,7 +88,7 @@ public class GameResultsView extends View {
 					return false;
 				}
 			}
-		}, 12);
+		}, 22);
 
 	}
 
