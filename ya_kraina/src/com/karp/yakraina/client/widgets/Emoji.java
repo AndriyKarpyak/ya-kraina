@@ -12,6 +12,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
+import com.karp.yakraina.client.model.GameSummaryJs;
 import com.karp.yakraina.client.model.story.DecisionOutcomeJs;
 
 public class Emoji extends Composite implements HasClickHandlers {
@@ -45,6 +46,10 @@ public class Emoji extends Composite implements HasClickHandlers {
 	}
 
 	public void setUrl(DecisionOutcomeJs outcome) {
+		emoji.setUrl(UriUtils.fromTrustedString("images/emoji/" + outcome.getEmoji() + ".svg"));
+	}
+	
+	public void setUrl(GameSummaryJs outcome) {
 		emoji.setUrl(UriUtils.fromTrustedString("images/emoji/" + outcome.getEmoji() + ".svg"));
 	}
 

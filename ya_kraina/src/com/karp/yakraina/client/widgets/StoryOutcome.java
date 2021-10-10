@@ -40,7 +40,7 @@ public class StoryOutcome extends Composite implements HasClickHandlers {
 	InlineLabel pointsText;
 
 	@UiField
-	MatteBytton button_Accept;
+	MatteButton button_Accept;
 
 	private String storyName;
 	private int collectedPoints;

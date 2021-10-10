@@ -45,7 +45,7 @@
 .yesNoOptionsStageView .background,
 .yesNoOptionsStageView .foreground .trivia,
 .yesNoOptionsStageView .foreground .options,
-.yesNoOptionsStageView .ya-MatteButton
+.yesNoOptionsStageView .ya-MatteButton,
 .yesNoOptionsStageView.fadeOut .background,
 .yesNoOptionsStageView.fadeOut .foreground .trivia,
 .yesNoOptionsStageView.fadeOut .foreground .options,
@@ -107,7 +107,7 @@
 }
 
 .yesNoOptionsStageView .foreground {
-	padding: 3% 5% 0 5%;
+	padding: 3% 5% 7% 5%;
 }
 
 .yesNoOptionsStageView .foreground .trivia {

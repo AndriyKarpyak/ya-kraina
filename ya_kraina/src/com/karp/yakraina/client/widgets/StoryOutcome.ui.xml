@@ -18,7 +18,7 @@
 						<g:InlineLabel ui:field="pointsText" />
 					</g:HTMLPanel>
 				</g:HTMLPanel>
-				<ya:MatteBytton ui:field="button_Accept" />
+				<ya:MatteButton ui:field="button_Accept" />
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 </ui:UiBinder> 

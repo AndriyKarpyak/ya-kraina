@@ -105,21 +105,13 @@
 }
 
 .welcomeView .background {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
 	background-image: url("../images/puzzle_picture_logo.svg");
-	background-repeat: no-repeat;
-	background-position-y: bottom;
-	background-position-x: right;
-	background-size: initial;
 }
 
 .welcomeView .foreground {
 	position: relative;
-	top: 18vmin;
+	top: 12%;
+	height: 88%;
 	left: 0;
 	width: 100%;
 	display: flex;
@@ -133,7 +125,6 @@
 .welcomeView .foreground .welcomeMsg, 
 .welcomeView .foreground .descriptionMsg,
 .welcomeView .foreground .controlsPanel {
-	display: flex;
 	/* animation initial value*/
 	opacity: 0;
 }

@@ -90,17 +90,6 @@
 }
 
 .optionsStageView .background {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-repeat: no-repeat;
-	background-position-y: bottom;
-	background-position-x: right;
-	background-size: contain;
-	background-color: white;
-	
 	/* animation initial value*/
 	opacity: 0;
 }
@@ -159,9 +148,6 @@
 .optionsStageView .foreground .options {
 	position: relative;
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
 	margin: 2em 0;
 	/* animation initial value*/
 	left: -200%;
@@ -197,22 +183,31 @@
 }
 
 @media (min-width: 0px) {
-	.optionsStageView .foreground {
-	}
-}
-
-@media (min-width: 425px) {
-	.optionsStageView .foreground {
+	.optionsStageView .foreground .options {
+		flex-direction: column;
+		justify-content: flex-start;
+		flex-wrap: wrap;
 	}
 }
 
 @media (min-width: 780px) {
-	.optionsStageView .foreground {
+	.optionsStageView .foreground .options {
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	.optionsStageView .foreground .options button {
+		max-width: 45%;
+		min-width: 35%;
 	}
 }
 
 @media (min-width: 1280px) {
 	.optionsStageView .foreground {
+	}
+	
+	.optionsStageView .foreground .options button {
 	}
 }
 
@@ -221,5 +216,9 @@
 	.optionsStageView .foreground {
 		font-size: 2.2vmin;
 		line-height: 2.5vmin;
+	}
+	
+	.optionsStageView .foreground .options button {
+		max-width: 45%;
 	}
 }

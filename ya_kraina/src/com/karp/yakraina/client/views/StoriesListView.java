@@ -33,6 +33,8 @@ public class StoriesListView extends View {
 	public StoriesListView() {
 		super();
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		button_Accept.setVisible(false);
 	}
 
 	@Override
