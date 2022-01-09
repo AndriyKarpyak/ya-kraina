@@ -395,6 +395,7 @@ button:not([disabled]):hover {
     grid-template-columns: [left] 1% [middle] auto [right] 1%;
     grid-template-rows: [top] 9% [middle] auto [bottom] 1%;
     grid-template-areas: "header header header" "content content content" "footer footer footer";
+    user-select: none;
 }
 
 .pos_footer {
@@ -426,6 +427,10 @@ button:not([disabled]):hover {
 	background-size: 100% 100%;
     padding: 0 5%;
     overflow: hidden;
+    display: flex;
+    align-content: stretch;
+    justify-content: flex-end;
+    align-items: center;
     gap:2ch;
 }
 
