@@ -44,7 +44,7 @@
 .welcomeView.fadeOut .foreground .controlsPanel,
 .welcomeView.fadeOut .foreground .welcomeMsg div,
 .welcomeView.fadeOut .foreground .descriptionMsg div,
-.welcomeView.fadeOut .foreground .controlsPanel div:not(.cotrol) {
+.welcomeView.fadeOut .foreground .controlsPanel div:not(.cotrol) {	
 	animation-iteration-count: 1;
 	animation-direction: normal;
 	animation-fill-mode: forwards;
@@ -109,14 +109,15 @@
 }
 
 .welcomeView .foreground {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
 	position: relative;
 	top: 12%;
 	height: 88%;
 	left: 0;
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
 	padding: 0 5% 10% 5%;
 	box-sizing: border-box;
 	gap: 2em;
@@ -133,6 +134,7 @@
 .welcomeView .foreground .descriptionMsg div,
 .welcomeView .foreground .controlsPanel div:not(.cotrol) {
 	/* animation initial value*/
+	-webkit-flex-grow: 0;
 	flex-grow: 0;
 }
 
@@ -159,8 +161,6 @@
 	}
 	
 	.welcomeView .foreground {
-		font-size: 2.2vmin;
-		line-height: 2.5vmin;
 	}
 }
 

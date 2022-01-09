@@ -20,6 +20,13 @@
 			</g:AbsolutePanel>
 	
 			<g:HTML ui:field="message" styleName="resultMessage" />
+			
+			<diV class="quizzz">
+				Дякую, що протестував гру!
+				<p>
+				Клікай &nbsp;<a href="https://forms.gle/T5sa4o6ifk6Brnko6" target="_blank">посилання</a>&nbsp; та залиш свій відгук, щоб разом зробити гру кращою та цікавішою 
+				</p>
+			</diV>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -40,6 +40,9 @@ public class DecisionStageView extends View {
 
 	@UiField
 	MatteButton button_Accept;
+	
+//	@UiField
+//	YaRadioButton yaRadioButton;
 
 	private DecisionStageJs stageData;
 
@@ -54,6 +57,8 @@ public class DecisionStageView extends View {
 		
 		button_Accept.setHTML(SafeHtmlUtils.fromTrustedString("ДАЛІ &#x2192;"));
 		button_Accept.setVisible(false);
+		
+//		yaRadioButton.setText("Some smart dummy message");
 	}
 	
 
