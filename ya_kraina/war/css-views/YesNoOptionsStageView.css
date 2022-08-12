@@ -1,88 +1,5 @@
 @charset "UTF-8";
 
-@charset "UTF-8";
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes left-slide-in {
-  0% {
-    left: -250%;
-  }
-
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes righ-slide-out {
-  0% {
-    left: 0%;
-  }
-
-  100% {
-    left: 250%;
-  }
-}
-
-.yesNoOptionsStageView .background,
-.yesNoOptionsStageView .foreground .trivia,
-.yesNoOptionsStageView .foreground .options,
-.yesNoOptionsStageView .ya-MatteButton,
-.yesNoOptionsStageView.fadeOut .background,
-.yesNoOptionsStageView.fadeOut .foreground .trivia,
-.yesNoOptionsStageView.fadeOut .foreground .options,
-.yesNoOptionsStageView.fadeOut .ya-MatteButton {
-	animation-duration: 0.7s;
-	animation-timing-function: ease;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-	animation-fill-mode: forwards;
-	animation-play-state: running;
-	animation-delay: 0s;
-}
-
-.yesNoOptionsStageView .background,
-.yesNoOptionsStageView .ya-MatteButton,
-.yesNoOptionsStageView .foreground .options {
-	animation-name: fade-in;
-}
-
-.yesNoOptionsStageView .foreground .trivia {
-	animation-name: left-slide-in;
-}
-
-.yesNoOptionsStageView .foreground .options {
-	animation-delay: 0.3s;
-}
-
-.yesNoOptionsStageView.fadeOut .background,
-.yesNoOptionsStageView.fadeOut .ya-MatteButton,
-.yesNoOptionsStageView.fadeOut .foreground .options {
-	animation-name: fade-out;
-}
-
-.yesNoOptionsStageView.fadeOut .foreground .trivia {
-	animation-name: righ-slide-out;
-}
-
 /* > Yes No Options List Selection Stage View ________________________________________ */
 
 .yesNoOptionsStageView {
@@ -101,9 +18,6 @@
 	background-position-y: bottom;
 	background-position-x: right;
 	background-size: contain;
-
-	/* animation initial value*/
-	opacity: 0;
 }
 
 .yesNoOptionsStageView .foreground {
@@ -124,8 +38,6 @@
 	box-shadow: 0px 0px 15px #D8E3CB;
 	border-radius: 20px;
 	background-color: white;
-	/* animation initial value*/
-	left: -200%;
 }
 
 .yesNoOptionsStageView .foreground .trivia img {
@@ -166,12 +78,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
-	/* animation initial value*/
-	opacity: 0;
 }
 
 .yesNoOptionsStageView .ya-MatteButton {
 	
-	/* animation initial value*/
-	opacity: 0;
 }

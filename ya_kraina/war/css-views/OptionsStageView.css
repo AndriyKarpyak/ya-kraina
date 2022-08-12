@@ -1,90 +1,5 @@
 @charset "UTF-8";
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes left-slide-in {
-  0% {
-    left: -250%;
-  }
-
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes righ-slide-out {
-  0% {
-    left: 0%;
-  }
-
-  100% {
-    left: 250%;
-  }
-}
-
-.optionsStageView .background,
-.optionsStageView .foreground .trivia,
-.optionsStageView .foreground .options,
-.optionsStageView .ya-MatteButton,
-.optionsStageView.fadeOut .background,
-.optionsStageView.fadeOut .foreground .trivia,
-.optionsStageView.fadeOut .foreground .options,
-.optionsStageView.fadeOut .ya-MatteButton {
-	animation-duration: 0.7s;
-	animation-timing-function: ease;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-	animation-fill-mode: forwards;
-	animation-play-state: running;
-	animation-delay: 0s;
-}
-
-.optionsStageView .background,
-.optionsStageView .ya-MatteButton {
-	animation-name: fade-in;
-}
-
-.optionsStageView .foreground .trivia,
-.optionsStageView .foreground .options {
-	animation-name: left-slide-in;
-}
-
-.optionsStageView .foreground .options {
-	animation-delay: 0.3s;
-}
-
-.optionsStageView.fadeOut .background,
-.optionsStageView.fadeOut .ya-MatteButton {
-	animation-name: fade-out;
-}
-
-.optionsStageView.fadeOut .foreground .trivia,
-.optionsStageView.fadeOut .foreground .options {
-	animation-name: righ-slide-out;
-}
-
-.optionsStageView .ya-MatteButton {
-	animation-delay: 1s;
-}
-
 /* > Options List Selection Stage View ________________________________________ */
 
 .optionsStageView {
@@ -95,7 +10,7 @@
 
 .optionsStageView .background {
 	/* animation initial value*/
-	opacity: 0;
+	opacity: 1;
 }
 
 .optionsStageView .foreground {
@@ -114,9 +29,6 @@
 	box-shadow: 0px 0px 15px #D8E3CB;
 	border-radius: 1ch;
 	background-color: white;
-	
-	/* animation initial value*/
-	left: -200%;
 }
 
 .optionsStageView .foreground .trivia .border {
@@ -156,8 +68,6 @@
 	position: relative;
 	display: flex;
 	margin: 2em 0;
-	/* animation initial value*/
-	left: -200%;
 }
 
 .optionsStageView .foreground .options button {
@@ -186,7 +96,7 @@
 
 .optionsStageView .foreground .ya-MatteButton {
 	margin: 1em;
-	opacity: 0;
+	opacity: 1;
 }
 
 @media (min-width: 0px) {

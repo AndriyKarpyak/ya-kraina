@@ -26,7 +26,7 @@ public class ShowNextViewEvent extends GwtEvent<ShowNextViewEvent.Handler> {
 		Scheduler.get().scheduleFixedDelay(() -> {
 			EventBus.get().fireEvent(event);
 			return false;
-		}, 700);
+		}, 100);
 	}
 
 	private final Widget nextView;

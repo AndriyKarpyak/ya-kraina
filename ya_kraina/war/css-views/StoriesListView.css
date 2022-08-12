@@ -1,66 +1,5 @@
 @charset "UTF-8";
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.storiesListView h1,
-.storiesListView .storySelectionList,
-.storiesListView.fadeOut .h1,
-.storiesListView.fadeOut .storySelectionList,
-.storiesListView .gwt-Button {
-	animation-duration: 0.7s;
-	animation-timing-function: ease;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-	animation-fill-mode: forwards;
-	animation-play-state: running;
-	animation-delay: 0s;
-}
-
-.storiesListView h1,
-.storiesListView .storySelectionList,
-.storiesListView .gwt-Button {
-	animation-name: fade-in;
-}
-
-.storiesListView.fadeOut h1,
-.storiesListView.fadeOut .storySelectionList {
-	animation-name: fade-out;
-}
-
-.storiesListView h1 {
-	animation-delay: 0.0s;
-}
-
-.storiesListView .storySelectionList {
-	animation-delay: 0.4s;
-}
-
-.storiesListView .gwt-Button {
-	animation-delay: 0.8s;
-}
-
-.headerPanel {
-	opacity: 1;
-}
-
 /* > Story selection view _________________________________________________ */
 
 .storiesListView {
@@ -78,21 +17,19 @@
 	flex-wrap: wrap;
 
 	/* animation initial value*/
-	opacity: 0;
+	opacity: 1;
 }
 
 .storiesListView h1 {
 	
 	/* animation initial value*/
-	opacity: 0;
+	opacity: 1;
 }
 
 .storiesListView .gwt-Button {
-	opacity: 0;
+	opacity: 1;
 }
 
-/* ========================================================================== */
-/* ========================================================================== */
 /* ========================================================================== */
 @media ( min-width : 0px) {
 }
