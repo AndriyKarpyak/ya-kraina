@@ -1,55 +1,5 @@
 @charset "UTF-8";
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.gameResultsView, 
-.gameResultsView .resultMessage, 
-.gameResultsView .resultPoints .ya-Emoji {
-	animation-duration: 0.7s;
-	animation-timing-function: ease;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-	animation-fill-mode: forwards;
-	animation-play-state: running;
-	animation-delay: 0s;
-}
-
-.gameResultsView,
-.gameResultsView .resultMessage.fadeIn {
-	animation-name: fade-in;
-}
-
-/* .gameResultsView .resultPoints .ya-Emoji { */
-/* 	animation-delay: 0.1s; */
-/* 	animation-duration: 0.3s; */
-/* 	animation-name: fade-in; */
-/* } */
-
-/* .gameResultsView .resultPoints .ya-Emoji.fadeOut { */
-/* 	animation-duration: 0.2s; */
-/* 	animation-name: fade-out; */
-/* } */
-
-/* ========================================================================== */
-/* ========================================================================== */
 /* ========================================================================== */
 
 .gameResultsView {
@@ -169,8 +119,6 @@
 	color: #efc95d;
 }
 
-/* ========================================================================== */
-/* ========================================================================== */
 /* ========================================================================== */
 
 @media ( min-width : 0px) {

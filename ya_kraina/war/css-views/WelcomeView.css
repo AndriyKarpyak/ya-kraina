@@ -1,103 +1,5 @@
 @charset "UTF-8";
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes flexanimation-align-items-left {
-  0% { 
-    flex-grow: 1; 
-  }
-  
-  100% { 
-    flex-grow: 0; 
-  }
-}
-
-.headerPanel,
-.welcomeView .background,
-.welcomeView .foreground .welcomeMsg,
-.welcomeView .foreground .descriptionMsg,
-.welcomeView .foreground .controlsPanel,
-.welcomeView .foreground .welcomeMsg div,
-.welcomeView .foreground .descriptionMsg div,
-.welcomeView .foreground .controlsPanel div:not(.cotrol),
-.welcomeView.fadeOut .background,
-.welcomeView.fadeOut .foreground .welcomeMsg,
-.welcomeView.fadeOut .foreground .descriptionMsg,
-.welcomeView.fadeOut .foreground .controlsPanel,
-.welcomeView.fadeOut .foreground .welcomeMsg div,
-.welcomeView.fadeOut .foreground .descriptionMsg div,
-.welcomeView.fadeOut .foreground .controlsPanel div:not(.cotrol) {	
-	animation-iteration-count: 1;
-	animation-direction: normal;
-	animation-fill-mode: forwards;
-	animation-play-state: running;
-	animation-timing-function: ease;
-	animation-duration: 0.7s;
-	animation-delay: 0s;
-}
-
-.headerPanel,
-.welcomeView .background,
-.welcomeView .foreground .welcomeMsg,
-.welcomeView .foreground .descriptionMsg,
-.welcomeView .foreground .controlsPanel {
-	animation-name: fade-in;
-}
-
-.welcomeView.fadeOut .background,
-.welcomeView.fadeOut .foreground .welcomeMsg,
-.welcomeView.fadeOut .foreground .descriptionMsg,
-.welcomeView.fadeOut .foreground .controlsPanel {
-	animation-name: fade-out;
-}
-
-.headerPanel {
-	animation-delay: 1.5s;
-}
-
-.welcomeView .background {
-	animation-delay: 0.0s;
-}
-
-.welcomeView .foreground .welcomeMsg{
-	animation-delay: 0.4s;
-}
-
-.welcomeView .foreground .descriptionMsg {
-	animation-delay: 1.0s;
-}
-
-.welcomeView .foreground .controlsPanel {
-	animation-delay: 1.5s;
-}
-
-/* animation initial value*/
-.headerPanel {
-	opacity: 0;
-}
-
-.welcomeView .background {
-	opacity: 0;
-}
-
 /* > Welcome ______________________________________________________________ */
 
 .welcomeView {
@@ -127,7 +29,7 @@
 .welcomeView .foreground .descriptionMsg,
 .welcomeView .foreground .controlsPanel {
 	/* animation initial value*/
-	opacity: 0;
+	opacity: 1;
 }
 
 .welcomeView .foreground .welcomeMsg div, 

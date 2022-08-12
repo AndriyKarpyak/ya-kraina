@@ -1,82 +1,5 @@
 @charset "UTF-8";
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes left-slide-in {
-  0% {
-    left: -250%;
-  }
-
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes righ-slide-out {
-  0% {
-    left: 0%;
-  }
-
-  100% {
-    left: 250%;
-  }
-}
-
-.informationStageView .background,
-.informationStageView .foreground .trivia,
-.informationStageView .ya-MatteButton,
-.informationStageView.fadeOut .background,
-.informationStageView.fadeOut .foreground .trivia,
-.informationStageView.fadeOut .ya-MatteButton {
-	animation-duration: 0.7s;
-	animation-timing-function: ease;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-	animation-fill-mode: forwards;
-	animation-play-state: running;
-	animation-delay: 0s;
-}
-
-.informationStageView .background,
-.informationStageView .ya-MatteButton {
-	animation-name: fade-in;
-}
-
-.informationStageView .foreground .trivia {
-	animation-name: left-slide-in;
-}
-
-.informationStageView .ya-MatteButton {
-	animation-delay: 0.5s;
-}
-
-.informationStageView.fadeOut .background,
-.informationStageView.fadeOut .ya-MatteButton {
-	animation-name: fade-out;
-}
-
-.informationStageView.fadeOut .foreground .trivia {
-	animation-name: righ-slide-out;
-}
-
 /* > Information Stage View _______________________________________________ */
 
 .informationStageView {
@@ -98,7 +21,7 @@
 	background-color: white;
 	
 	/* animation initial value*/
-	opacity: 0;
+	opacity: 1;
 }
 
 .informationStageView .foreground {
@@ -119,8 +42,6 @@
 	margin-bottom: 3em;
 	background-color: white;
 	
-	/* animation initial value*/
-	left: -200%;
 }
 
 .informationStageView .foreground .trivia img {
@@ -157,7 +78,7 @@
 }
 
 .informationStageView .foreground .ya-MatteButton {
-	opacity: 0;
+	opacity: 1;
 }
 
 @media (min-width: 0px) {
